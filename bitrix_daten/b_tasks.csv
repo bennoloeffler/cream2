@@ -1,0 +1,460 @@
+﻿ID;TITLE;DESCRIPTION;DESCRIPTION_IN_BBCODE;PRIORITY;STATUS;RESPONSIBLE_ID;DATE_START;DURATION_PLAN;DURATION_FACT;DURATION_TYPE;REPLICATE;DEADLINE;START_DATE_PLAN;END_DATE_PLAN;CREATED_BY;CREATED_DATE;CHANGED_BY;CHANGED_DATE;STATUS_CHANGED_BY;STATUS_CHANGED_DATE;CLOSED_BY;CLOSED_DATE;GUID;XML_ID;EXCHANGE_ID;EXCHANGE_MODIFIED;OUTLOOK_VERSION;MARK;ALLOW_CHANGE_DEADLINE;TASK_CONTROL;ADD_IN_REPORT;GROUP_ID;PARENT_ID;FORUM_TOPIC_ID;MULTITASK;SITE_ID;DECLINE_REASON;FORKED_BY_TEMPLATE_ID;ZOMBIE;DEADLINE_COUNTED;TIME_ESTIMATE;ALLOW_TIME_TRACKING;MATCH_WORK_TIME
+1;Auf Updates überprüfen;Auf verfügbare Updates im Update-System überprüfen und die Website, falls erforderlich, aktualisieren;N;1;2;1;\N;\N;\N;days;N;\N;\N;\N;1;09.12.2013 14:45;478;17.12.2013 15:16;1;09.12.2013 14:45;\N;\N;{57899c3a-9a55-4309-8bd6-02d729710636};c9fbc8530ee29ade91b0890dfdbc1abc;\N;\N;1;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+2;Allgemeine Einstellungen überprüfen;Übereinstimmung allgemeiner Website-Einstellungen mit den wirklichen Daten überprüfen. Allgemeine Einstellungen, falls erforderlich, korrigieren.;N;1;2;1;\N;\N;\N;days;N;\N;\N;\N;1;09.12.2013 14:45;478;17.12.2013 15:16;1;09.12.2013 14:45;\N;\N;{c6e4c709-4084-4ead-99e3-b63de31fbb14};3d5be756240853144c0b3f2169bf4689;\N;\N;1;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+3;Test;Test Aufgabe;Y;1;2;1;\N;0;\N;hours;N;\N;\N;\N;1;12.12.2013 17:52;478;17.12.2013 15:16;1;12.12.2013 17:52;\N;\N;{3555ca0d-a97c-44c4-b7a9-28b629e49b37};\N;\N;\N;1;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+4;Testaufgabe bearbeiten;;Y;1;2;485;\N;11;\N;days;N;\N;20.12.2013 22:00;31.12.2013 22:00;485;20.12.2013 17:49;485;06.01.2014 01:11;485;20.12.2013 17:49;\N;\N;{bdd10d1c-9478-4cc9-93f9-fbde07ed5d1f};\N;\N;\N;1;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+5;testaufgabe;Nur mal so, um die Verarbeitung von Aufgben zu checken;N;1;2;480;\N;\N;\N;days;N;\N;\N;\N;480;22.12.2013 12:04;480;22.12.2013 16:18;480;22.12.2013 12:04;\N;\N;{1db55399-c7e2-4dff-9a40-cee31a926abc};\N;\N;\N;1;\N;N;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+6;Bewerber Daniel Neugebauer sichten;;Y;2;2;481;\N;0;\N;hours;N;23.12.2013 22:00;\N;\N;481;22.12.2013 15:47;481;22.12.2013 16:18;481;22.12.2013 15:47;\N;\N;{15843004-83da-4def-a94f-8136acd2084a};\N;\N;\N;1;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+7;Bewerber sichten;;Y;2;5;481;\N;0;\N;hours;N;23.12.2013 22:00;\N;\N;481;22.12.2013 16:17;481;22.12.2013 16:17;481;22.12.2013 16:17;481;22.12.2013 16:17;{a631aed9-e7de-45c9-aef0-9d524472434b};\N;\N;\N;2;\N;Y;N;N;14;\N;\N;N;s1;\N;\N;N;0;0;N;N
+8;Bewerber sichten;;Y;2;5;481;\N;0;\N;hours;N;23.12.2013 22:00;\N;\N;481;22.12.2013 16:21;481;22.12.2013 16:21;481;22.12.2013 16:21;481;22.12.2013 16:21;{b459f4f1-4c3f-4be7-8ff2-bafbd26394d6};\N;\N;\N;2;\N;Y;N;N;14;\N;\N;N;s1;\N;\N;N;0;0;N;N
+9;Buchasudruck an Hr. Bernd Heropp;Bitte Hr. Geropp ein ausgedrucktes und noch zu bindendes Exemplar von Wrong-Turn zuschicken. Liegt auf meiner Fensterband;Y;1;5;490;\N;0;\N;hours;N;23.12.2013 18:00;\N;\N;480;22.12.2013 16:22;480;23.12.2013 15:39;480;23.12.2013 15:39;480;23.12.2013 15:39;{3993138e-9581-4204-81e4-56a7ff926def};\N;\N;\N;6;\N;Y;Y;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+10;Bewerber sichten;;Y;2;5;481;27.01.2014 11:26;0;\N;hours;N;23.12.2013 22:00;\N;\N;481;22.12.2013 16:24;487;27.01.2014 11:27;487;27.01.2014 11:27;487;27.01.2014 11:27;{89078ded-3e2e-4d46-b4d5-2448462b9f69};\N;\N;\N;23;\N;Y;N;N;14;\N;4;N;s1;\N;\N;N;0;0;N;N
+11;Moderationskarte englisch an Claas;;Y;1;5;480;06.01.2014 11:12;0;\N;hours;N;06.01.2014 12:00;\N;\N;480;05.01.2014 21:55;480;06.01.2014 11:12;480;06.01.2014 11:12;480;06.01.2014 11:12;{543712a5-34ed-4719-a3a1-3857f0c1464e};\N;\N;\N;3;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+12;Blog abschließen und terminiert versenden;;Y;1;5;480;\N;0;\N;hours;N;06.01.2014 13:00;\N;\N;480;05.01.2014 21:55;480;06.01.2014 11:51;480;06.01.2014 11:51;480;06.01.2014 11:51;{e18ad9ea-9061-4c2e-8e18-0056da9700a8};\N;\N;\N;2;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+13;Englischen Vortrag modifizieren und üben;;Y;2;5;480;12.01.2014 22:53;0;\N;hours;N;\N;\N;\N;480;05.01.2014 21:56;480;12.01.2014 22:53;480;12.01.2014 22:53;480;12.01.2014 22:53;{8a13217d-a29a-41c2-9c93-a37b9c60c12b};\N;\N;\N;3;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+14;KAR - Vorbereitung Treffen mit Festo Didactics;;Y;1;2;485;\N;50;\N;hours;N;10.01.2014 12:00;07.01.2014 22:00;10.01.2014 00:00;485;07.01.2014 09:56;485;12.01.2014 16:55;485;09.01.2014 12:01;\N;\N;{ff3f5604-5f08-412d-92bc-1922608cb5b4};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;1;0;N;N
+15;test;\N;N;1;2;479;\N;\N;\N;days;N;\N;\N;\N;479;08.01.2014 11:57;479;08.01.2014 17:29;479;08.01.2014 11:57;\N;\N;{0e972aa5-7009-4f87-834e-23d1a4f7f4dd};\N;\N;\N;1;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+16;facebook-Name für Seite ändern;;Y;0;5;480;\N;\N;\N;days;N;\N;\N;\N;480;08.01.2014 18:41;480;12.02.2014 02:02;480;12.02.2014 02:02;480;12.02.2014 02:02;{ffe36435-2f2d-42d7-8bac-c96115c0bf89};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+17;Logo Wrong Turn anfordern, Lizenzrechnung;;Y;1;5;480;\N;0;\N;hours;N;03.02.2014 03:00;\N;\N;480;08.01.2014 19:24;480;29.01.2014 16:42;480;29.01.2014 16:42;480;29.01.2014 16:42;{caa64752-c886-4a2c-881a-ac1a657fb64d};\N;\N;\N;4;\N;Y;N;N;16;\N;\N;N;s1;\N;\N;N;0;0;N;N
+18;CRM: Rechnung Claas;;Y;1;5;490;\N;\N;\N;days;N;11.01.2014 23:00;\N;\N;480;10.01.2014 22:52;480;13.01.2014 20:31;480;13.01.2014 20:31;480;13.01.2014 20:31;{8720b5c7-e8f4-4fb5-b59b-2d03847fda80};\N;\N;\N;4;\N;Y;N;N;0;\N;26;N;s1;\N;\N;N;0;0;N;N
+19;Dauerausweise bei Frau Trautmann besorgen;;Y;1;5;492;14.01.2014 17:32;\N;\N;days;N;\N;\N;\N;492;14.01.2014 17:28;492;14.01.2014 18:21;492;14.01.2014 18:21;492;14.01.2014 18:21;{e5e95084-c869-4b27-8d27-7e336cf6cbd5};\N;\N;\N;4;\N;Y;N;N;19;\N;30;N;s1;\N;\N;N;0;0;N;N
+20;Thomas Hülsdau anrufen 07151263368;;Y;1;5;491;14.01.2014 17:37;\N;\N;days;N;\N;\N;\N;491;14.01.2014 17:36;491;18.01.2014 03:45;491;18.01.2014 03:45;491;18.01.2014 03:45;{130d2a17-fab8-47bf-b428-bf13de454e31};\N;\N;\N;4;\N;Y;N;N;19;\N;\N;N;s1;\N;\N;N;0;0;N;N
+21;Carsten Bruns, jetzt Gespräch?;"08.05.14: er war bei der Wiko. BEL möchte im Kontakt bleiben und ANS soll mit ihm telefonieren. Termin per Mail angefragt
+10.04.13: zur Wiko nach S eingeladen. Wollte BEL gern. Mail geschrieben, geantwortet? Dann bitte auch Info an ANL zum Essen
+08.04.14: Er soll im APRIL in D sein. Mail geschrieben und ein Treffen angefragt";Y;1;5;493;16.04.2014 11:26;0;\N;days;N;30.05.2014 22:00;\N;\N;490;15.01.2014 15:32;493;08.07.2014 17:52;493;08.07.2014 17:52;493;08.07.2014 17:52;{15eb2bd4-c5bb-458a-9a73-025b2cbdda1d};\N;\N;\N;9;\N;Y;N;N;14;\N;\N;N;s1;\N;\N;N;0;0;N;N
+22;Telekomdatenkarten (KAR, URP, BEL) laufen bis zum 27.6, dann austauschen;am 11.6 bestellen;Y;2;5;490;\N;0;\N;days;N;11.06.2014 11:00;\N;\N;490;16.01.2014 15:26;490;25.06.2014 17:21;490;25.06.2014 17:21;490;25.06.2014 17:21;{3eccecc0-aad2-4fbf-83ce-21bd4c44c783};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+23;Harada-Buch überstzen;"Komplette Übersetzung von ""The Harada Method - the sprit of self reliance"" The human side of Lean";Y;2;5;485;19.01.2014 13:18;53;\N;days;N;31.01.2014 22:00;09.12.2013 22:00;31.01.2014 22:00;485;19.01.2014 13:17;485;27.01.2014 13:52;485;27.01.2014 13:51;485;27.01.2014 13:51;{84ecc518-7d15-4bf2-890a-e0b4903728a8};\N;\N;\N;3;\N;Y;N;N;18;\N;\N;N;s1;\N;\N;Y;0;0;Y;N
+24;Stihl / Projekt insight - alle Bögen zurück?;;Y;1;5;490;03.02.2014 13:01;\N;\N;days;N;03.02.2014 22:00;\N;\N;490;20.01.2014 23:03;490;03.02.2014 13:01;490;03.02.2014 13:01;490;03.02.2014 13:01;{d5343c61-2f42-4f15-8b64-266663afa4c5};\N;\N;\N;4;P;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+25;Broschüren 7 Prinzipien in eng?;"
+10.10.14: lt. AZA will BEL die nicht übersetzen lassen
+Frau Nele (?) Assistentin Hr. Weiss Bosch Beringen möchte 15 St in Englisch. BEL will dazu mit Hr. Weiss telefonieren. Passiert? Wie geht es weiter?";Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;21.01.2014 14:02;490;10.10.2014 14:15;490;10.10.2014 14:15;490;10.10.2014 14:15;{02a6247b-3159-44f7-b81d-8178f7ec58d9};\N;\N;\N;8;\N;Y;N;N;\N;\N;41;N;s1;\N;\N;N;0;0;N;N
+26;Projekt-Arbeitspakete strukturieren / ausformulieren;Entsprechend Aufteilung vom 23.01.;Y;1;2;487;\N;\N;\N;days;N;27.01.2014 13:00;\N;\N;486;23.01.2014 14:49;486;23.01.2014 15:03;486;23.01.2014 14:49;\N;\N;{02d24a89-2ef4-4cd0-b60e-f028fd01a400};\N;\N;\N;1;\N;Y;Y;N;20;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+27;Projekt-Arbeitspakete strukturieren / ausformulieren;Entsprechend Aufteilung vom 23.01.;Y;1;2;481;\N;\N;\N;days;N;27.01.2014 13:00;\N;\N;486;23.01.2014 14:50;486;23.01.2014 15:03;486;23.01.2014 14:50;\N;\N;{94efb1db-adba-4754-bbbd-65bb1339fe39};\N;\N;\N;1;\N;Y;Y;N;20;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+28;Projekt-Arbeitspakete strukturieren / ausformulieren;entsprechend Aufteilung vom 23.01.;Y;1;5;486;\N;0;\N;days;N;27.01.2014 13:00;\N;\N;486;23.01.2014 14:50;486;27.01.2014 20:52;486;27.01.2014 20:52;486;27.01.2014 20:52;{e069dc7f-3c74-4a5c-9eac-727dd3e87a15};\N;\N;\N;4;\N;Y;N;N;20;\N;\N;N;s1;\N;\N;N;0;0;N;N
+29;Hr. Best anrufen;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;26.01.2014 17:34;480;27.01.2014 20:54;480;27.01.2014 20:54;480;27.01.2014 20:54;{47d45a5c-5ce5-47c3-a6c9-2b6c7cbcabce};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+30;Interview Steffi vorbereiten;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;26.01.2014 17:34;480;27.01.2014 20:54;480;27.01.2014 20:54;480;27.01.2014 20:54;{86dbc25a-6952-42e5-8e43-aa5f2be02d15};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+31;Konzept Sales-up call von Gorus anfordern;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;26.01.2014 17:34;480;31.01.2014 00:46;480;31.01.2014 00:46;480;31.01.2014 00:46;{ad8f9eec-9d52-49eb-aae4-b7da2a080a0c};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+32;Terminfindung Lars Hansen;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;26.01.2014 17:34;480;29.01.2014 14:18;480;29.01.2014 14:18;480;29.01.2014 14:18;{d2cd1cf7-f4cb-4c1b-b21b-15119ee79302};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+33;Kaapke Feedback;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;27.01.2014 01:38;480;05.02.2014 19:25;480;05.02.2014 19:25;480;05.02.2014 19:25;{66c91a45-f5d3-403c-b966-c17d3f3bd87f};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+34;CRM: HP-Artikel nachhaken;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;27.01.2014 01:47;480;27.01.2014 20:54;480;27.01.2014 20:54;480;27.01.2014 20:54;{499448c6-b982-474b-bbdf-cda283cf7102};\N;\N;\N;2;\N;Y;N;N;16;\N;\N;N;s1;\N;\N;N;0;0;N;N
+35;Mail an Nyp wg. KIT;;Y;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;27.01.2014 11:33;480;27.01.2014 12:53;480;27.01.2014 12:53;480;27.01.2014 12:53;{d65fa110-1687-4386-b47d-27632c79b5dd};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+36;Mail an Hr. Sinner;;Y;1;5;480;27.01.2014 11:35;\N;\N;days;N;03.02.2014 03:00;\N;\N;480;27.01.2014 11:34;480;29.01.2014 19:57;480;29.01.2014 19:57;480;29.01.2014 19:57;{5a1d3781-245a-4844-9489-06142dc1baea};\N;\N;\N;7;\N;Y;N;N;0;\N;47;N;s1;\N;\N;N;0;0;N;N
+37;Torsten Penz anrufen;;Y;1;5;480;27.01.2014 11:35;\N;\N;days;N;\N;\N;\N;480;27.01.2014 11:34;480;28.01.2014 12:33;480;28.01.2014 12:33;480;28.01.2014 12:33;{37158509-98ce-4de1-9cc9-f67527ab7267};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+38;Domain wrong-Turn nachhaken;;Y;1;5;480;27.01.2014 11:36;\N;\N;days;N;\N;\N;\N;480;27.01.2014 11:35;480;12.02.2014 02:02;480;12.02.2014 02:02;480;12.02.2014 02:02;{aa9da1bb-fba6-4ea5-b8eb-c5d3070cae34};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+39;Klärung Stattfinden/Inhalte AXPO 17./18.02;"[LIST][*]Tim kann eigentlich maximal Montags[*]Andreas kann eigentlich maximal Dienstags[*]Für Dienstag ist Holger mal eingeplant gewesen.
+[/LIST][B]Insbesondere den Holger Aspekt sollten wir Freitag besprechen und bei Benno & Axpo adressieren.[/B]";Y;1;5;479;\N;1;\N;hours;N;31.01.2014 17:30;31.01.2014 17:30;31.01.2014 18:30;479;27.01.2014 16:29;479;31.01.2014 19:15;479;31.01.2014 19:15;479;31.01.2014 19:15;{52a88e13-4ace-4be5-ae9e-713f3056da55};\N;\N;\N;4;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+40;Brief an Aerzener;;Y;2;5;480;\N;\N;\N;days;N;\N;\N;\N;480;28.01.2014 20:40;480;29.01.2014 14:18;480;29.01.2014 14:18;480;29.01.2014 14:18;{311dfaa1-f5e7-4e4d-8968-4193249a6a34};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+41;CRM: Vorabexemplar Wrong-Turn zuschicken;;Y;1;5;480;\N;0;\N;hours;N;10.03.2014 13:00;10.03.2014 12:00;\N;480;29.01.2014 19:14;480;12.03.2014 15:44;480;12.03.2014 15:44;480;12.03.2014 15:44;{ca4b320c-5c64-4ed0-a25e-b7fa72f27a66};\N;\N;\N;2;\N;Y;N;N;16;\N;\N;N;s1;\N;\N;N;0;0;N;N
+42;Termin Abendessen Hr. Schweizer, Bosch Hr. Stoecklein und BEL;"Stihl besucht am 9.1 Bosch, damit hat sich dies erledigt...?!
+
+BEL: 
+Habe letzte Woche mit Wolfi gesprochen.
+Er würde das machen.
+Ich werde beim nächsten Treffen Herrn Schweizer drauf ansprechen.
+Sage Dir dann Bescheid. Danke für die Erinnerung.
+B
+ 
+
+10.10.14: BEL gefragt obnoch aktuell.
+Herr Schweizer möchte den Austausch mit dem Bosch Menschen, agiles Projekt, Erfahrungsaustausch. Aber Hr. Schweizer ist jetzt erst mal im Ausland und Land unter. Bitte im April wieder anrufen und einen Termin in Waiblingen zum AE vereinbaren";Y;1;5;490;\N;0;\N;hours;N;31.10.2014 22:00;\N;\N;490;30.01.2014 18:59;490;17.12.2014 13:34;490;17.12.2014 13:34;490;17.12.2014 13:34;{a2f13046-be21-412d-a30c-0aa1921e4102};\N;\N;\N;6;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+43;Anruf Bewerber Andre dietrich;;Y;1;5;485;30.01.2014 19:53;\N;\N;days;N;31.01.2014 21:00;\N;\N;483;30.01.2014 19:52;485;25.03.2014 19:49;485;25.03.2014 19:49;485;25.03.2014 19:49;{05f54518-83c8-478a-82b9-2755f2d2c4d6};\N;\N;\N;5;\N;Y;N;N;14;\N;100;N;s1;\N;\N;N;0;3600;Y;N
+44;Wein für Thomas Hutter kaufen und versenden;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;03.02.2014 17:25;480;07.02.2014 11:09;480;07.02.2014 11:09;480;07.02.2014 11:09;{1a92d1b8-1770-4b54-ad7d-06e2cec23479};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+45;Summer School;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;05.02.2014 10:52;480;05.02.2014 13:52;480;05.02.2014 13:52;480;05.02.2014 13:52;{49aa2bc1-11f9-4e06-8d63-523895575048};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+46;Sales-up-call Konzept;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;05.02.2014 10:52;480;05.02.2014 17:17;480;05.02.2014 17:17;480;05.02.2014 17:17;{1e80d33c-7649-4fd3-b2f3-3c7f0186d960};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+47;5 Thesen für Fr. Wigand;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;05.02.2014 10:52;480;05.02.2014 13:30;480;05.02.2014 13:30;480;05.02.2014 13:30;{2c952e02-dd8b-43f5-b684-a110fa961308};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+48;Gesichter der Nachhaltigkeit;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;05.02.2014 10:53;480;07.02.2014 11:09;480;07.02.2014 11:09;480;07.02.2014 11:09;{c3a42ea7-1714-43bc-a164-62dbf304956e};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+49;Eirich, Herr Rohmann - Mail 5.2 gemeldet???;er hat kein weiteres Interesse;Y;2;5;490;05.02.2014 14:48;0;\N;days;N;11.02.2014 22:00;\N;\N;490;05.02.2014 14:21;490;05.02.2014 14:48;490;05.02.2014 14:48;490;05.02.2014 14:48;{079cd8a1-3ff2-46e3-bbaf-fd757ba0ac2e};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+50;Herr Lagemann Angebot durchgeschaut?;"16.10.14: will mit Bel im Nov beim IFE darüber sprechen
+10.10.14: Mail geschrieben
+05.08.14: Termine Sept können lt. Herr Lagemann erst  mal raus. So schnell wird es nchts. Er will sich wieder bei Benno melden wenn er Lift hat
+28.07.14: Herr Lagemann findet derzeit keine Zeit für Bennos Angebot. Er will sich wieder melden. Hat sich aber schon mal das Buch gekauft
+25.06.14: BEL möchte Telefontermin. Herr Lagemann erst heute aus dem Urlaub zurück. Sie melden sich dazu in den nächsten Tagen bei uns
+09.05.14: Herr Lagemannn und BEL haben sich beim VDMA getroffen
+09.04.14: Mail an BEL von Herrn Lagemann:";Y;1;5;490;10.02.2014 17:48;0;\N;days;N;24.10.2014 21:00;\N;\N;490;05.02.2014 15:24;490;16.10.2014 10:17;490;16.10.2014 10:17;490;16.10.2014 10:17;{f2d7a8d1-6cfc-4f88-a7d3-e7b9fb237186};\N;\N;\N;25;\N;Y;N;N;0;\N;66;N;s1;\N;\N;N;0;0;N;N
+51;Dankesmail an Stefan Frädrich;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;06.02.2014 11:47;480;26.02.2014 14:16;480;26.02.2014 14:16;480;26.02.2014 14:16;{f87d1557-f10b-4c66-ab50-c6e0e8c4dcf6};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+52;RG zu Wrong Turn, s. Ordner Outlook. Versand vorbereiten;;Y;2;5;490;\N;\N;\N;days;N;17.03.2014 22:00;\N;\N;490;10.02.2014 13:30;490;17.03.2014 12:55;490;17.03.2014 12:55;490;17.03.2014 12:55;{096d6575-b27c-4b53-835b-51dfe0d4ffe1};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+53;Termin GL-Runde Herr Nüssle;"18.02.14 Einladungen sind raus, Telefonate organisieren wir später
+17.02.14 Einladung an Herrn Kapp und Nüssle zur Freigabe verschickt. EMails liegen vor. Dann weiteres mit BEL besprechen
+
+Termin steht fest. Einladung spricht BEL mit Hr. Nüssle ab. EMails bei Frau Kempf erfragt, dann verschicken
+
+
+
+Nächste GL Runde erst am 16.4
+Zu spät sagt BEL
+Frau Kempf spricht mit Herrn Nüssle, alle GF und TN der GL-Runde vorher an einem Termin mit BEL zusammen bekommen. 2-3 Stunden Reflektion
+Einladung will BEL schreiben
+Email von Frau kempf anfordern
+Warte jetzt auf Rückruf Frau Kempft
+Dann FP 4.000 EUR eintragen
+ 
+ 
+[B]Von:[/B] Benno Löffler 
+ [B]Gesendet:[/B] Dienstag, 4. Februar 2014 14:21
+ [B]An:[/B] Nicole Tietz
+ [B]Betreff:[/B] Termin Februar Kapp
+ 
+Hallo Nicole,
+ich würde für Februar einen Coaching-Termin mit Kapp brauchen.
+2-3h und Begleitung einer Management-Sitzung.
+ 
+Thema: Vorwurfsfreie Selbstbeschreibung der Situation im Führungsteam. Ist und Soll.
+ 
+Bitte Rücksprache mit mir. Termin absprechen mit Herrn Nüssle und der GF (Herrn Kapp und Herrn …).
+ 
+B";Y;1;5;490;14.02.2014 14:43;0;\N;hours;N;19.02.2014 03:00;\N;21.02.2014 22:00;490;10.02.2014 19:07;490;18.02.2014 16:00;490;18.02.2014 16:00;490;18.02.2014 16:00;{92fe9d41-56da-40ff-80c1-da9133e3d953};\N;\N;\N;8;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+54;insights Vertrag LAV überdenken, kündigen???;"12.12.14: Franziska dazu angeschrieben
+28.11.14: LAV angeschrieben";Y;1;5;490;\N;0;\N;days;N;17.12.2014 22:00;\N;\N;490;11.02.2014 11:14;490;15.01.2015 09:41;490;15.01.2015 09:41;490;15.01.2015 09:41;{04c5cced-2604-4034-bf3c-f0efea9d9d38};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+55;google-Listen erzeugen;"URP´s Wunsch:
+Events für Kundenbespaßung und Geschenkideen in google anlegen";Y;1;5;490;\N;0;\N;hours;N;16.05.2014 22:00;\N;\N;490;11.02.2014 11:18;490;13.08.2014 15:00;490;13.08.2014 15:00;490;13.08.2014 15:00;{c326f020-a65c-4925-8546-13bc8691518f};\N;\N;\N;5;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+56;Sandvik Termin abstimmen, s. Mail 12.2. Bisher nichts eingetragen;"04.04.14: Termin ist auf den 16.5 verschoben, im Restaurant habe ich angerufen - kurz vorher bei Herrn Kleinhans best lassen
+02.04.14: per Mail nich mal nachgefragt, Restaurant verschoben worden durch ihn?
+27.03.14: Termin wurde auf den 22.5 verschoben, aber Herr Kleinhans muss es noch mit Herrn Nebling klären. Kurz vorher best lassen, Restaurant noch ändern
+28.02.14: Termin ist am 16.4 um 18:30 - kurz vorher bestätigen lassen
+21.2 er möchte 16.4, best und nach der Uhrzeit gefragt. eingetragen, nur Zeit noch ändern";Y;1;5;490;04.04.2014 12:53;0;\N;days;N;13.05.2014 22:00;\N;\N;490;12.02.2014 17:55;490;12.05.2014 18:56;490;12.05.2014 18:56;490;12.05.2014 18:56;{0419cf6b-8a2e-4283-97eb-ce548abe90aa};\N;\N;\N;13;\N;Y;N;N;0;\N;102;N;s1;\N;\N;N;0;0;N;N
+57;V&S Eckfahne, Thema und Aufmachung überlegen;;Y;2;5;480;\N;\N;\N;days;N;24.02.2014 13:00;\N;\N;480;14.02.2014 01:52;480;24.02.2014 15:13;480;24.02.2014 15:13;480;24.02.2014 15:13;{e58bd83b-5a16-4568-a7d0-24f18c428b81};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+58;Bilder für XING-Profil zusammenstellen;;Y;1;2;480;\N;\N;\N;days;N;\N;\N;\N;480;14.02.2014 01:52;480;14.02.2014 01:52;480;14.02.2014 01:52;\N;\N;{cec5a2e4-1915-461c-abd6-850d042e4690};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+59;WT-Filme Themen erarbeiten;\N;N;1;5;480;11.04.2014 17:05;\N;\N;days;N;\N;\N;\N;480;14.02.2014 01:53;480;11.04.2014 17:05;480;11.04.2014 17:05;480;11.04.2014 17:05;{1d693fcf-f7d5-4161-9049-d60dbb45eb1f};\N;\N;\N;3;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+60;Herr Mendler von Bühler wieder anrufen;"Mail 27.06.14:
+ 
+Sehr geehrter Herr Löffler,
+ 
+Ich möchte mich Ihnen gerne vorstellen: mein Name ist Karin Soemardjan und ich bin für die Firma Bühler AG verantwortlich 
+für die strategische Ausrichtung unserer Engineering Fulfillment Organisation.
+ 
+Ich habe von Herr Bruno Mendler Ihr Buch [I]Die 7 Prinzipien für den neuen Maschinenbau[/I] erhalten und mit Interesse gelesen und
+antworte in diesem Zusammenhang auf die Anfrage die Sie unten an Herr Mendler geschrieben haben.
+ 
+Wie Herr Mendler richtig angedeutet hat, haben wir Potenzial zur Verbesserung unserer Auftragsabwicklungsprozesses und ich 
+habe mich diesem Thema vor einigen Monaten angenommen und wir sind zwischenzeitlich zur Entscheidung gekommen, dass 
+wir die SCRUM Methode in unseren Prozess einfliessen lassen werden. Wir arbeiten derzeit mit einem ausgebildeten SCRUM
+Moderator innerhalb unserer Firma an der Umsetzung der Methode. Ich bin mir sicher, dass sie SCRUM kennen und viele
+Parallelen zu Ihren 7 Prinzipien darin wieder erkennen. 
+ 
+Es würde mich freuen, mit Ihnen in Kontakt zu bleiben und Ihre Erfahrung gerne für zukünftige Themen zu berücksichtigen.
+Ich werde Ihr Buch gerne meinen Kollegen in anderen Bereichen empfehlen und zur Verfügung stellen.
+ 
+Mit freundlichen Grüssen,
+ 
+[B]Karin Soemardjan
+ [/B]Head of GP Engineering Fulfillment
+ 
+ Buhler AG
+ Grain Processing
+CH-9240 Uzwil
+Tel +41 71 955 3670
+
+ [url=mailto:karin.soemardjan@buhlergroup.com]karin.soemardjan@buhlergroup.com[/url]
+ [url=http://www.buhlergroup.com/]www.buhlergroup.com[/url]
+ 
+ 
+ 
+[B]From:[/B] Benno Löffler &#91;[url]mailto:loeffler@v-und-s.de[/url]&#93; 
+ [B]Sent:[/B] Wednesday, January 15, 2014 1:38 PM
+ [B]To:[/B] Mendler Bruno, GP1, BUZ
+ [B]Subject:[/B] Nächster Schritt?
+ 
+Guten Tag Herr Mendler,
+das neue Jahr ist noch jung! Trotzdem ist unser Gespräch schon ein wenig her.
+Sie hatten angedeutet, dass Sie in der Qualität im Auftragsabwicklungsprozess Ansatzpunkte zur Verbesserung sehen.
+Ich würde mich freuen, das Gespräch mit Ihnen fortzusetzen. In der Zwischenzeit haben Sie sicher den einen oder anderen Aspekt unseres Gesprächs reflektiert oder einen Blick in die besprochene Lektüre geworfen. 
+Ich möchte Ihnen gerne anbieten, dass wir gemeinsam eine sog. Problemtransformation durchführen. D. h. Sie beschreiben Ihre Haupt-Probleme (z. B. Qualität im Prozess) und wir versuchen gemeinsam, mit einer neuen Perspektive auf die Probleme zu sehen. Häufig bringt diese Vorgehensweise vorher „unsichtbare“ Lösungsansätze an die Oberfläche. Ich denke, dafür werden wir gemeinsam ca. 3-4h brauchen. 
+Freue mich über Ihr Feedback.
+ 
+In jedem Falle: Ein gutes 2014 für Sie und Ihre Lieben.
+Benno Löffler
+ 
+ 16.05.14: Frau Gräser konnte es noch nciht mit Herrn Mendler besprechen. Sie will ihn am Montag fragen und evtl. soll es erst mal nur ein Telefonat mit BEL geben.
+08.05.14: Frau Gräser ist heute nicht im Haus. morgen wieder versuchen";Y;1;5;490;12.03.2014 19:06;0;\N;days;N;21.05.2014 13:00;\N;\N;490;17.02.2014 18:10;490;30.06.2014 13:44;490;30.06.2014 13:44;490;30.06.2014 13:44;{a2cc67eb-dfa3-42c4-9c49-8a7eac4d1bac};\N;\N;\N;9;\N;Y;N;N;0;\N;90;N;s1;\N;\N;N;0;0;N;N
+61;HuffPo-Artikel Nr. 2 vorbereiten (lassen);;Y;1;5;480;\N;\N;\N;days;N;25.02.2014 13:00;\N;\N;480;17.02.2014 22:18;480;25.02.2014 12:19;480;25.02.2014 12:19;480;25.02.2014 12:19;{8b2aa717-1e51-4993-95e1-60d2ad00f2b2};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+62;Herr Fingerloos aus China zurück? Treffen?;"Herr Fingeloos steht im Komntakt mit Benno, für mcih erledigt
+08.05.14: Herr Fingerloos hat sich nach Ostern nicht gemeldet. Habe ihm wieder eine Mail geschrieben
+13.04.14: Der Projektstart hat sich verschoben udn Herr Fingerloos ist noch in China. Er will sich melden
+11.04.14: Herrn Fingerloos angeschrieben udn nach Treffen oder Telefonat gefragt.";Y;1;5;490;\N;0;\N;days;N;23.05.2014 22:00;\N;\N;490;18.02.2014 16:01;490;08.05.2014 14:32;490;08.05.2014 14:32;490;08.05.2014 14:32;{92f3bc16-121f-45ce-b13d-1d6f4893ae06};\N;\N;\N;6;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+63;Marketing-Infos aufbereiten;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;19.02.2014 22:34;480;24.02.2014 13:17;480;24.02.2014 13:17;480;24.02.2014 13:17;{0da06199-81d8-4c98-b21d-49b9411db449};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+64;PPR_Sachen abarbeiten, ofv anschreiben;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;19.02.2014 22:34;480;27.02.2014 01:21;480;27.02.2014 01:21;480;27.02.2014 01:21;{b56e0016-558c-4430-849c-aef1b613c5f8};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+65;Niesl anrufen;;Y;1;5;480;\N;\N;\N;days;N;26.02.2014 13:00;\N;\N;480;24.02.2014 15:17;480;02.03.2014 15:30;480;02.03.2014 15:30;480;02.03.2014 15:30;{7c7228cd-4570-49d5-9db8-53af3d86ab5a};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+66;Marke-Ich Workshop Preise im Markt;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;24.02.2014 20:40;480;26.02.2014 14:16;480;26.02.2014 14:16;480;26.02.2014 14:16;{5914d893-95a7-45bf-8e5c-f24cdd9c1166};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+67;Herrn Heun, Schleifring anrufen - 20 St 7-Prinzipien gekauft am 25.2;;Y;1;5;486;\N;\N;\N;days;N;17.04.2014 22:00;\N;\N;490;26.02.2014 12:21;486;01.04.2014 11:40;486;01.04.2014 11:40;486;01.04.2014 11:40;{5d8f5b8d-9cd7-4f53-9ea0-f72fc93ff67a};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+68;Blog-Bücher verschicken;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;27.02.2014 01:21;480;28.02.2014 13:03;480;28.02.2014 13:03;480;28.02.2014 13:03;{723388a8-93b8-4e95-b104-cf00913dc4c8};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+69;Insights Fragebogen ausfüllen;\N;N;1;5;480;\N;\N;\N;days;N;\N;\N;\N;480;05.03.2014 20:05;480;11.03.2014 15:18;480;11.03.2014 15:18;480;11.03.2014 15:18;{8e57123d-24a1-4887-b180-3f3e08a0777c};\N;\N;\N;2;\N;N;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+70;Anruf Stephan Heinrich (HF MIXING);"Stephan Heinrich hat die Empfehlung eingebracht, Herrn MArk Meulbroek (GF HF MIXING) zu kontaktieren.
+Dieser möchte sein Unternehmen vor der Überraschung schützen, die möglicherweise vom chinesischen MArkt kommen kann. Derzeit hat HF MIXING einen Marktanteil von ca. 60%.
+Am 24.3. habe ich Herrn Meulbroek das Buch Wrong Turn zugeschickt.";Y;1;5;483;\N;\N;\N;days;N;09.07.2014 12:00;\N;\N;483;24.03.2014 12:32;483;20.10.2014 11:50;483;20.10.2014 11:50;483;20.10.2014 11:50;{d3297db6-368c-4c6e-a1ab-14683278e3d4};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;1800;Y;N
+71;ANS anrufen;dies ist zum Einen ein Test, aber wir sollten tatsächlich heute Abend telefonieren;Y;1;5;494;\N;\N;\N;days;N;24.03.2014 22:00;\N;\N;486;24.03.2014 17:35;494;27.03.2014 23:25;494;27.03.2014 23:25;494;27.03.2014 23:25;{94e2c0dc-db78-43cb-a691-90500a31d52d};\N;\N;\N;2;\N;Y;N;N;15;\N;\N;N;s1;\N;\N;N;0;0;N;N
+72;Update Stand der APs in mindmeister;Um einen aktuellen Überblick über den Stand des APs zu bekommen, bitte eure Parts in der freigegebenen mindmap updaten... Thanx!;Y;1;5;487;\N;\N;\N;days;N;27.03.2014 03:00;\N;\N;486;24.03.2014 20:52;481;26.03.2014 14:32;481;26.03.2014 14:32;481;26.03.2014 14:32;{ab61648f-c332-474d-aeae-409f8c1984ad};\N;\N;\N;2;\N;Y;N;N;20;\N;\N;N;s1;\N;\N;N;0;0;N;N
+73;Termin mit Weiler abstimmen (Michael, Friedrich, Alexander Eisler mit BEL und Judith;"11.02.15: lt. TIC neuer GF bei Weiler gesucht. Evtl. übernimmt AZA dann ab hier, klärt sich noch
+22.10.14: lt. Frau Rühl wurden wir abgelehnt und es wird mit einer anderen Firma gearbeitet. Wir könen uns in einem halben Jahr wieder melden. Evtl. gibt es dann neue Projekte...
+20.10.14: erneut EMail geschrieben
+10.10.14: erneut EMail geschrieben
+08.09.14: Frau Rühl konnte Herrn Eisler zu unserem Termin und der Vorstellung von Judith noch  nicht abschließend befragen. Urlaubszeit und jetzt die großen Messen – es besteht keine Möglichkeit für erneute Gespräche in KW40. Dann soll ich mich gern wieder melden. Das Thema ist nach wie vor interessant! Lege ich mir auf Wiedervorlage.
+
+ 08.08.14: Mail an Frau Rühl nach Rücksprache mit JUH geschrieben, Frau Rühl ist bis zum 22.8 im Urlaub
+10.04.14: Mail von Frau Rühl: Projekt wurde verschoben, bitten um Geduld. Wiedervorlage
+07.04.14: Frau Rühl konnte noch nicht mit Herrn Friedrich Eisler sprechen und er ist überraschend wieder die ganze Woche außer Haus. Soll mich nächste Woche melden
+02.04.14: Frau Rühl kann erst heute am Nachmittag mit Herrn Eisler sprechen. Soll mich die Tage wieder melden
+Frau Rühl hat den Termin am 19.3 vergessen und daher hat er ncht stattgefunden. Sie möchte am 1.4 nach dem Urlaub von Herrn Friedrich Eisler die neue Planung angehen. Soll mich wieder melden";Y;1;5;490;\N;0;\N;hours;N;30.04.2015 03:00;\N;\N;490;26.03.2014 14:30;490;12.02.2015 09:09;490;12.02.2015 09:09;490;12.02.2015 09:09;{529bcd88-c8c7-4e20-82e5-05878cbf7b41};\N;\N;\N;15;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+74;Herr Oliver Lehnert Treffen BEL;"04.06.14: Termin am 23.7 wird derzeit abgesprochen. Wo ist noch die Frage
+27.05.14: Mail geschrieben - er wird sich melden
+5.5.14: Herr Lehnert befindet sich im Krankenhaus, danach neue Termin für ein Mittagessen in S anbieten";Y;1;5;490;\N;0;\N;hours;N;20.06.2014 21:00;\N;\N;490;06.05.2014 14:29;490;04.06.2014 16:11;490;04.06.2014 16:11;490;04.06.2014 16:11;{03fea759-365a-4fec-87b2-4d6294b20eb1};\N;\N;\N;5;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+75;Briefpapier bestellen, vorher mit Herrn Busch absprechen;;Y;1;5;493;\N;\N;\N;days;N;14.05.2014 21:00;\N;\N;490;08.05.2014 13:40;493;08.07.2014 17:52;493;08.07.2014 17:52;493;08.07.2014 17:52;{4b773a3e-8685-4a53-acc0-dd0e51403ba8};\N;\N;\N;4;\N;Y;N;N;25;\N;130;N;s1;\N;\N;N;0;0;N;N
+76;Briefvorlage word;erstellt Azra noch für alle und legt diese ab;Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 13:42;490;08.08.2014 15:07;490;08.08.2014 15:07;490;08.08.2014 15:07;{17ebcb48-8f92-4875-b915-7d6dd91dbdac};\N;\N;\N;3;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+77;Rechnungsvorlage ändern lexoffice;;Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 13:42;490;14.08.2014 15:30;490;14.08.2014 15:30;490;14.08.2014 15:30;{056f72cc-8238-409d-9235-dc92731c6cba};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+78;Excel alle Vorlagen ändern und Verknüpfung beachten;;Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 13:45;493;08.07.2014 17:53;493;08.07.2014 17:53;493;08.07.2014 17:53;{2ee32413-d747-4d17-99ab-91272fd2f51d};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+79;Powerpoint;Logo tauschen und Bilderwelt entfernen;Y;1;5;480;01.09.2014 00:43;0;\N;hours;N;\N;\N;\N;490;08.05.2014 13:52;480;01.09.2014 00:43;480;01.09.2014 00:43;480;01.09.2014 00:43;{463c0c6b-49ba-4035-a0df-568ce90e7cd9};\N;\N;\N;3;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+80;Angebotsordner um Beispiele bestücken;"mir Textdokument Hinweis auf Gestaltung
+soll lt. Lars kein Angebotsbeispiel geben";Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 13:55;490;08.08.2014 15:08;490;08.08.2014 15:08;490;08.08.2014 15:08;{8a3dff25-0659-40e1-997d-a4853700fd48};\N;\N;\N;3;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+81;Visitenkarten;"was soll drauf? klären, dann anpassen
+
+in yammer abfragen: Visitenkarte 2020??
+und neue Tools ausprobieren?";Y;1;2;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:04;490;29.09.2014 18:12;490;08.05.2014 14:04;\N;\N;{e0593979-74e6-4b94-8ebd-3482dc43e81f};\N;\N;\N;2;\N;Y;N;N;25;\N;122;N;s1;\N;\N;Y;0;0;N;N
+82;nächste Bestellung 7-Prinzipien Logo austauschen;vorher Hr. Busch ausarbeiten lassen;Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:05;493;08.07.2014 17:53;493;08.07.2014 17:53;493;08.07.2014 17:53;{38fbf1c8-835b-4d65-995a-d9aeffcd9a9b};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+83;website;Logo austauschen;Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:06;493;08.07.2014 17:53;493;08.07.2014 17:53;493;08.07.2014 17:53;{28de01b8-a674-46a3-b661-ba49b0dbf7ff};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+84;SaveIT Angebot von Herrn Busch für neue Gestaltung;lt. AZA evtl 2015. Derzeit dafür keinGeld im Haus;Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:16;490;10.10.2014 14:16;490;10.10.2014 14:16;490;10.10.2014 14:16;{5cd4c559-eed9-4b7a-ae96-1dfeebe03e37};\N;\N;\N;3;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+85;Planspiel PIT Logo austauschen;"15.05.14: mit TOM angefangen. PIT umgearbeitet. Anna macht die Planspiele in S fertig, AZA hier
+erst Vorlage von Herrn Busch abwarten";Y;1;5;490;16.05.2014 16:31;0;\N;hours;N;30.05.2014 21:00;\N;\N;490;08.05.2014 14:17;490;27.06.2014 17:51;490;27.06.2014 17:51;490;27.06.2014 17:51;{1950e186-2f4b-4986-a89c-113fd9c0e84f};\N;\N;\N;6;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+86;Planspiele TIM;lt. LAV wurde bei der SummerSchool das Ende von TIM beschlossen;Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:20;490;14.08.2014 15:39;490;14.08.2014 15:39;490;14.08.2014 15:39;{76b547d5-a076-40bb-8a66-88ff233d5f55};\N;\N;\N;3;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+87;Türschilder (auch Stuttgart);Lars hat die für Hannover gemacht, bitte für S übernehmen;Y;1;5;490;\N;0;\N;hours;N;\N;30.06.2014 21:00;\N;490;08.05.2014 14:20;489;09.07.2014 12:46;490;09.07.2014 10:45;490;09.07.2014 10:45;{736ee37e-01c3-4b12-9614-1f42589492a1};\N;\N;\N;4;\N;Y;N;N;25;\N;166;N;s1;\N;\N;N;0;0;N;N
+88;Social Media;;Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:22;493;08.07.2014 17:53;493;08.07.2014 17:53;493;08.07.2014 17:53;{e26960ee-2324-4e20-a797-eb0f9a970de0};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+89;Beraterprofile;"wenn neue ppt da
+werden wir nicht mehr nutzen. Wird über xing link erledigt";Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:22;490;08.08.2014 15:07;490;08.08.2014 15:07;490;08.08.2014 15:07;{865ef7a2-8649-4c94-800f-4aa04e014b26};\N;\N;\N;3;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+90;Vorlagen Fax;;Y;1;2;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:23;490;08.08.2014 15:07;490;08.05.2014 14:23;\N;\N;{48232dcd-c371-4fb5-85cc-7a0ac9f70e49};\N;\N;\N;1;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+91;Türschilder im Büro;neue Namen verwenden;Y;1;5;493;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:24;493;08.07.2014 17:52;493;08.07.2014 17:52;493;08.07.2014 17:52;{909a92ac-af83-4396-8235-9a989a680140};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+92;Ordnerrücken neu;;Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:24;490;19.05.2014 17:34;490;19.05.2014 17:34;490;19.05.2014 17:34;{df68b686-7c17-4053-8ecc-ef0a300a5419};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+93;was sind die Wünsche an Umgestaltung;in yammer abfragen mit der Bitte hier Aufgaben anlegen;Y;1;5;490;\N;0;\N;hours;N;\N;\N;\N;490;08.05.2014 14:26;490;16.05.2014 16:32;490;16.05.2014 16:32;490;16.05.2014 16:32;{58f5e717-e7b6-473e-87f6-2d3b4397fb90};\N;\N;\N;2;\N;Y;N;N;25;\N;\N;N;s1;\N;\N;N;0;0;N;N
+94;Geschenk für MRM Feedbackrunde am 25.7 bestellen;;Y;1;5;490;\N;\N;\N;days;N;04.07.2014 21:00;\N;\N;490;16.05.2014 16:17;490;08.08.2014 15:09;490;08.08.2014 15:09;490;08.08.2014 15:09;{626aecdd-9d5d-44c8-be6c-f25e18deb8d3};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+95;Termin best. lassen bei Hein&Oetting;MRM und KAR haben am 1.7 einen Termin bei Herrn Reeder. Noch mal kurz vorher best lassen;Y;1;5;490;\N;0;\N;hours;N;27.06.2014 21:00;\N;\N;490;28.05.2014 12:16;490;27.06.2014 17:51;490;27.06.2014 17:51;490;27.06.2014 17:51;{d19eced8-0ac7-4897-b0a5-f396173d6cc4};\N;\N;\N;2;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+96;Teamfreitag Verbandsarbeit im Norden;;Y;1;6;485;19.06.2014 16:50;\N;\N;days;N;27.08.2014 13:00;\N;\N;493;28.05.2014 15:56;485;17.08.2014 19:44;485;17.08.2014 19:44;\N;\N;{bc11dcd8-321d-4d1f-bf0b-504f2f2d97e2};\N;\N;\N;4;\N;Y;Y;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+97;VDMA Dr. Lauterbach;"Anruf Frau Dr. Lauterbach: Ihr reicht eine Tischplan (handgemalt) am 3.11. Die Agenda bitte dann auch mit ihr telefonisch besprechen. NIT ruft wieder an
+lt. Erik wird das Spiel bei der Hochschule gespielt, dann nähere Infos
+10.10.14: Mail an ANS, ERM und BEL geschrieben udn nachgefragt. Gibt es TIM noch?
+einen genauen Ablaufplan und Tischliste für den 6.11 Planspiel TIM schicken. Will BEL erst noch überarbeiten";Y;1;5;490;\N;0;\N;hours;N;03.11.2014 21:00;\N;\N;490;28.05.2014 16:30;490;03.11.2014 17:20;490;03.11.2014 17:20;490;03.11.2014 17:20;{0c3005c2-7922-45ba-b6c4-8126142ccdb4};\N;\N;\N;5;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+98;4 Zimmer der Veränderung vorbereiten;;Y;1;5;483;\N;\N;\N;days;N;08.07.2014 02:00;\N;\N;479;26.06.2014 11:10;479;10.07.2014 11:01;479;10.07.2014 11:01;479;10.07.2014 11:01;{81b73f14-1ece-4c38-bc21-94f28f45a02f};\N;\N;\N;3;\N;Y;N;N;27;\N;161;N;s1;\N;\N;N;0;0;N;N
+99;CRM: Terminvereinbaren;;Y;1;5;482;\N;0;\N;hours;N;30.06.2014 21:00;\N;\N;495;30.06.2014 19:13;495;30.06.2014 19:19;482;30.06.2014 19:16;482;30.06.2014 19:16;{cb316780-34f9-46da-9e74-c841a2f64b7a};\N;\N;\N;2;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+100;CRM: Mal wieder zum Abendessen einladen, ggf. mit Hr. Wölken;;Y;1;2;480;\N;\N;\N;days;N;08.09.2014 02:00;\N;\N;480;03.07.2014 14:56;480;03.07.2014 14:56;480;03.07.2014 14:56;\N;\N;{1aa032c4-b3ec-4cd7-bd4c-f74a54bf1a76};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+101;EB kontakten Planspiel für Akquise offerieren;;Y;1;5;484;\N;\N;\N;days;N;17.07.2014 21:00;\N;\N;495;04.07.2014 15:59;493;22.05.2015 11:24;495;16.02.2015 10:52;495;16.02.2015 10:52;{da361140-70e1-4771-aaa8-a1b0a2a8377c};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+102;Anruf Fehrmann: Summer School | Terminvereinbarung;;Y;1;5;493;10.07.2014 17:55;0;\N;days;N;07.07.2014 21:00;\N;\N;495;04.07.2014 16:18;495;08.04.2015 17:22;495;16.02.2015 10:52;495;16.02.2015 10:52;{142ae032-98b8-4f9d-8e14-e1d3fa105a5a};\N;\N;\N;5;\N;Y;N;N;0;\N;168;N;s1;\N;\N;Y;0;0;N;N
+103;CRM: Herr Lagemann anrufen und Termin für Planspiel festglegen;;Y;1;5;488;\N;0;\N;days;N;18.07.2014 21:00;\N;\N;495;08.07.2014 17:59;488;10.10.2014 14:46;488;10.10.2014 14:46;488;10.10.2014 14:46;{e2818920-0adf-45a3-8a2c-ddd29500cbd5};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+104;Möglichen Einfluss AP12.1 (Dispo) auf mechanische Fertigung ansprechen;;Y;1;5;479;14.07.2014 12:11;\N;\N;days;N;14.07.2014 12:00;\N;\N;479;11.07.2014 15:51;479;28.07.2014 11:51;479;28.07.2014 11:51;479;28.07.2014 11:51;{add22491-b4fe-4413-8cdd-2c5977b4b584};\N;\N;\N;5;\N;Y;N;N;27;\N;172;N;s1;\N;\N;N;0;0;N;N
+105;Anruf Dr. Dirr;Rückruf, ob Teilnahme in der Vorstandssitzung am 25. oder 26. November erfolgt. (siehe Komentar Dr. Dirr);Y;1;5;483;\N;6;\N;hours;N;05.09.2014 11:00;05.09.2014 11:00;05.09.2014 17:00;483;14.07.2014 12:40;483;06.01.2015 09:51;483;06.01.2015 09:51;483;06.01.2015 09:51;{321a5c2c-0876-4fa8-b91b-f3d8c78537ed};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;1800;N;N
+106;Dr. Hanrath im Okt wieder anrufen;"15.10.14: Er will keinen Termin und will sich wieder melden! ANL informiert
+10.10.14: per Mail nachgefragt und ANL hat es auf der Wand notiert
+
+29.07.14 Mail:
+ 
+Sehr geehrte Frau Tietz,
+ 
+aufgrund der großen Herbstmessen ist der September für ein nächstes Gespräch nicht möglich.
+ 
+Ich möchte das Thema zunächst intern nochmals sondieren, bevor wir weitere Schritte planen können.
+ 
+Gerne kann Herr Löffler mich im Oktober nochmals ansprechen.
+ 
+Mit freundlichen Grüßen / Kind regards 
+[B]Dr.-Ing. Georg Hanrath, M.Sc.[/B]
+ Executive Vice President Operations
+ _________________________________
+ Starrag Group 
+ Seebleichestr. 61, 9404 Rorschacherberg 
+ Switzerland 
+ Tel. +41 71 858 83 39 
+ _________________________________
+ Dörries Scharmann Technologie GmbH
+ Hofkamp 2, 33719 Bielefeld
+ Germany
+ Tel. +49 521 5804 210 
+ 
+ Mobile +49 178 454 0115
+ [url=mailto:Johannes.Anke@starrag.com]georg.hanrath@starrag.com[/url] 
+ 
+ [url=http://www.starrag.com]www.starrag.com[/url] 
+ 
+Berthiez / Bumotec / Dörries / Droop+Rein / Heckert / Scharmann / SIP / Starrag / TTL / WMW 
+ 
+ 
+[B]Von:[/B] Nicole Tietz &#91;[url]mailto:tietz@v-und-s.de[/url]&#93; 
+ [B]Gesendet:[/B] Montag, 28. Juli 2014 11:10
+ [B]An:[/B] Hanrath Georg
+ [B]Betreff:[/B] Terminabsprache V&S
+ 
+Sehr geehrter Herr Dr. Hanrath,
+ 
+wie mit Herrn Löffler besprochen möchten wir Ihnen gern Terminvorschläge für nächstes Gespräch mit Ihnen, Ihrem CEO und Herrn Löffler unterbreiten:
+ 
+·	   11. September, ganztägig möglich
+·	   15. September, ab 10 Uhr möglich
+·	   10. September, ab 17 Uhr möglich
+ 
+Wir freuen uns auf Ihre Antwort und wünschen Ihnen einen schönen Tag.
+ 
+Mit freundlichen Grüßen
+Nicole Tietz
+
+ [B]Nicole Tietz[/B], Assistentin der Geschäftsführung
+[B]Vollmer & Scheffczyk GmbH –  Neuer Maschinenbau[/B]
+Mobile +49 (0)177 / 30 83 089 | E-Mail [url=mailto:tietz@v-und-s.de]tietz@v-und-s.de[/url]		  
+ 
+Leisewitzstr. 41 | 30175 Hannover | Deutschland
+Office +49 (0)700 / 88 63 70 00
+
+ [url=https://www.xing.com/companies/vollmer%2526scheffczykgmbh?keyword=vollmer%20%26%20scheffczyk%20gmbh][I][IMG]file:///C:\Users\VundS14\AppData\Local\Temp\msohtmlclip1\01\clip_image001.png[/IMG][/I][/url] [url=https://twitter.com/#%21/VollScheff][I][IMG]file:///C:\Users\VundS14\AppData\Local\Temp\msohtmlclip1\01\clip_image002.png[/IMG][/I][/url] [url=https://www.facebook.com/Vollmer.Scheffczyk][I][IMG]file:///C:\Users\VundS14\AppData\Local\Temp\msohtmlclip1\01\clip_image003.png[/IMG][/I][/url] [url=https://www.youtube.com/channel/UCwrGmlgecV2Od9vhc6ekqSA][I][IMG]file:///C:\Users\VundS14\AppData\Local\Temp\msohtmlclip1\01\clip_image004.png[/IMG][/I][/url] 
+ 
+Das neue Buch von Lars Vollmer: [url=http://www.wrongturn.de]Wrong Turn - Warum Führungskräfte in komplexen Situationen versagen[/url]
+ ";Y;1;5;490;\N;0;\N;days;N;24.10.2014 21:00;\N;\N;490;28.07.2014 13:16;490;15.10.2014 12:38;490;15.10.2014 12:38;490;15.10.2014 12:38;{509b4e63-3613-4f7a-9d4e-a01c26df06a2};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+107;OWL kündigen? Im Dezember muss gekündigt werden für 2015;"12.12.14: Mail mit Kündigung geschrieben. geantwortet?
+28.11.14: MRM angesprochen. Er will noch mal mit dem OWL telefonieren";Y;1;5;490;\N;0;\N;days;N;17.12.2014 21:00;\N;\N;490;12.08.2014 13:47;490;16.12.2014 12:12;490;16.12.2014 12:12;490;16.12.2014 12:12;{e90538b1-691a-4c22-9f76-95fda9083ee9};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+108;CRM: Email schreiben an s.schurig@aweba.de;"Sehr geehrte Frau Schurig,
+
+gerne möchte ich Ihr Angebot wahrnehmen erneut mit Ihnen Kontakt aufzunehmen, mit der Bitte um Weiterleitung an Herrn Drewes.
+ 
+Die Vollmer & Scheffczyk GmbH hat sich in den letzten Jahren gewandelt – in der Organisation und den Themen. Wir sind uns sicher, dass es Ihnen kaum anders geht.
+Daher möchten wir gerne einen Begegnungstermin mit Herrn Drewes und unseren Partnern Herrn Martin Mittendorf und Michael Kasteleiner vorschlagen. 
+Gerne verweise ich für einen Überblick zum neuen V&S auf unsere aktualisierte Webseite und stehe Ihnen bei Rückfragen jederzeit zur Verfügung.
+ 
+Mit freundlichem Gruß,
+ 
+ 
+Martin Akar
+ ";Y;1;2;508;\N;\N;\N;days;N;15.09.2014 12:00;\N;\N;508;12.08.2014 18:58;508;23.09.2014 12:27;508;12.08.2014 18:58;\N;\N;{3179b2b2-b1bd-4744-8c03-cf7ddc31cc99};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;1;0;N;N
+109;Lehnert ME BEL - noch mal am 13.8 angefragt;"BEL will sich selber kümmern
+
+10.10.14: BEL gefragt ob es einen Termin schon gab oder noch geben soll";Y;1;5;490;\N;0;\N;days;N;14.11.2014 21:00;\N;\N;490;13.08.2014 12:50;490;13.10.2014 15:48;490;13.10.2014 15:48;490;13.10.2014 15:48;{ca432d31-72a9-4657-bf4b-abf936be151c};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+110;Erwartungshaltung für MIK da?;;Y;1;5;490;\N;\N;\N;days;N;12.09.2014 21:00;\N;\N;490;13.08.2014 16:03;490;18.09.2014 14:04;490;18.09.2014 14:04;490;18.09.2014 14:04;{a0c87839-08ce-454f-a8c9-5a23d713fded};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+111;haben sich die Banken gemeldet? Termin auch mit MEW abgestimmt?;;Y;1;5;490;\N;\N;\N;days;N;01.09.2014 21:00;\N;\N;490;13.08.2014 16:38;490;11.09.2014 12:47;490;11.09.2014 12:47;490;11.09.2014 12:47;{700f6c25-179b-4b28-af08-0004de34e830};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+112;CRM: Erstkontakt Herr Jendrek Seminar anbieten;;Y;1;2;485;\N;\N;\N;days;N;\N;\N;\N;485;18.08.2014 18:56;485;18.02.2015 17:55;485;18.08.2014 18:56;\N;\N;{753688d0-362f-42e8-8727-2b3f52a7b224};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;Y;N
+113;Herrn Feil Erstkontakt per E-mail Seminar anbieten;;Y;1;5;485;\N;0;\N;hours;N;\N;18.08.2014 21:00;18.08.2014 21:00;485;18.08.2014 18:58;485;01.09.2014 11:46;485;01.09.2014 11:46;485;01.09.2014 11:46;{b8a18b79-88a7-4372-806a-3eadf056de90};\N;\N;\N;3;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;Y;N
+114;Email an Herrn Jürgen Prockl //Abklärung mit MAJ abwarten;Das neue V&S vorstellen // PE Core zusenden;Y;1;2;508;\N;\N;\N;days;N;\N;\N;\N;508;28.08.2014 18:03;508;28.08.2014 18:03;508;28.08.2014 18:03;\N;\N;{847ce68f-92c4-4f85-97a6-9908bb588f9a};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+115;CRM: Meyer Werft GmbH;Manfred Marquering den Ablauf der Harada Schulung zu kommen lassen.;Y;1;2;485;\N;\N;\N;days;N;12.09.2014 21:00;\N;\N;508;04.09.2014 20:40;508;04.09.2014 20:42;508;04.09.2014 20:40;\N;\N;{b507d935-c755-48ce-9ef5-70e02a35a741};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+116;Manfred Marquering den Ablauf des Harada Coaching übermitteln;s.o.;Y;1;5;485;\N;\N;\N;days;N;12.09.2014 21:00;\N;\N;508;04.09.2014 20:41;485;16.10.2014 16:24;485;16.10.2014 16:24;485;16.10.2014 16:24;{eb951c93-39b1-4811-8731-ec0562972961};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+117;CRM: Werner Rathmann;Eine Informationsemail an Fa. Rathmann senden. Im Anschluss nachfassen.;Y;1;5;485;\N;\N;\N;days;N;09.09.2014 02:00;\N;\N;508;04.09.2014 20:48;490;26.05.2016 11:53;508;04.09.2014 21:00;508;04.09.2014 21:00;{152d897b-7021-4ae5-90d9-e97d20d79c82};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+118;CRM: Gedore-Werkzeugfabrik;An den Kontakt rantreten für einen M1;Y;1;2;485;\N;\N;\N;days;N;12.09.2014 21:00;\N;\N;508;04.09.2014 20:52;508;04.09.2014 20:52;508;04.09.2014 20:52;\N;\N;{7732d4fd-9e44-4f1e-bc4f-30ffa51af54d};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+119;Herrn Ehlert anrufen!;;Y;1;5;490;\N;\N;\N;days;N;17.09.2014 10:00;\N;\N;490;10.09.2014 16:28;490;17.09.2014 16:22;490;17.09.2014 16:22;490;17.09.2014 16:22;{5f1bd7bf-6f58-4f6c-8cec-0a8558308037};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+120;Heller Termin geklärt?;;Y;1;5;490;\N;\N;\N;days;N;18.09.2014 21:00;\N;\N;490;15.09.2014 16:50;490;18.09.2014 14:04;490;18.09.2014 14:04;490;18.09.2014 14:04;{53e94035-038f-4c31-8b8b-ec9d5c34bfdc};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+121;Anruf Terminvereinbarung Hr. Liebrandt (Fa. Liba);Laut Fr. Willer (Assistentin) in 2 Monaten anrufen und erneut Termin vereinbaren;Y;1;2;493;\N;0;\N;hours;N;17.11.2014 14:00;\N;\N;493;17.09.2014 12:06;493;16.02.2016 10:46;493;17.09.2014 12:06;\N;\N;{a8eb068d-d4ee-4bc1-a04b-a207c7408d31};\N;\N;\N;1;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;Y;1;0;N;N
+122;Anruf Franz Schneider Brakel;;Y;1;2;493;\N;0;\N;days;N;14.01.2015 16:00;\N;\N;493;22.09.2014 17:15;493;16.02.2016 10:46;493;22.09.2014 17:15;\N;\N;{feed1b46-6cbf-4ad5-bd19-8fb7da593304};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;1;0;N;N
+123;CRM: AMAZONE-Werke // nächste Schritte absprechen;Bitte MRM und KAR bzgl. aktuellen Stand aufgleisen und nächste Schritte absprechen. Gerne auch per Email oder in Person.;Y;1;5;493;\N;\N;\N;days;N;\N;\N;\N;508;23.09.2014 12:52;485;17.10.2014 14:25;485;17.10.2014 14:25;485;17.10.2014 14:25;{5147199c-0576-425f-9b9b-1142c35597d9};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+124;hat Herr Heynen (Eirich) sich gemeldet?;;Y;1;2;490;\N;\N;\N;days;N;31.10.2014 21:00;\N;\N;490;14.10.2014 17:37;490;20.10.2014 11:33;490;14.10.2014 17:37;\N;\N;{bd609a70-1f7b-41da-9338-d68d0b6fe8e5};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+125;Herr Harten und GF AE in Hannover vereinbaren mit LAV Funcky Kitchen. Termin soll im Feb sein, Absprache im Jan. s.Mail;Termin mit LAV gemacht, eingetragen und Restaurant reserviert;Y;1;5;490;\N;0;\N;days;N;03.12.2014 21:00;\N;\N;490;16.10.2014 10:23;490;20.01.2015 12:07;490;20.01.2015 12:07;490;20.01.2015 12:07;{6c4d7c20-6978-46e5-971e-a091e937ca7f};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+126;mit Harald Ostermann FaceTime-Cappuccino organiesieren (BEL, MAJ, TIM);"20.01.15: BEL und Harald telefonieren. Keine weitere Aktion notwendig
+28.11.14: ihn angeschrieben
+
+Liebe Nicole, 
+ 
+Können wir in 3 Wochen telefonieren. Ich bin in den nächsten 10 Werktagen  auf 8 Workshoptage und danach auf der Gründwrwoche vom BMBF
+ 
+ Von meinem iPhone gesendet";Y;1;5;490;\N;0;\N;hours;N;05.12.2014 21:00;\N;\N;490;16.10.2014 11:53;490;20.01.2015 12:07;490;20.01.2015 12:07;490;20.01.2015 12:07;{37c6d446-fca5-458b-a596-073d6c8c9c72};\N;\N;\N;4;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;N;N
+127;CRM:M1 mit Dr. Evers vereinbaren ;;Y;1;2;485;\N;\N;\N;days;N;22.10.2014 11:00;\N;\N;485;17.10.2014 14:24;485;17.10.2014 14:24;485;17.10.2014 14:24;\N;\N;{70731c19-d626-4b74-9ad2-0d2f78e658c1};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;Y;N
+128;Anruf Hr. Sinner;"Anruf Hr. Sinner: Planspiel in Leipzig am 20.  Januar 2015
+TIM??
+	Anzahl Spielrunden
+	konkrete Agenda
+Input für Einladung";Y;1;5;483;17.10.2014 16:02;0;\N;hours;N;10.11.2014 12:00;\N;\N;483;17.10.2014 16:02;483;03.11.2014 11:55;483;03.11.2014 11:55;483;03.11.2014 11:55;{ba9b7080-c28e-4f75-a7cb-aded354a7638};\N;\N;\N;5;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;Y;N
+129;Herr Cunz nachfragen, s. Eintrag;;Y;1;5;490;\N;\N;\N;days;N;31.10.2014 21:00;\N;\N;490;22.10.2014 16:20;490;03.11.2014 17:21;490;03.11.2014 17:21;490;03.11.2014 17:21;{841247b9-1bfd-4278-9a31-e321765d580d};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+130;CRM: Nachfassen Angebot;"Angebot am 17.10.14 zugestellt
+Hr. Frieds ist in der KW 44 mit CEO zusammen
+angepeilter Starttermin: November";Y;1;5;483;\N;0;\N;hours;N;31.10.2014 12:00;\N;\N;483;22.10.2014 18:44;483;17.11.2014 13:59;483;17.11.2014 13:59;483;17.11.2014 13:59;{45cfcc7e-f938-4ce4-a084-0c7b41b75c3b};\N;\N;\N;2;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;N;0;0;Y;N
+131;CRM: Test;;Y;1;2;482;\N;0;\N;hours;N;\N;\N;\N;482;31.10.2014 14:49;482;31.10.2014 15:21;482;31.10.2014 14:49;\N;\N;{954459ba-a81d-4924-8342-2d845e3caf35};\N;\N;\N;1;\N;Y;N;N;\N;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+132;CRM: Terrot Anschreiben für Planspiel;Anschreiben mit Terminvorschlägen für Planspiel in 2015 und Kurzportrait V&S.;Y;1;5;483;\N;\N;\N;days;N;24.11.2014 20:00;\N;\N;483;20.11.2014 17:53;483;21.11.2014 11:13;483;21.11.2014 11:13;483;21.11.2014 11:13;{94046ced-b336-49ee-b901-fcbaad749bfe};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;Y;N
+133;Kemal von Bosch wieder zum Angebot anrufen;"13.02.15: 5.3. für ein nächstes Gespräch angeboten
+10.02.15: telefonisch schon mehrfach erfolglos versucht, heute Mail geschrieben und er will sich bei mir wieder melden
+";Y;1;5;490;\N;0;\N;days;N;\N;\N;\N;490;24.11.2014 17:54;490;30.03.2015 14:26;490;30.03.2015 14:26;490;30.03.2015 14:26;{7be8a4e1-5c90-4bc8-9436-f6d7fa81642e};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+134;VDMA Dr. Lauterbach sich gemeldet zur Denkwerkstatt? Termin März, April oder Mai 2015;"10.02.15: noch mal eine Mail geschrieben
+";Y;1;2;490;\N;0;\N;days;N;\N;\N;\N;490;24.11.2014 18:39;490;10.09.2015 13:29;490;24.11.2014 18:39;\N;\N;{aa93fb2e-b38e-480f-a015-eb3d39b6da66};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+135;HMD Handy zum 31.10.15 gekündigt. Handy zurück oder abkaufen? HMD anschreiben;"schickt HMD zurück. Nummer nimmt er mit
+";Y;1;5;490;\N;0;\N;days;N;30.10.2015 18:00;\N;\N;490;18.12.2014 13:17;490;23.10.2015 12:43;490;23.10.2015 12:43;490;23.10.2015 12:43;{697e1d53-0ded-47c6-abe8-6d912def3e01};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+136;IFE Rohmaterial Film für BEL bei Frau Deues angefragt. Sie will sich kümmern;;Y;1;5;490;\N;\N;\N;days;N;\N;\N;\N;490;22.01.2015 12:36;490;28.01.2015 13:38;490;28.01.2015 13:38;490;28.01.2015 13:38;{d578b73c-7c3d-4cac-84aa-7b7ac2c227e7};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+137;Mechatronik Herr Schiek gemeldet zum Plansoieltag TIM, s. Mail;;Y;1;5;490;\N;\N;\N;days;N;\N;\N;\N;490;23.01.2015 12:12;490;17.12.2015 11:34;490;17.12.2015 11:34;490;17.12.2015 11:34;{efadef60-7cc0-4ce5-a3e1-49bbff636447};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+138;Halmosi CRM: ;;Y;1;2;485;\N;\N;\N;days;N;\N;\N;\N;485;17.04.2015 12:39;485;17.04.2015 12:39;485;17.04.2015 12:39;\N;\N;{5269749a-1576-43a2-848d-d6f81d2202d0};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;Y;N
+139;Frau Lindner zur neuen Terminabsprache BEL/Eisler wieder anrufen;;Y;1;2;493;\N;\N;\N;days;N;27.08.2015 17:00;\N;\N;490;15.06.2015 10:38;490;15.06.2015 10:38;490;15.06.2015 10:38;\N;\N;{5f6b1d30-1f6a-496b-8657-c2c08bf4860d};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+140;Winterreifen Keller H und BEL verkaufen;;Y;1;5;490;\N;\N;\N;days;N;28.08.2015 17:00;\N;\N;490;18.06.2015 10:14;490;28.09.2015 14:09;490;28.09.2015 14:09;490;28.09.2015 14:09;{c7b64683-084a-4238-8479-bfcdcc109c16};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+141;Dr. Reimann lockeren Telefontermin für BEL vereinbaren, s. Juni;"versuchen es jetzt mit der Einladung für SCRUM und dann CCPM. Kein Anruf vorerst
+";Y;1;5;490;\N;0;\N;days;N;30.09.2015 11:00;\N;\N;490;30.06.2015 11:29;490;03.02.2016 10:07;490;03.02.2016 10:07;490;03.02.2016 10:07;{b840b77e-d8a1-4bdb-b831-a18dce900cba};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+142;Herrn Huckriede, Firma Harting anrufen, Wiederaufnahme s. Stream;"10.09.15: wollen es ohne Berater versuchen. Können gern in Kontakt bleiben. Vielleicht Anfang 2016 erneut Kontakt aufnehmen? Habe seinen Anruf im Stream eingetragen
+31.7 Mail geschrieben
+22.7 nur AB
+21.7 nur AB
+";Y;1;2;493;\N;0;\N;hours;N;21.01.2016 17:00;\N;\N;490;22.07.2015 08:42;490;10.09.2015 13:29;490;10.09.2015 13:29;\N;\N;{5a340a84-ae5b-4f91-b81d-8ec4a1d5cc49};\N;\N;\N;5;\N;Y;N;N;\N;\N;488;N;s1;\N;\N;N;1;0;N;N
+143;Hrerrn Horn in zwei Wochen wieder anrufen und Telefontermin mit BEL vereinbaren. s. letzte Mail von BEL vom 24.8;"Jan 16: Herr Horn hat kein Interesse derzeit, keine Zeit. Schikce ihm weiter die Einladungen für SCRUM und dann CCPM
+am 10.09.15 eine Mail geschrieben
+
+am 16.09.15 eine Nachricht auf dem AB hinterlassen
+
+24.09 MaIL GESCHRIEBEN
+03.11.15 auf AB gesprochen
+";Y;1;5;490;\N;0;\N;days;N;26.11.2015 10:00;\N;\N;490;25.08.2015 12:26;490;03.02.2016 10:10;490;03.02.2016 10:10;490;03.02.2016 10:10;{f5dabd10-5ca8-4d6b-a31e-c971a554f511};\N;\N;\N;7;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+144;Telefontermin mit Herrn Rensing für BEL ausmachen. s. Mail aus September;"19.04.16: Termin per Mail angefragt
+03.02.16: lt. Frau Firscher bitte erst Ende Feb wieder anrufen und Termin für März machen, Dr. Rensing ist Land unter
+";Y;1;2;490;\N;0;\N;days;N;\N;\N;\N;490;11.09.2015 11:47;490;29.07.2016 14:35;490;11.09.2015 11:47;\N;\N;{d8c9a023-80d0-497d-b4f0-430d62cbaffe};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;0;0;N;N
+145;Planspiel evtl im nächsten Jahr? s. Mail Sep 15 von Herrn Nolte;"Einladung SCRUM geschickt. MIK ist dran
+";Y;1;5;490;\N;0;\N;days;N;03.02.2016 10:00;\N;\N;490;17.09.2015 11:46;490;03.02.2016 17:38;490;03.02.2016 17:38;490;03.02.2016 17:38;{6b2ab7fc-b1f1-42fc-ac39-12e59e62b6d4};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+146;lt. BEL soll dort in drei Monaten nachgefragt werden - Harting, s. Mail NIT;;Y;1;2;493;\N;\N;\N;days;N;15.12.2015 10:00;\N;\N;490;25.09.2015 09:32;490;25.09.2015 09:32;490;25.09.2015 09:32;\N;\N;{aa245af2-dbcf-4cdc-a572-731291a2e5f0};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+147;Kilometer abfragen Dienstwagen ALLE und Liste ausfüllen. Evtl noch weitere Anpassungen vornehmen?;;Y;1;2;490;\N;0;\N;days;N;02.10.2017 18:00;\N;\N;490;28.09.2015 14:08;490;28.03.2017 14:20;490;28.09.2015 14:08;\N;\N;{b9babec6-cc97-4af8-a849-4e41224850cd};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+148;Bewerber Spengler jetzt wieder interessant?;;Y;1;2;490;\N;\N;\N;days;N;25.02.2016 18:00;\N;\N;490;03.11.2015 11:49;490;09.08.2016 12:13;490;03.11.2015 11:49;\N;\N;{f985e801-d593-4d56-8f85-00ea90c29c32};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;Y;1;0;N;N
+149;hat er sich gemeldet zum Termin mit Benno?;"hat sich nicht gemeldet. Wollte er. Habe ihm eine Einladung für SCRUM geschickt
+";Y;1;5;490;\N;0;\N;days;N;15.01.2016 18:00;\N;\N;490;20.11.2015 10:36;490;03.02.2016 17:36;490;03.02.2016 17:36;490;03.02.2016 17:36;{fa30cef2-e6be-40d0-af0c-14e40cf1feff};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+150;hat sich Herr Koettgen zum telefontermin gemeldet?;;Y;1;5;490;\N;\N;\N;days;N;11.01.2016 18:00;\N;\N;490;23.12.2015 14:59;490;14.01.2016 14:15;490;14.01.2016 14:15;490;14.01.2016 14:15;{fd72b4fd-c3e5-4db1-b45a-771ca0948a7f};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+151;Fotoprotokoll FAUN;;Y;1;5;483;13.02.2016 17:27;26;\N;hours;N;16.02.2016 16:00;15.02.2016 10:00;16.02.2016 12:00;483;13.02.2016 17:26;483;15.04.2016 15:25;483;15.04.2016 15:25;483;15.04.2016 15:25;{21d2a72b-7c86-4f57-8117-94040e3ef8ff};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;Y;N
+152;Angebot Oerlikon;;Y;1;5;483;\N;\N;\N;days;N;16.02.2016 16:00;\N;\N;483;13.02.2016 17:29;483;15.04.2016 15:25;483;15.04.2016 15:25;483;15.04.2016 15:25;{eb5fdd92-876d-4fee-a785-708e1518a50b};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;86400;Y;N
+153;Hr. Proske - hat BEL nachgefragt?;"20.0.4.16 Telefontermin bei Herrn Proske angefragt
+19.04.16 BEL nachgefragt
+";Y;1;5;490;\N;0;\N;days;N;22.04.2016 18:00;\N;\N;490;29.02.2016 10:14;490;20.04.2016 10:25;490;20.04.2016 10:25;490;20.04.2016 10:25;{e3dd4097-0c30-41e4-b246-65747d71a1b2};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+154;CRM pflegen bzgl. Absprachen und Anruf Herr Wassermann ;;Y;1;5;493;\N;\N;\N;days;N;14.04.2016 10:00;\N;\N;490;13.04.2016 12:04;493;20.04.2016 09:25;493;20.04.2016 09:25;493;20.04.2016 09:25;{477823a7-5e69-4e7c-8321-9b92a46010a1};\N;\N;\N;3;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+155;hat er sich gemeldet? s. Mail 20.4;;Y;1;2;515;\N;0;\N;days;N;29.09.2016 11:00;\N;\N;490;20.04.2016 14:33;490;29.09.2016 10:51;490;29.09.2016 10:51;\N;\N;{9dacb511-0ba4-4c31-9adb-b013d7038ba4};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+156;wollen Scrum selber testen, wieder nachfragen, s. Mail 26.4.16;;Y;1;2;515;\N;0;\N;days;N;27.10.2016 11:00;\N;\N;490;26.04.2016 11:25;490;18.05.2016 10:36;490;26.04.2016 11:25;\N;\N;{4902a4e8-1226-45e9-8ffe-1a2ffefa9827};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+157;Im Frühjahr 2017 eine SCRUM/CCPM Veranstaltung bei Schunk?;;Y;1;2;490;\N;\N;\N;days;N;30.11.2016 10:00;\N;\N;490;13.05.2016 10:15;490;13.05.2016 10:15;490;13.05.2016 10:15;\N;\N;{6d92269a-7ffa-4c66-8549-483c37893652};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+158;Herrn Bortz Anfang September wieder anrufen. Zu den Veranstaltung bei ihm im Haus;"19.10.16: n.e., an Beate übergeben
+19.09.16: telefonisch n.e. 
+";Y;1;2;515;\N;0;\N;days;N;20.10.2016 09:00;\N;\N;490;13.05.2016 13:21;490;19.10.2016 10:55;490;19.10.2016 10:55;\N;\N;{839b7dbc-33cd-47c9-94e0-856891e1a194};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+159;möchte er den WS annehmen?;"24.08.16: Frau Waldmann sagt, derzeit ist das Thema nicht auf der Tagesordnung, aber auch nicht vom Tisch. Evtl. könnte es Ende des Jahres etwas werden. Ich soll mich unverbindlich dann noch mal melden
+23.8: seine Assistentin spricht ihn auf den WS an und meldet sich wieder bei mir
+9.8: Mail dazu geschrieben
+";Y;1;2;490;\N;0;\N;days;N;12.12.2016 11:00;\N;\N;490;29.06.2016 14:43;490;24.08.2016 13:40;490;29.06.2016 14:43;\N;\N;{d974d9bf-8c20-4346-8a3b-e9427f7cf1d1};\N;\N;\N;4;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+160;kostenlosen Scrum-WS angeboten. Hat Herr Koch sich gemeldet?;;Y;1;5;490;\N;\N;\N;days;N;29.07.2016 09:00;\N;\N;490;01.07.2016 15:27;490;09.08.2016 12:32;490;09.08.2016 12:32;490;09.08.2016 12:32;{96a5e71d-e4f4-47d5-8338-92c5770b8359};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+161;hat sich Herr Selinger zum kostenfreien WS gemeldet?;"20.10.16: Herr Selinger hat angerufen. Weiß das Angebot zu schätzen und möchte auch gerne. Aber die Strukturierung ist nicht abgeschlossen, es sind noch Prozessoptimierer im Haus und das soll erst Ruhe einkehren. Er möchte sich Anfang 2017 wieder bei uns melden
+19.10.16: Mail geschrieben
+
+Von: Ralf Selinger &#91;mailto:[URL=mailto:selinger@planatol.de]selinger@planatol.de[/URL]&#93; 
+ Gesendet: Montag, 4. Juli 2016 14:34
+ An: Nicole Tietz
+ Betreff: AW: SCRUM - was jetzt? 
+ 
+Hallo Frau Tietz,
+ 
+vielen Dank für die Nachfrage. Ich möchte das Gespräch mit Herrn Löffler auf jeden Fall wieder aufnehmen aber erst nach seinem Urlaub. Die Messe verlief für uns erfolgreich und aktuell sieht es danach aus, dass es bei uns im Juli noch zu strukturellen Veränderungen kommt, die ich gerne abwarten möchte. Danach melde ich mich direkt bei Ihnen. Ich habe eine Erinnerung bereits im Kalender.
+Noch eine schöne Woche
+ 
+Ralf Selinger  
+ 
+ 
+Mit freundlichen Grüßen / Kind regards
+ppa. Ralf Selinger
+ Dipl.-Ing. (FH)
+ Technischer Leiter | Technical Manager
+[IMG WIDTH=254 HEIGHT=23]file:///C:/Users/TIETZ_~2/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif[/IMG]
+Planatol System GmbH
+ Fabrikstraße 30-32
+ 83101 Rohrdorf | Germany
+ T. +49 8031 720-230
+ F. +49 8031 720-125
+ M. +49 172 8380112
+ E. [URL=mailto:selinger@planatol.de]selinger@planatol.de[/URL]
+ 
+ Visit our website! [URL=http://www.planatol-system.de]www.planatol-system.de[/URL]
+ 
+ Sitz der Gesellschaft: Rohrdorf; Geschäftsführer: Frank Heuer
+ Amtsgericht Traunstein HRB 11635; USt-IdNr.: DE812585085";Y;1;2;490;\N;0;\N;days;N;31.01.2017 08:00;\N;\N;490;04.07.2016 11:53;490;20.10.2016 10:18;490;04.07.2016 11:53;\N;\N;{7f3ba920-744f-4a55-b351-316e625eccfa};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+162;Herr Bolz zum Termin mit ihm, seinem Chef und BEL ab Mitte Sep melden;"23.08.16: Herr Bolz hat Anfang Juli mit Benno gesprochen. Der kostenfreie WS macht im ersten Schritt noch keinen Sinn. Beide haben sich darauf geeinigt, dass wir vorab 2 Std mit Herrn Bolz und dem GF und BEL einplanen. Dort soll überlegt werden, wie es klappen kann. Herr Bolz schickt uns diese Woche Terminvorschläge zu, die gleiche ich mit BEL ab. Dann sehen wir weiter
+";Y;1;5;490;29.07.2016 13:02;0;\N;days;N;29.08.2016 09:00;\N;\N;490;29.07.2016 13:02;490;26.08.2016 11:11;490;26.08.2016 11:11;490;26.08.2016 11:11;{28189f9d-f765-440d-a64f-9e5c820bd4f4};\N;\N;\N;8;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+163;Hotset: Angebot bei Herrn Strauß nachfassen;"11.10.16: Das Angebot soll gekürzt werden, erledigt und an BEL geschickt. Verschickt und angenommen?
+1.9.16: Herr Strauß hat mit seinem Chef gesprochen, er ist nicht abgeneigt, möchte aber die Idee erst beim Bereichsleitermeeting (1x im Monat) vorstellen. Dort soll die Bereitschaft abgefragt werden, denn es macht in seinen Augen nur Sinn, wenn es unternehmensweit eingeführt wird. Ich kann mich in vier Wochen wieder melden. Zum LF habe ich ihn und seinen Chef noch nachgeladen. Wird eher nix....
+30.08.16 n.e, LF noch mit anbieten!!!
+16.08.16: Herr Strauß hat erst am 25.8 einen Termin mit seinem Chef. Ich soll mich KW35 wieder melden
+";Y;1;5;490;\N;0;\N;days;N;12.10.2016 10:00;\N;\N;490;29.07.2016 14:09;490;14.10.2016 13:23;490;14.10.2016 13:23;490;14.10.2016 13:23;{f5e9fd62-963b-49f6-9806-733b621913eb};\N;\N;\N;6;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+164;Fa. Aumann: mal wieder nachfassen, Vorgang s.u.;;Y;1;2;515;\N;\N;\N;days;N;01.12.2016 10:00;\N;\N;490;30.08.2016 14:16;490;30.08.2016 14:16;490;30.08.2016 14:16;\N;\N;{f5d5b4e8-a0e1-4e9f-aee1-55147bb1e409};\N;\N;\N;1;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;1;0;N;N
+165;Gastgeber werden? Agiler Maschbau, Broetje Herrn Körner;"s. Mail Okt 2016
+";Y;1;5;490;\N;0;\N;hours;N;27.01.2017 18:00;\N;\N;490;14.10.2016 13:23;490;15.02.2017 11:56;490;15.02.2017 11:56;490;15.02.2017 11:56;{a2b231de-a754-4350-a512-c4acb683debb};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+166;Termin jetzt interessant? Denkwerkstatt s. Eintrag;;Y;1;5;490;\N;\N;\N;days;N;19.01.2017 18:00;\N;\N;490;20.10.2016 10:51;490;15.02.2017 10:16;490;15.02.2017 10:16;490;15.02.2017 10:16;{5f5bb709-9bf8-4a67-b06f-2fe0b74f9166};\N;\N;\N;2;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N
+167;NIT soll Termin vor Ort für MIK machen;"17.11.16: Frau Grützel möchte Terminvorschläge per Mail, erledigt
+16.11.16: n.e. morgen Frau Grüntzel probieren
+10.11 n.e., auf Mailbox gesprochen
+";Y;1;5;490;\N;0;\N;days;N;22.11.2016 10:00;\N;\N;490;04.11.2016 12:17;490;21.11.2016 11:58;490;21.11.2016 11:58;490;21.11.2016 11:58;{62a9381c-116b-4f89-9bb6-441474cca1f3};\N;\N;\N;5;\N;Y;N;N;0;\N;\N;N;s1;\N;\N;N;0;0;N;N

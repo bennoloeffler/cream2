@@ -1,0 +1,16 @@
+java
+junit (4.12 und 5?)
+intellij
+gradle
+lombok
+groovy
+log4j
+commons-lang3
+ews-java-api-2.0
+javax.mail
+scribejava (commons-codec-1.10)
+swingx
+opencsv
+jgoodies
+jdom2
+jsoup

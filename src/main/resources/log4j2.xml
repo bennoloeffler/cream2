@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="10">
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/> -->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%-5level] %msg - %logger{36}.%M (%F:%L)%n"/>
+        </Console>
+
+        <RollingFile name="CreamRollingFile" fileName="logs/${env:USERNAME}/cream.log" immediateFlush="false"
+                    filePattern="logs/${env:USERNAME}/cream_%d{yyyy-MM-dd}_%i.log">
+            <PatternLayout>
+                <!--<pattern>%d{dd.MM.yyyy HH:mm:ss}- %c{1}: %m%n</pattern>-->
+                <pattern>%d{HH:mm:ss.SSS} [%-5level] %msg - %logger{36}.%M (%F:%L)%n</pattern>
+
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy />
+
+        </RollingFile>
+
+    </Appenders>
+
+
+    <Loggers>
+
+
+
+        <!--  ***************** INACTIVE LOGGERS **********************
+
+        <Logger name="bel.en.gui.tel" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="bel" level="trace" additivity="false">
+            <MarkerFilter marker="CRASH_NIT" onMatch="ACCEPT" onMismatch="DENY"/>
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="CreamRollingFile"/>
+        </Logger>
+
+        <Logger name="com" level="trace" additivity="false">
+            <MarkerFilter marker="CRASH_NIT" onMatch="ACCEPT" onMismatch="DENY"/>
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="CreamRollingFile"/>
+        </Logger>
+
+	****************** END INACTIVE LOGGERS ***************** -->
+
+
+
+	<!-- **************************************************** -->
+	<!-- LOG LEVELS off fatal error warn info debug trace all -->
+	<!-- **************************************************** -->
+
+        <Logger name="bel.cream2.deamon" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="CreamRollingFile"/>
+        </Logger>
+
+        <Logger name="bel.en.email.ReadAndForwardExchangeMails" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="CreamRollingFile"/>
+        </Logger>
+
+        <Logger name="bel.en.evernote.ENAuth" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="CreamRollingFile"/>
+        </Root>
+
+    </Loggers>
+</Configuration>
