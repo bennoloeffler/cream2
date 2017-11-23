@@ -101,6 +101,7 @@ class OverviewCreator {
 
                 // process leads
                 ArrayList<Pair<Note, Angebot>> angebote = ENHelper.findAllHot(n)
+                //log.debug("found hot: ${angebote?.size()}")
                 hotLeads.addAll(angebote)
                 // CHANGE
                 enSharedNotebook = SyncHandler.get().getNotebook(n)
@@ -243,9 +244,11 @@ class OverviewCreator {
         VersionedFile versionedFile = new VersionedFile(path)
         versionedFile.text = newOverviewVersion.toString()
 
-        if(versionedFile.versions.last().changed) {
+        Note n; boolean emptyOnServer
+        (n,emptyOnServer) = findOrCreateNote(shortName)
 
-            Note n = findOrCreateNote(shortName)
+        if(versionedFile.versions.last().changed || emptyOnServer) {
+
             log.debug("erzeuge ÜBERSICHT  ( " + n.getTitle() + " ) mit Inhalt:\n" + content)
             n.setContent(content)
             overviewNotebook.updateNote(n)
@@ -312,6 +315,7 @@ class OverviewCreator {
         double weightedSum = 0
         double totalSum = 0
         String data = ""
+        log.debug("Number of HOT LEADS: ${hotLeads.size()}")
         for (Pair<Note, Angebot> hot: hotLeads) {
             //ENHelper.stopIfFound(linkEntry.completeString, "Gleason")
             //ENHelper.stopIfFound(linkEntry.completeString, "Bosch PA")
@@ -347,9 +351,10 @@ class OverviewCreator {
         VersionedFile versionedFile = new VersionedFile(path)
         versionedFile.text = data
 
-        if(versionedFile.versions.last().changed) {
+        Note n; boolean emptyOnServer
+        (n,emptyOnServer) = findOrCreateNote("ANGEBOTE_und_HOT")
 
-            Note n = findOrCreateNote("ANGEBOTE_und_HOT")
+        if(versionedFile.versions.last().changed || emptyOnServer) {
             log.debug("Writing this content to " + n.getTitle() + ": " + content)
             n.setContent(content)
             overviewNotebook.updateNote(n)
@@ -376,7 +381,12 @@ class OverviewCreator {
 */
 
     // if not yet there, create it. Otherwise, return the existing one
-    private Note findOrCreateNote(String shortName) throws Exception {
+    /**
+     * @returns [ Note note, boolean createdOnServer ]
+     */
+
+    private List findOrCreateNote(String shortName) throws Exception {
+        boolean created = false
         Note returnNote = null
         String searchFor = shortName + "_" + Main.UEBERSICHT_TITLE_STRING
         if(shortName.equals(ALL_USERS)) {
@@ -386,7 +396,8 @@ class OverviewCreator {
         int size = listUebersicht.size()
         if (size == 0) { // not found. Create one...
             returnNote = overviewNotebook.createNote(searchFor)
-            System.out.println("Created new " + searchFor)
+            log.debug("Created new " + searchFor)
+            created = true
         } else if (size == 1) { // Cool. Found exactly one. Use that.
             returnNote = listUebersicht.get(0)
             //System.out.println("Found " + searchFor)
@@ -399,7 +410,7 @@ class OverviewCreator {
             // and remember the one remaining
             returnNote = listUebersicht.get(0)
         }
-        return returnNote
+        return [returnNote, created]
     }
 
     /**
