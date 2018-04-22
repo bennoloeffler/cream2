@@ -252,7 +252,8 @@ public class SyncHandler {
 
         syncLog("FINISHED SYNC, time: " + f.format(dateEnd));
         log.info("FINISHED SYNC, time: " + f.format(dateEnd));
-
+        long duration = dateEnd.getTime() - date.getTime();
+        log.info("Duration: " + Util.readableTime(duration));
         SwingUtilities.invokeLater(() -> {
             fireDataChange(SyncHandler.this);
             // TODO what about the selection? that may have been changed, too.

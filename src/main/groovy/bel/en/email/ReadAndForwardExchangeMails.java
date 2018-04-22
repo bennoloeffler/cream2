@@ -53,10 +53,13 @@ import java.util.stream.Collectors;
 @Log4j2
 public class ReadAndForwardExchangeMails {
 
-    String user = "crm";
-    String pw = "c_r-M17";
+    //String user = "crm";
+    //String pw = "Hup71467";
+    String user = "crm@v-und-s.de";
+    String pw = "Hup71467";
     //String urlService = "https://vunds.epc-cloud.de/EWS/Exchange.asmx";
-    String urlService = "https://mail.v-und-s.de/EWS/Exchange.asmx";
+    //String urlService = "https://mail.v-und-s.de/EWS/Exchange.asmx";
+    String urlService = "https://outlook.office365.com/ews/exchange.asmx";
     String emailCRM = "crm@v-und-s.de";
     String emailEvernote = "bennoloeffler.173c3b6@m.evernote.com";
 
@@ -88,6 +91,14 @@ public class ReadAndForwardExchangeMails {
 
 
             // first of all, detect, if there is a potential mail adress to search for and link to in evernote
+            // subject or l: --> link to
+            // yes? --> link to and stop
+            // no?
+            //   to, cc?? (check if recipients has content AFTER removed allCreamUsers) --> link to and stop
+            //   no?
+            //      first mail --> link to
+            //      no? --> NO LINK
+            //
 
             List<String> recipients = m.getToRecipients().getItems().stream().map(EmailAddress::getAddress).collect(Collectors.toList());
             recipients.addAll(m.getCcRecipients().getItems().stream().map(EmailAddress::getAddress).collect(Collectors.toList()));
