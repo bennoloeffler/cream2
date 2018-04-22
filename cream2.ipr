@@ -561,7 +561,6 @@
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -742,7 +741,7 @@
       <module fileurl="file://$PROJECT_DIR$/cream2_test.iml" filepath="$PROJECT_DIR$/cream2_test.iml" group="cream2" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SvnBranchConfigurationManager">
@@ -822,6 +821,45 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spockframework/spock-core/1.1-groovy-2.4/2b08ca54637337988a8da795c6dc3f66d2810ebb/spock-core-1.1-groovy-2.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="libs">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/common-lang3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/commons-codec-1.10.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/commons-logging-1.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/ews-java-api-2.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/forms_rt.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpclient-4.5.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpclient-cache-4.5.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpclient-win-4.5.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpcore-4.4.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpcore-ab-4.4.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpcore-nio-4.4.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/httpmime-4.5.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/javax.mail.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jdom-2.0.6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jgoodies-common-1.2.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jgoodies-forms.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jgoodies-looks-2.4.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/joda-time-2.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jsoup-1.10.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/junit-4.12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/junit.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/log4j-api-2.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/log4j-core-2.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/opencsv-3.9.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/scribejava-apis-4.0.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/scribejava-core-4.0.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/spock-core-1.1-groovy-2.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/sqlite-jdbc-3.8.6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/swingx-all-1.6.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/tagsoup-1.2.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/common-lang3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/sqlite-jdbc-3.8.6.jar!/" />
       </SOURCES>
     </library>
   </component>

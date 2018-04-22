@@ -1,5 +1,6 @@
 package bel.cream2.deamon
 
+import bel.cream2.deamon.OverviewCreator.LinkEntry
 import bel.en.Main
 import bel.en.data.AbstractConfiguration
 import bel.en.data.CreamUserData
