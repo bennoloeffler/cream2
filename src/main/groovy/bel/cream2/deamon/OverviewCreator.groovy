@@ -67,6 +67,8 @@ class OverviewCreator {
     void createOverviews() throws  Exception{
         List<CreamUserData> users = AbstractConfiguration.getConfig().getUsers()
         userOverviewDataMap = new HashMap<>()
+        hotLeads = new ArrayList<>()
+
         for (CreamUserData u: users) {
             userOverviewDataMap.put(u.getShortName(), new ArrayList<>())
         }
@@ -97,16 +99,18 @@ class OverviewCreator {
         List<Note> noteList = SyncHandler.get().getAllNotes()
 
         for(Note n : noteList) {
+            log.debug("Number of NOTEs to search for TODOs and HOTs: ${noteList.size()}")
+
             LinkEntry noteEntry = new LinkEntry()
             if(isNormalNote(n)) {
 
                 // process leads
                 ArrayList<Pair<Note, Angebot>> angebote = ENHelper.findAllHot(n)
-                //log.debug("found hot: ${angebote?.size()}")
+                //log.debug("found ${angebote?.size()} HOTs in $n.title")
                 hotLeads.addAll(angebote)
                 // CHANGE
                 enSharedNotebook = SyncHandler.get().getNotebook(n)
-
+                assert enSharedNotebook != null
                 String link = enSharedNotebook.getInternalLinkTo(n)
 
                 noteEntry.title = link

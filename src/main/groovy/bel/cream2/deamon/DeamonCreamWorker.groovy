@@ -14,6 +14,7 @@ import com.evernote.edam.type.Note
 import com.evernote.thrift.transport.TTransportException
 import groovy.util.logging.Log4j2
 import microsoft.exchange.webservices.data.core.exception.service.remote.ServiceRequestException
+import org.apache.commons.lang3.StringUtils
 import org.codehaus.groovy.runtime.StackTraceUtils
 /**
  * This is used by syncer, when CREAM is in Deamon-Mode.
@@ -51,7 +52,6 @@ class DeamonCreamWorker {
 */
 
     static def processEvernoteInbox() {
-        //println "\nprocessing C__INBOX and creating links..."
         List<Note> notesInInbox = inboxNotebook.allNotes
         if(notesInInbox) {
             log.debug("found $notesInInbox.size notes in INBOX")
@@ -60,6 +60,8 @@ class DeamonCreamWorker {
 
             // move to permanent mail store and replace $AT$ with @ again
             noteInInbox.title = noteInInbox.title.replace("\$AT\$", "@")
+            noteInInbox.title = noteInInbox.title.replace("RE:", "")
+            noteInInbox.title = noteInInbox.title.replace("FW:", "")
             noteInInbox.title = noteInInbox.title.replace("AW:", "")
             noteInInbox.title = noteInInbox.title.replace("WG:", "").trim()
             noteInInbox.notebookGuid = mailNotebook.getSharedNotebook().notebookGuid
@@ -74,6 +76,7 @@ class DeamonCreamWorker {
                 String[] mailAdresses = []
                 if (strings.length > 1) {
                     mailAdresses = strings[1].split(",")
+
                     log.debug("found mailAddresses to link to: " + mailAdresses)
                 } else {
                     log.debug("found NO mailAddresses to link to.")
@@ -91,7 +94,8 @@ class DeamonCreamWorker {
                     String evernoteLink = inboxNotebook.getInternalLinkTo(noteInInbox, linkName + ", mail: " + mailAddr)
                     List<Note> listOfNotes = SyncHandler.get().allNotes
                     listOfNotes.forEach { localNote ->
-                        if (localNote.content.contains(mailAddr) || localNote.content.contains(mailAddr.toLowerCase())) {
+                        //if (localNote.content.contains(mailAddr) || localNote.content.contains(mailAddr.toLowerCase())) {
+                        if (StringUtils.containsIgnoreCase(localNote.content, mailAddr)) {
                             log.debug("going to link to this note: " + localNote.title)
                             treffer = true
                             localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
@@ -106,6 +110,9 @@ class DeamonCreamWorker {
                     def user = AbstractConfiguration.config.users.find() {
                         it.shortName == shortName
                     }
+                    if (!user) {
+                        log.error("FUCK: users == null")
+                    }
                     def mail = user.email
                     noteInInbox.title = "(NICHT ZUORDENBAR)   " + noteInInbox.title
                     mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
@@ -118,6 +125,8 @@ class DeamonCreamWorker {
                    log.info("Neue Adresse - informiere Anna. " + noteInInbox.getTitle())
                     new ReadAndForwardExchangeMails().sentMailTo("anna@v-und-s.de", "(ADRESSE_NEU) in C__MAILS_DOCS :-)", noteInInbox.getTitle())
                 }
+
+                //def hitNotes = findNotesContaining()
 
                 /*
 
@@ -200,6 +209,20 @@ class DeamonCreamWorker {
                 // 3. erzeuge eine adresse im gesharten exchange adressbook ???
 
         }
+    }
+
+    List<Note> findNotesContaining(List<String> stringsToSearchFor) {
+        def result = []
+        List<Note> listOfNotes = SyncHandler.get().allNotes
+        listOfNotes.forEach { localNote ->
+            stringsToSearchFor.forEach { searchString ->
+                if (localNote.content.contains(searchString)) {
+                    result << localNote
+                }
+            }
+        }
+        results
+
     }
 
     static def overview() {

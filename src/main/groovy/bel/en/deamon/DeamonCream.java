@@ -4,6 +4,7 @@ import bel.en.Entry;
 import bel.en.data.AbstractConfiguration;
 import bel.en.evernote.ENAuth;
 import bel.en.evernote.ENConnection;
+import bel.en.evernote.ENNameGuidCache;
 import bel.en.evernote.ENSharedNotebook;
 import bel.util.Util;
 import com.evernote.edam.error.EDAMErrorCode;
@@ -17,6 +18,7 @@ import lombok.val;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -232,7 +234,22 @@ public class DeamonCream implements Runnable {
      * @throws Exception
      */
     private List<Note> getLockNote() throws Exception {
-        return enSharedConfigNotebook.findNotes("intitle:[" + Entry.CREAM_DEAMON_LOCK_STR + "]");
+        String cachedGuid = ENNameGuidCache.getGuid(Entry.CREAM_DEAMON_LOCK_STR);
+        Note cached = null;
+        if(cachedGuid != null) {
+            cached = enSharedConfigNotebook.getSharedNoteStore().getNote(enSharedConfigNotebook.getSharedAuthToken(), cachedGuid, true, false, false, false);
+        }
+        if(cached == null) {
+            List<Note> notes = enSharedConfigNotebook.findNotes("intitle:[" + Entry.CREAM_DEAMON_LOCK_STR + "]");
+            if(notes.size()>0) {
+                ENNameGuidCache.setGuid(Entry.CREAM_DEAMON_LOCK_STR, notes.get(0).getGuid());
+            }
+            return notes;
+        } else {
+            List<Note> notes = new ArrayList<>();
+            notes.add(cached);
+            return notes;
+        }
     }
 
     /**

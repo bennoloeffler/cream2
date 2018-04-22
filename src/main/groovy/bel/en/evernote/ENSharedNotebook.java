@@ -44,6 +44,14 @@ public class ENSharedNotebook {
         //singleton = this;
     }
 
+    /*
+    public ENSharedNotebook(ENConnection connection, String shareName, String guid) throws Exception {
+        this.connection = connection;
+        if(guid == null) {
+        connectSharedNotebook(shareName, guid);
+        //singleton = this;
+    }*/
+
     public LinkedNotebook getLinkToSharedNotebook() {
         return linkToSharedNotebook;
     }
@@ -72,6 +80,8 @@ public class ENSharedNotebook {
             throw new Exception("there is no connection to evernote");
         }
         linkedNotebooks = connection.getNoteStoreClient().listLinkedNotebooks();
+
+        //linkedNotebooks = connection.getNoteStoreClient().getNotebook();
 
         for (LinkedNotebook lnb : linkedNotebooks) {
             if (shareName.equals(lnb.getShareName())) {
