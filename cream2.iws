@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="208161b3-fe61-4b49-a843-ccd65de2fac4" name="Default" comment="removed bug in OverviewCreator. If not changed - but deleted on evernote, it will be recreated">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENNameGuidCache.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/4.0/fileContent/fileContent.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" />
@@ -10,13 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cream2.iws" afterPath="$PROJECT_DIR$/cream2.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/deamon/DeamonCream.java" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/deamon/DeamonCream.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebook.java" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -206,7 +198,7 @@
       <file leaf-file-name="DeamonCreamWorker.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-578">
               <caret line="114" column="21" lean-forward="false" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
               <folding>
                 <element signature="e#27#48#0" expanded="true" />
@@ -310,6 +302,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="bennoloeffler &lt;benno.loeffler@gmx.de&gt;" />
         <option value="BEL" />
       </list>
     </option>
@@ -1355,7 +1348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511432407724</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="BUG: forgot RE: FW: (AW: WG:) &#10;GuidCache to avoid searching notebooks by name. But not yet used widely.">
+      <created>1524411314186</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524411314186</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1480,7 +1480,8 @@
     <MESSAGE value="nothing..." />
     <MESSAGE value="removed bug in OverviewCreator. If not changed - but deleted on evernote, it will be recreated" />
     <MESSAGE value="removed bug RE: FW:&#10;added GuidCache - but not yet used widely" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed bug RE: FW:&#10;added GuidCache - but not yet used widely" />
+    <MESSAGE value="BUG: forgot RE: FW: (AW: WG:) &#10;GuidCache to avoid searching notebooks by name. But not yet used widely." />
+    <option name="LAST_COMMIT_MESSAGE" value="BUG: forgot RE: FW: (AW: WG:) &#10;GuidCache to avoid searching notebooks by name. But not yet used widely." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1873,7 +1874,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="-578">
           <caret line="114" column="21" lean-forward="false" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
           <folding>
             <element signature="e#27#48#0" expanded="true" />
