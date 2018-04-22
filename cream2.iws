@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="208161b3-fe61-4b49-a843-ccd65de2fac4" name="Default" comment="removed bug in OverviewCreator. If not changed - but deleted on evernote, it will be recreated">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cream2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cream2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cream2.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/cream2.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cream2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/cream2.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cream2_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cream2_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cream2_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cream2_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" afterDir="false" />
-    </list>
+    <list default="true" id="208161b3-fe61-4b49-a843-ccd65de2fac4" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -176,8 +167,8 @@
       <file leaf-file-name="OverviewCreator.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+            <state relative-caret-position="251">
+              <caret line="360" column="14" lean-forward="true" selection-start-line="360" selection-start-column="14" selection-end-line="360" selection-end-column="14" />
               <folding>
                 <element signature="e#27#77#0" expanded="true" />
               </folding>
@@ -269,6 +260,11 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="bennoloeffler &lt;benno.loeffler@gmx.de&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -1217,7 +1213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510522223148</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="strange import bug...">
+      <created>1524424041336</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1524424041336</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1263,13 +1266,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.46282652" weight="0.36459708" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="11" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.45296866" side_tool="true" visible="true" weight="0.13240418" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5376918" side_tool="true" visible="true" weight="0.36353078" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49497655" weight="0.2734478" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -1277,7 +1282,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114743166" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.54703134" visible="true" weight="0.13240418" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.54703134" weight="0.13240418" />
       <window_info anchor="right" id="Gradle" order="8" sideWeight="0.49272728" weight="0.45978552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24865952" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24983256" />
@@ -1294,7 +1299,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
       <window_info id="DB Browser" order="5" weight="0.3297587" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33817703" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.46282652" visible="true" weight="0.36459708" />
       <window_info anchor="right" id="Dynamic Properties" order="6" weight="0.3297587" />
       <window_info anchor="right" id="Palette " order="7" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
@@ -1341,9 +1345,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="nothing..." />
     <MESSAGE value="removed bug in OverviewCreator. If not changed - but deleted on evernote, it will be recreated" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed bug in OverviewCreator. If not changed - but deleted on evernote, it will be recreated" />
+    <MESSAGE value="strange import bug..." />
+    <option name="LAST_COMMIT_MESSAGE" value="strange import bug..." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1659,8 +1666,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="251">
+          <caret line="360" column="14" lean-forward="true" selection-start-line="360" selection-start-column="14" selection-end-line="360" selection-end-column="14" />
           <folding>
             <element signature="e#27#77#0" expanded="true" />
           </folding>
