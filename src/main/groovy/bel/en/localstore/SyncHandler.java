@@ -740,7 +740,8 @@ public class SyncHandler {
             if (sharedNotebook != null) {
                 sharedNotebook.loadNoteRessources(note);
             } else {
-                throw new RuntimeException("no shared Notebook...???");
+                //sharedNotebook = ENConnection.get().getNoteStoreClient().getNotebook(note.getNotebookGuid());
+                //throw new RuntimeException("no shared Notebook...???");
             }
         } else {
             log.warn("could not load resource for note - no connection...");

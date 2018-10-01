@@ -376,7 +376,6 @@ public class UebersichtAllUsers {
                 + "<div>anderes Beispiel: ANL: BEL: 1.10.17 REDEN 7P an GF schicken</div>"
                 + "<div>Das kann man so lesen: BEL: bittet ANL: erst mit ihm zu reden und dann eine 7P-Broschüre an die GF zu schicken. Und zwar bis zum 1.10.17 </div>"
                 + "<div>Wenn die Aufgabe erledigt ist, hakt Anna das TODO ab. Dann wird es auch aus der Liste bei BEL verschwinden.</div>"
-                + "<div><b><br/>REDEN</b></div>"
                 + "<div><b><br/>*HOT und *ANGEBOT</b></div>"
                 + "<div>Wenn am Anfang der Zeile *HOT oder *ANGEBOT steht, dann erscheint ein Eintrag in der HOT_und_ANGEBOTE_UEBERSICHT</div>"
                 + "<div>Beispiel:</div>"

@@ -4,6 +4,8 @@ import bel.cream2.deamon.DeamonCreamWorker;
 import bel.en.data.AbstractConfiguration;
 import bel.en.data.CreamUserData;
 import bel.en.evernote.ENConfiguration;
+import bel.en.evernote.ENHelper;
+import bel.util.HtmlToPlainText;
 import bel.util.Util;
 import lombok.extern.log4j.Log4j2;
 import microsoft.exchange.webservices.data.core.ExchangeService;
@@ -107,7 +109,10 @@ public class ReadAndForwardExchangeMails {
                 recipients.add(subjectLinkMail);
             }
 
-            String mailInMailBody = Util.extractEmailLinkTo(m.getBody().toString());
+            String mailInMailBody = Util.extractEmail(m.getBody().toString()); // maybe very first element
+            if(mailInMailBody == null) {
+                mailInMailBody = Util.extractEmailLinkTo(m.getBody().toString()); // otherwise, check for l: in the text
+            }
             if(mailInMailBody != null) {
                 recipients.add(mailInMailBody);
             }
@@ -124,6 +129,9 @@ public class ReadAndForwardExchangeMails {
             } else if(m.getSubject().startsWith("*a") || m.getSubject().startsWith("*A")) {
                 log.debug("RECOGNIZED: adresse");
                 forwardToAdresses(m);
+            } else if(m.getSubject().startsWith("*n") || m.getSubject().startsWith("*N")) {
+                log.debug("RECOGNIZED: new Contact");
+                newContact(m);
             } else if(m.getSubject().startsWith("*ü") || m.getSubject().startsWith("*Ü") ||
                     m.getSubject().startsWith("*o") || m.getSubject().startsWith("*O")) {
                 log.debug("RECOGNIZED: overview");
@@ -195,8 +203,58 @@ public class ReadAndForwardExchangeMails {
         s = "(ADRESSE_NEU)  " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
         m.setSubject(s);
         m.update(ConflictResolutionMode.AlwaysOverwrite);
+        //m.setSender();
+        //m.set();
         m.forward(null, new EmailAddress(emailEvernote));
     }
+
+    private void newContact(EmailMessage m) throws Exception {
+        //String s = "(KONTAKT_NEU) "+m.getSender()+" @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
+        //m.setSubject(s);
+        //m.update(ConflictResolutionMode.AlwaysOverwrite);
+        //m.forward(null, new EmailAddress(emailEvernote));
+
+        //----
+
+        // remove AW: and WE: from the very beginning of the mail
+        // find CREAM user (eg BEL) from FROM
+        // put BEL: Date at the very beginning of newSubject
+        String mailFrom = m.getFrom().getAddress();
+        log.debug("mail to forward comes from: '" + mailFrom+"'");
+        String shortName = AbstractConfiguration.getConfig().getShortName(mailFrom);
+        if(shortName == null) {
+            shortName = "From: " + mailFrom;
+            log.debug("NO cream user, but from somebody else: " + shortName);
+        } else {
+            log.debug("resolved cream user: " + shortName);
+        }
+
+        String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+
+        String newSubject = "(NEU_KONTAKT) " + shortName + " " + date;
+
+        newSubject += "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
+        //System.out.println("old subject: " + oldSubject);
+        //System.out.println("new subject: " + newSubject);
+        //System.out.println("---");
+        m.setSubject(newSubject);
+        MessageBody body = m.getBody();
+        //System.out.println(body.toString());
+        String plainText = body.toString();
+        if(body.getBodyType() == BodyType.HTML) {
+            plainText = HtmlToPlainText.convert(body.toString());
+            body.setBodyType(BodyType.Text);
+        }
+
+        body.setText("START_KONTAKT\n"+plainText+"\nENDE_KONTAKT\n");
+
+        //System.out.println(body.toString());
+        m.update(ConflictResolutionMode.AlwaysOverwrite);
+        m.forward(null, new EmailAddress(emailEvernote));
+
+    }
+
+
 
     private void sendHelp(EmailMessage m, String errorMessage) throws Exception{
         m.setSubject(errorMessage);

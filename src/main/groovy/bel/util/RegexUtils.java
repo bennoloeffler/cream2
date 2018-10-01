@@ -48,7 +48,15 @@ public class RegexUtils {
         }
     }
 
-    private static final String mobilePrefixes = "(1525|171|162|163|178|179|160|170|151|173)";
+    /*
+    Netzbetreiber	Handyvorwahlen
+    Deutsche Telekom	01511 01512 01514 01515 01516 01517 0160 0170 0171 0175
+    Vodafone	01520 01522 01523 01525 0162 0172 0173 0174
+    E-Plus	01570 (Telogic) 01573 01575 01577 01578 0163 0177 0178
+    O2	01590 0176 0179
+    */
+    private static final String mobilePrefixes = "(1511|1512|1514|1515|1516|1517|160|170|171|175|1520|1522|1523|1525|162|172|173|174|1570|1573|1575|1577|1578|163|177|178|1590|176|179)";
+    // orig private static final String mobilePrefixes = "(1525|171|162|163|178|179|160|170|151|173|176)";
 
     private static String getPhoneRegex(String prefixes) {
         return"(0049\\s?|\\+\\s?49\\s?|0|\\(0)\\(?\\s?\\.?(\\(0\\))?\\s?0?"+prefixes+"\\)?[-–\\.\\s\\/]{0,3}[-–\\d ]{5,12}[\\d]";

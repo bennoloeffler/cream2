@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,13 +61,14 @@ public class AdressMagic {
     //
     // working data
     //
-    private final String[] titles = {"Dr.-Ing. ", "Dr. ", "Prof. ", "Dipl.-Wirtsch.-Ing. ", "Dipl.-"}; // https://de.wikipedia.org/wiki/Liste_akademischer_Grade_(Deutschland)
-    private final String[] departments = {"Vertrieb", "Konstruktion", "Software", "Entwicklung", "Innovation", "Logistik", "Materialwirtschaft", "Projektleiter", "Projektmanagement", "Einkauf", "Personal", "Produktion", "Geschäftsführer", "Leiter", "Teamleiter", "Gruppenleiter", "Head of"};
+
+    private final String[] titles = {"Dr.-Ing. ", "Dr. ", "Prof. ", "Dipl.-Wirtsch.-Ing. ", "Dipl.-Wi.-Ing. ", "Dipl.-Wirt.-Ing. ", "B.A. ", "BBA ", "B.Sc. ", "LL.B. ", "B.Ed. ", "B.Eng. ", "B.F.A. ", "B.Mus. ", "B.M.A ", "M.A. ", "M.Sc. ", "M.Eng. ", "LL.M. ", "M.F.A. ", "M.Mus. ", "M.Ed. "}; // https://de.wikipedia.org/wiki/Liste_akademischer_Grade_(Deutschland)
+    private final String[] departments = {"CEO", "CTO", "Vertrieb", "Konstruktion", "Software", "Entwicklung", "Innovation", "Logistik", "Materialwirtschaft", "Projektleiter", "Projektmanagement", "Einkauf", "Personal", "Produktion", "Geschäftsführer", "Leiter", "Teamleiter", "Gruppenleiter", "Head of", "Geschäftsführ", "Geschäftsleit"};
     private final String[] rechtsformen = {" GmbH", " AG", " GbR"};
 
     List<String> lines; // put the ext to lines
 
-    ArrayList<String> allMails;
+    List<String> allMails;
     ArrayList<String> allMobiles;
     ArrayList<String> allPhoneFax;
 
@@ -92,6 +94,7 @@ public class AdressMagic {
         for (String mailLine : mailLines) {
             allMails.addAll(RegexUtils.findEmailAdress(mailLine));
         }
+        allMails = allMails.stream().distinct().collect(Collectors.toList());
 
 
         //

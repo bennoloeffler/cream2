@@ -52,7 +52,7 @@ public class ENSharedNotebookGroup {
                 return n;
             }
         }
-        log.error("NOTEBOOK NOT FOUND! " + notebookGuid);
+        log.debug("NOTEBOOK NOT FOUND! " + notebookGuid);
         return null; // not found...
     }
 

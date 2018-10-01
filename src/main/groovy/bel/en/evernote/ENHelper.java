@@ -859,7 +859,7 @@ public class ENHelper {
                 //todoEndStr="</en-todo>";
             }
 
-            content = split[0] + "<en-note> <div>" +todoStartStr + entry + todoEndStr+ "</div>"+split[1];
+            content = split[0] + "<en-note><div><br/></div><div>" +todoStartStr + entry + todoEndStr+ "</div>"+split[1];
         }
         n.setContent(content);
     }

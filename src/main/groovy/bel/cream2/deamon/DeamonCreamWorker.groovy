@@ -6,6 +6,7 @@ import bel.en.email.ReadAndForwardExchangeMails
 import bel.en.evernote.*
 import bel.en.localstore.NoteStoreLocal
 import bel.en.localstore.SyncHandler
+import bel.util.AdressMagic
 import bel.util.Util
 import com.evernote.auth.EvernoteService
 import com.evernote.edam.error.EDAMErrorCode
@@ -16,6 +17,9 @@ import groovy.util.logging.Log4j2
 import microsoft.exchange.webservices.data.core.exception.service.remote.ServiceRequestException
 import org.apache.commons.lang3.StringUtils
 import org.codehaus.groovy.runtime.StackTraceUtils
+
+import java.text.SimpleDateFormat
+
 /**
  * This is used by syncer, when CREAM is in Deamon-Mode.
  * Method 'doIt' is called from within the background sync thread.
@@ -105,7 +109,7 @@ class DeamonCreamWorker {
                         }
                     }
                 }
-                if(!treffer) {
+                if (!treffer) {
                     def shortName = noteInInbox.title[0..2]
                     def user = AbstractConfiguration.config.users.find() {
                         it.shortName == shortName
@@ -116,9 +120,75 @@ class DeamonCreamWorker {
                     def mail = user.email
                     noteInInbox.title = "(NICHT ZUORDENBAR)   " + noteInInbox.title
                     mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
-                    log.warn("Konnte Ablage von $mail nicht zuorden." +  noteInInbox.getTitle())
+                    log.warn("Konnte Ablage von $mail nicht zuorden." + noteInInbox.getTitle())
                     new ReadAndForwardExchangeMails().sentMailTo(mail, "Konnte mail nicht zuordnen...", noteInInbox.getTitle())
                 }
+            } else if (noteInInbox.title.contains("(NEU_KONTAKT)")) { // try to create a new entry...
+                inboxNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
+                def raw = ENHelper.getRawText(noteInInbox)
+                String[] split = raw.split("(START_KONTAKT|ENDE_KONTAKT)")
+                raw = split[1]
+                def am = new AdressMagic(raw)
+                def adr = null
+                def newHeadline = null
+                am.with {
+                    newHeadline = getChristianNames() + " " + getSurName() + " (" + getCompany() + ")"
+                    adr = """<div><br/></div>
+                                 <div><b>${ENHelper.escapeHTML(christianNames + " " + surName)}</b></div>
+                                 <div>${ENHelper.escapeHTML(functionDepartment)}</div>   
+                                 <div>${ENHelper.escapeHTML(mobile)}</div>   
+                                 <div>${ENHelper.escapeHTML(phone)}</div>   
+                                 <div>${ENHelper.escapeHTML(email)}</div>   
+                                 <div>${ENHelper.escapeHTML(streetAndNr)}</div>   
+                                 <div>${ENHelper.escapeHTML(zipCode + " " + town)}</div>   
+                                 <div>${ENHelper.escapeHTML(company)}</div>   
+                              """
+                }
+
+                def newBody = ENHelper.createNoteFromEmailText(adr)
+                def shortName = noteInInbox.title[14..16]
+                //def shortName = AbstractConfiguration.getConfig().getShortName(sender)
+
+                Note n = new Note()
+                n.title = newHeadline
+                n.content = newBody
+                n.notebookGuid = defaultNotebook.getSharedNotebook().notebookGuid
+                def newNote = defaultNotebook.createNote(n) // get guid
+                n.guid = newNote.guid
+                // n.getContent??
+
+
+                /*
+                try {
+                    // TODO: ??? x or n
+                    Note x = defaultNotebook.updateNote(n)
+                    SyncHandler.get().updateNote(n) // to avoid conflicts with dirty note or wrong updateCounter
+                } catch (Exception e) {
+                    e.printStackTrace()
+                    throw new RuntimeException("save to Evernote failed: " + e)
+                }*/
+
+                // finally move the original to docs in case it needs to be fixed manually
+                noteInInbox.title = noteInInbox.title.replace("NEU_KONTAKT", "Kontaktdaten, original")
+                noteInInbox.title = noteInInbox.title.replace("RE:", "")
+                noteInInbox.title = noteInInbox.title.replace("FW:", "")
+                noteInInbox.title = noteInInbox.title.replace("AW:", "")
+                noteInInbox.title = noteInInbox.title.replace("WG:", "").trim()
+                noteInInbox.title += (" " + am.email)
+                noteInInbox.notebookGuid = mailNotebook.getSharedNotebook().notebookGuid
+                mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
+
+                // create a link to the new one, that points to the original and a todo to check new entry
+                //String evernoteLink = inboxNotebook.getInternalLinkTo(noteInInbox, linkName + ", mail: " + mailAddr)
+                String evernoteLink = mailNotebook.getInternalLinkTo(noteInInbox, "Original-Adressdaten für " + am.email)
+
+                // n.getContent??
+                ENHelper.addHistoryEntry(n, evernoteLink)
+                String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
+                ENHelper.addTodoEntry(n, "$shortName: $date NEUEN KONTAKT PRÜFEN")
+                SyncHandler.get().updateNoteImmediately(n)
+
+
             } else if (noteInInbox.title.contains("(ADRESSE_NEU)")) {
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
                 if (!testMode) {
