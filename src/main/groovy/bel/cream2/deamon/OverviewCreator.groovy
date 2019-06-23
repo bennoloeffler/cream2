@@ -110,6 +110,9 @@ class OverviewCreator {
                 hotLeads.addAll(angebote)
                 // CHANGE
                 enSharedNotebook = SyncHandler.get().getNotebook(n)
+                if(enSharedNotebook == null) {
+                    println(n)
+                }
                 assert enSharedNotebook != null
                 String link = enSharedNotebook.getInternalLinkTo(n)
 
@@ -458,6 +461,8 @@ class OverviewCreator {
         "<div>Beispiel:</div>"+
         "<div>*HOT FAS: 30% EUR 50.000 1.9.2018 Vorstand Grebisz hat angebissen - aber derzeit viele Baustellen</div>"+
         "<div>Das bedeutet: FAS schätzt eine Chance von 30% das was kommt. Und zwar in der Region von 50.000 EUR. Die Schätzung ist vom 1.1.2019.</div>"+
+        "<div><br/><br/><b>MAIL-KOMMANDOS:</b> also dies Kommandos an crm@v-und-s.de schicken...<br/></div>" +
+        "<div>"+ ReadAndForwardExchangeMails.mailHelpHtml + "</div>" +
         "<div><br/><br/><b>KNOWN BUGS:</b> Wenn das Programm mit EDAMMalformedException abstürzt, dann liegt das daran, dass 'malformed html-Tags' drin sind. Lösung: TODOs als Text formatieren in der PublicBath-App :-(<br/>Seltsam: Kaufmanns-Und und Umlaute in todo-Texten kommen in ENML 'im Klartext' und nicht als HTML-Sonderzeichen. Das könnte ein Problem werden.</div>"
 
     }

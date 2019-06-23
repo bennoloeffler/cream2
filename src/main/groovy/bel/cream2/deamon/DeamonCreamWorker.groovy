@@ -2,6 +2,7 @@ package bel.cream2.deamon
 
 import bel.en.MainGUI
 import bel.en.data.AbstractConfiguration
+import bel.en.data.Configuration
 import bel.en.email.ReadAndForwardExchangeMails
 import bel.en.evernote.*
 import bel.en.localstore.NoteStoreLocal
@@ -12,6 +13,7 @@ import com.evernote.auth.EvernoteService
 import com.evernote.edam.error.EDAMErrorCode
 import com.evernote.edam.error.EDAMSystemException
 import com.evernote.edam.type.Note
+import com.evernote.edam.type.Notebook
 import com.evernote.thrift.transport.TTransportException
 import groovy.util.logging.Log4j2
 import microsoft.exchange.webservices.data.core.exception.service.remote.ServiceRequestException
@@ -128,13 +130,17 @@ class DeamonCreamWorker {
                 def raw = ENHelper.getRawText(noteInInbox)
                 String[] split = raw.split("(START_KONTAKT|ENDE_KONTAKT)")
                 raw = split[1]
+                //def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+                def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+                def matcher = raw =~ regexTODO
+
                 def am = new AdressMagic(raw)
                 def adr = null
                 def newHeadline = null
                 am.with {
-                    newHeadline = getChristianNames() + " " + getSurName() + " (" + getCompany() + ")"
+                    newHeadline = "$titleInName$christianNames $surName ($company)"
                     adr = """<div><br/></div>
-                                 <div><b>${ENHelper.escapeHTML(christianNames + " " + surName)}</b></div>
+                                 <div><b>${ENHelper.escapeHTML(titleInName + christianNames + " " + surName)}</b></div>
                                  <div>${ENHelper.escapeHTML(functionDepartment)}</div>   
                                  <div>${ENHelper.escapeHTML(mobile)}</div>   
                                  <div>${ENHelper.escapeHTML(phone)}</div>   
@@ -144,29 +150,21 @@ class DeamonCreamWorker {
                                  <div>${ENHelper.escapeHTML(company)}</div>   
                               """
                 }
+                //println(adr)
 
                 def newBody = ENHelper.createNoteFromEmailText(adr)
+                //println()
+                //println()
+                //println(newBody)
                 def shortName = noteInInbox.title[14..16]
                 //def shortName = AbstractConfiguration.getConfig().getShortName(sender)
 
                 Note n = new Note()
-                n.title = newHeadline
+                n.title = newHeadline.trim()
                 n.content = newBody
                 n.notebookGuid = defaultNotebook.getSharedNotebook().notebookGuid
                 def newNote = defaultNotebook.createNote(n) // get guid
                 n.guid = newNote.guid
-                // n.getContent??
-
-
-                /*
-                try {
-                    // TODO: ??? x or n
-                    Note x = defaultNotebook.updateNote(n)
-                    SyncHandler.get().updateNote(n) // to avoid conflicts with dirty note or wrong updateCounter
-                } catch (Exception e) {
-                    e.printStackTrace()
-                    throw new RuntimeException("save to Evernote failed: " + e)
-                }*/
 
                 // finally move the original to docs in case it needs to be fixed manually
                 noteInInbox.title = noteInInbox.title.replace("NEU_KONTAKT", "Kontaktdaten, original")
@@ -184,9 +182,34 @@ class DeamonCreamWorker {
 
                 // n.getContent??
                 ENHelper.addHistoryEntry(n, evernoteLink)
+
+                (0..<matcher.count).each {
+                    String todoStr = matcher[it][0]
+                    todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
+                    ENHelper.addTodoEntry(n, todoStr)
+                }
+
                 String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
                 ENHelper.addTodoEntry(n, "$shortName: $date NEUEN KONTAKT PRÜFEN")
+                //SyncHandler.get().updateNoteImmediately(n)
+
+                // finally, create a Link in case there is a duplicate hit for the email
+
+                List<Note> listOfNotes = SyncHandler.get().allNotes
+                //Configuration config = AbstractConfiguration.getConfig()
+                listOfNotes.forEach { localNote ->
+                    if (am.allMails.size() > 0 && StringUtils.containsIgnoreCase(localNote.content, am.allMails[0])) {
+                        ENSharedNotebook notebook = SyncHandler.get().getNotebook(localNote)
+                        evernoteLink = notebook.getInternalLinkTo(localNote, "vermutlich Doublette... andere, alte Notiz mit mail: $am.email")
+                        log.debug("going to create doublette link to: " + localNote.title)
+                        //localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
+                        ENHelper.addHistoryEntry(n, evernoteLink)
+                        // save directly - before sync...
+                        //SyncHandler.get().updateNoteImmediately(localNote)
+                    }
+                }
                 SyncHandler.get().updateNoteImmediately(n)
+
 
 
             } else if (noteInInbox.title.contains("(ADRESSE_NEU)")) {
@@ -342,13 +365,14 @@ class DeamonCreamWorker {
         } else {
             ENConfiguration.CONFIG_TITLE_STRING = "CREAM_CONFIG_NOTE"
         }
-        Properties p = new Properties()
-        p.put("EVERNOTE_TOKEN", "S=s226:U=1abbe88:E=16638febe56:C=15ee14d8eb0:P=185:A=bennoloeffler-2708:V=2:H=011111aace1129aef72815a0bce6a4dd")
+        MainGUI.loadProperties()
+        //MainGUI.properties.put("EVERNOTE_TOKEN", "S=s226:U=1abbe88:E=16638febe56:C=15ee14d8eb0:P=185:A=bennoloeffler-2708:V=2:H=011111aace1129aef72815a0bce6a4dd")
+        //p.put("EVERNOTE_TOKEN", "S=s226:U=1abbe88:E=16d9204d825:C=1663a53abf0:P=1cd:A=en-devtoken:V=2:H=1bf6fff4a0898dbb4a6bcb39567ead44")
 
         def connected
         while(!connected) {
             try {
-                ENAuth a = ENAuth.get(p, EvernoteService.PRODUCTION)
+                ENAuth a = ENAuth.get(MainGUI.properties, EvernoteService.PRODUCTION)
                 if(a.connectToEvernote()) {
                     ENSharedNotebook c__config = new ENSharedNotebook(ENConnection.get(), "C__CONFIG")
                     new ENConfiguration(c__config, ENConnection.get())
@@ -359,13 +383,16 @@ class DeamonCreamWorker {
                 sleep(1000 * 60 * 2)
             }
         }
+        MainGUI.saveProperties()
     }
 
 
     static void main(String[] args) {
+        //testSomeThings()
+        //System.exit(0)
 
         try {
-            println("starting CREAM deamon (abos, crm@v-und-s.de and todo-lists)")
+            println("starting CREAM deamon (crm@v-und-s.de and todo-lists)")
 
             if (args.length >= 1) {
                 if (args[0].equals("-testmode")) {
@@ -481,5 +508,89 @@ class DeamonCreamWorker {
             }
         }
         return false
+    }
+
+     static void testSomeThings() {
+        String raw = """
+
+
+
+
+Dipl.-Wirtsch.-Ing. (FH)
+
+
+
+Timo Seggelmann
+
+
+
+Managing Director
+
+
+
++49 541 999646-0
+
+
+
+t.seggelmann@salt-and-pepper.eu LINK:<mailto:t.seggelmann@salt-and-pepper.eu>
+
+
+
++49 152 09489209
+
+
+
+www.salt-and-pepper.eu
+
+
+
+SALTANDPEPPER Software GmbH & Co. KG
+
+
+
+Kaffee-Partner-Allee 5
+
+
+
+49090 0snabrück
+
+
+
+
+
+
+
+
+
+todo: BEL nach WS Beratungsprojekt
+
+{HIER war in Evernote ein BILD}
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+
+         def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+         //def regexTODO = /todo/
+         def matcher = raw =~ regexTODO
+         //println matcher.count
+         //println matcher[0]
+        (0..<matcher.count).each {
+            def match = matcher[it][0]
+            String todoStr = match.toString()
+            todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
+            println todoStr
+            //ENHelper.addTodoEntry(n, todoStr)
+        }
+
     }
 }

@@ -4,6 +4,7 @@ import bel.en.deamon.DeamonCream;
 import bel.en.evernote.ENAuth;
 import bel.en.gui.StructureNoteFormNew;
 import bel.en.localstore.NoteStoreLocal;
+import bel.util.Util;
 import com.evernote.auth.EvernoteService;
 import com.jgoodies.looks.Options;
 import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
@@ -41,8 +42,6 @@ public class MainGUI {
     // local properties
     //
 
-    private static String PROPERTY_FILE = NoteStoreLocal.NOTE_STORE_BASE + "\\cream_user.properties";
-
     private static StructureNoteFormNew structureNoteFormNew;
 
     @Getter
@@ -50,6 +49,9 @@ public class MainGUI {
 
     //@Getter
     //private static boolean deamon;
+
+    private static String PROPERTY_FILE = NoteStoreLocal.NOTE_STORE_BASE + "\\cream_user.properties";
+
 
     public static void main(String[] args) throws Exception {
 
@@ -113,28 +115,6 @@ public class MainGUI {
 
     }
 
-    public static void loadProperties() {
-        try {
-            File props = new File(PROPERTY_FILE);
-            if(!props.exists()) props.createNewFile();
-            InputStream is = new FileInputStream(PROPERTY_FILE);
-            properties.load(is);
-            is.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void saveProperties() {
-        try {
-            FileOutputStream out = new FileOutputStream(PROPERTY_FILE);
-            properties.store(out, "");
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * use jGoodies. Looks best :-)
      * @throws javax.swing.UnsupportedLookAndFeelException
@@ -176,4 +156,28 @@ public class MainGUI {
         UIManager.setLookAndFeel(laf);
 
     }
+
+    public static void loadProperties() {
+        try {
+            File props = new File(PROPERTY_FILE);
+            if(!props.exists()) props.createNewFile();
+            InputStream is = new FileInputStream(PROPERTY_FILE);
+            MainGUI.properties.load(is);
+            is.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveProperties() {
+        try {
+            FileOutputStream out = new FileOutputStream(PROPERTY_FILE);
+            MainGUI.properties.store(out, "");
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

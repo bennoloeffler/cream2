@@ -18,11 +18,11 @@ public class MainInternational {
 
         // for locales, without a fitting MessangeBundle, it deliveres the default locale. Eg in Germany de_DE
         InternationalisationDelegate.setLocale(new Locale("fr", "FR"));
-        System.out.println(tr("test"));
+        System.out.println(tr("bel/learn/_37_gpars_groovy_concurrency/test"));
 
         InternationalisationDelegate.setLocale(new Locale("de", "DE"));
-        System.out.println(tr("test"));
+        System.out.println(tr("bel/learn/_37_gpars_groovy_concurrency/test"));
 
         InternationalisationDelegate.setLocale(new Locale("en", "US"));
-        System.out.println(tr("test"));    }
+        System.out.println(tr("bel/learn/_37_gpars_groovy_concurrency/test"));    }
 }

@@ -41,6 +41,10 @@ public class AdressMagic {
 
     String mrMrs = ""; // no magic yet
     String title = "";
+    /**
+     * if Dr. or Prof. it is set to that with an railing space
+     */
+    String titleInName = "";
     String christianNames = "";
     String surName = "";
     String mobile = "";
@@ -297,6 +301,12 @@ public class AdressMagic {
             }
         }
         title = title.trim();
+        if(title.startsWith("Dr.")){
+            titleInName = "Dr. ";
+        }
+        if(title.startsWith("Prof.")){
+            titleInName = "Prof. ";
+        }
 
         String[] split = remainingLine.split(" ");
         if (split.length == 0) {

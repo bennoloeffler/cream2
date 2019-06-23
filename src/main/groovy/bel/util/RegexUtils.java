@@ -55,7 +55,7 @@ public class RegexUtils {
     E-Plus	01570 (Telogic) 01573 01575 01577 01578 0163 0177 0178
     O2	01590 0176 0179
     */
-    private static final String mobilePrefixes = "(1511|1512|1514|1515|1516|1517|160|170|171|175|1520|1522|1523|1525|162|172|173|174|1570|1573|1575|1577|1578|163|177|178|1590|176|179)";
+    private static final String mobilePrefixes = "(1511|151 1|1512|151 2|1514|151 4|1515|151 5|1516|151 6|1517|151 7|160|170|171|175|1520|152 0|1522|152 2|1523|152 3|1525|152 5|162|172|173|174|1570|157 0|1573|157 3|1575|157 5|1577|157 7|1578|157 8|163|177|178|1590|159 0|176|179)";
     // orig private static final String mobilePrefixes = "(1525|171|162|163|178|179|160|170|151|173|176)";
 
     private static String getPhoneRegex(String prefixes) {
@@ -81,5 +81,10 @@ public class RegexUtils {
     public static List<String> findZipAndTown(String text) {
         String regex = "\\d{5}\\s[- öÖäÄüÜßa-zA-Z]*";
         return findWithRegex(text, regex, 0);
+    }
+
+    public static void main(String[] args) {
+        List zipTown = findZipAndTown("49090 Osnabrück");
+        System.out.println(zipTown.get(0));
     }
 }

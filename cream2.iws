@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="208161b3-fe61-4b49-a843-ccd65de2fac4" name="Default" comment="">
+    <list default="true" id="208161b3-fe61-4b49-a843-ccd65de2fac4" name="Default" comment="strange import bug...">
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Channels.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/CollectionParallel.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/DataFlowVariables.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Pipeline.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Select.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/a.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/b.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/c.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/d.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/e.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/f.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.0/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cream2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cream2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cream2.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/cream2.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cream2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/cream2.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cream2_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cream2_main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cream2_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cream2_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/UebersichtAllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/UebersichtAllUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/MainGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/gui/EnmlForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/gui/EnmlForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/learn/_25_interantionalisation/MainInternational.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/learn/_25_interantionalisation/MainInternational.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/util/AdressMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/util/AdressMagic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/bel/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/bel/util/Util.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path=".gradle/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,79 +139,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreamDeamonStarter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/CreamDeamonStarter.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="327">
+              <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Channels.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Channels.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pipeline.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Pipeline.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="67" column="16" lean-forward="true" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
               <folding>
-                <element signature="e#150#151#0" expanded="true" />
+                <element signature="e#48#93#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeamonCreamWorker.groovy" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy">
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1027">
-              <caret line="357" selection-start-line="357" selection-end-line="357" />
+            <state relative-caret-position="510">
+              <caret line="143" selection-start-line="143" selection-end-line="143" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollectionParallel.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/CollectionParallel.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-431">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#27#48#0" expanded="true" />
+                <element signature="e#49#79#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ENMLProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/syncthemall/enml4j/ENMLProcessor.java">
+      <file leaf-file-name="Select.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Select.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="286" selection-start-line="286" selection-end-line="286" />
+            <state relative-caret-position="442">
+              <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ENHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENHelper.java">
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="144" column="48" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="48" />
-              <folding>
-                <element signature="e#49644#49645#0" expanded="true" />
-                <element signature="e#49691#49692#0" expanded="true" />
-                <element signature="e#49752#49753#0" expanded="true" />
-                <element signature="e#49798#49799#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SyncHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java">
+      <file leaf-file-name="a.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/a.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="740" column="26" selection-start-line="740" selection-end-line="741" />
+            <state relative-caret-position="442">
+              <caret line="379441" column="4" selection-start-line="379441" selection-start-column="4" selection-end-line="379441" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ENSharedNotebook.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebook.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-265">
-              <caret line="201" selection-start-line="201" selection-end-line="201" />
-            </state>
+      <file leaf-file-name="b.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/b.txt">
+          <provider selected="true" editor-type-id="LargeFileEditor">
+            <state relative-caret-position="-427679" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ENSharedNotebookGroup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-            </state>
-          </provider>
+      <file leaf-file-name="c.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/c.txt">
+          <provider selected="true" editor-type-id="LargeFileEditor" />
         </entry>
       </file>
     </leaf>
@@ -209,18 +241,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Konnte Ablage nicht zuo</find>
-      <find>sabine.kiefer@gm</find>
-      <find>müssen leider WARTEN</find>
-      <find>anna</find>
-      <find>toString</find>
-      <find>Diff</find>
       <find>versionEntries</find>
       <find>INIT</find>
       <find>NO_PA</find>
-      <find>print</find>
       <find>ADRESSE_NEU</find>
-      <find>Wir müssen leider WARTEN. Kann keine Mails verschicken</find>
+      <find />
       <find>diffDays</find>
       <find>raw</find>
       <find>html</find>
@@ -229,16 +254,23 @@
       <find>diffMail</find>
       <find>SimpleDateFormat</find>
       <find>titleRaw</find>
-      <find>Could not startup because</find>
+      <find />
       <find>findOrCreateNote</find>
       <find>hotLeads</find>
       <find>RE:</find>
-      <find>und REDEN</find>
-      <find>Mehrfach-TODOs und REDEN</find>
-      <find>umber of NOTEs to search for TODOs and HOT</find>
+      <find />
+      <find />
+      <find />
       <find>abo</find>
       <find>create</find>
       <find>htmlTo</find>
+      <find />
+      <find>escapeHTML(t</find>
+      <find>hilfe</find>
+      <find>ENConnection.get().getNoteStoreClient()</find>
+      <find>ENSharedNotebook</find>
+      <find>title</find>
+      <find>print</find>
     </findStrings>
     <dirStrings>
       <dir>C:\projects\ben\src\bel\en</dir>
@@ -486,9 +518,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6097690267459" />
+        <entry key="$PROJECT_DIR$" value="6111823304878" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="4292191574" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="3116008609" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="566444372" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="1282119126" />
       </map>
@@ -668,21 +700,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/Angebot.java" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_35_sqlite/SQLiteMain.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_35_sqlite/domain/Adresse.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_35_sqlite/orm/ORM.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_35_sqlite/domain/FirmaOrt.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_35_sqlite/domain/PersonKontakt.groovy" />
-        <option value="$PROJECT_DIR$/src/test/groovy/gstorm/GstormClassWithoutIdTests.groovy" />
-        <option value="$PROJECT_DIR$/src/test/groovy/gstorm/GstormCsvIntgTest.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/gstorm/builders/CreateTableQueryBuilder.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_36_gstorm_ORM/GStormMain.groovy" />
-        <option value="$PROJECT_DIR$/Neues Textdokument.xml" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/Main.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/util/RawConsoleInput.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENCREAMNotebooks.java" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/en/MainGUI.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/localstore/NoteStoreLocal.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/CreamDeamonStarter.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/util/versioning/FileVersion.groovy" />
@@ -692,7 +712,6 @@
         <option value="$PROJECT_DIR$/src/main/groovy/bel/util/versioning/FileWithVersions.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/util/versioning/VersionsFile.groovy" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/util/Util.java" />
         <option value="$PROJECT_DIR$/testfileInitial.txt.versions.txt" />
         <option value="$PROJECT_DIR$/testfileInitial.txt" />
         <option value="$PROJECT_DIR$/testfile.txt.versions.txt" />
@@ -700,7 +719,6 @@
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/test/TestData.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/data/AbstractConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/data/Configuration.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/data/CreamUserData.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/util/versioning/VersionedFile.groovy" />
         <option value="$PROJECT_DIR$/src/test/groovy/bel/util/versioning/DiffDeferrer.groovy" />
@@ -712,12 +730,26 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/UebersichtAllUsers.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/util/AdressMagic.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/en/MainGUI.java" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/DataFlow.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Channels.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/DataFlowVariables.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Select.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/GparsMain.groovy" />
+        <option value="$PROJECT_DIR$/test/aaa.txt" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/b.txt" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/test.txt" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/c.txt" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/a.txt" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Pipeline.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy" />
       </list>
     </option>
@@ -748,7 +780,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -789,55 +820,7 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="groovy" type="462c0819:PsiDirectoryNode" />
               <item name="bel" type="462c0819:PsiDirectoryNode" />
-              <item name="deamon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="bel" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="bel" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-              <item name="localstore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="bel" type="462c0819:PsiDirectoryNode" />
               <item name="learn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="bel" type="462c0819:PsiDirectoryNode" />
-              <item name="learn" type="462c0819:PsiDirectoryNode" />
-              <item name="_00_logging" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="bel" type="462c0819:PsiDirectoryNode" />
-              <item name="learn" type="462c0819:PsiDirectoryNode" />
-              <item name="_01_bean" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
@@ -861,6 +844,32 @@
             </path>
             <path>
               <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="groovy" type="462c0819:PsiDirectoryNode" />
+              <item name="bel" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+              <item name="_19_regex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="groovy" type="462c0819:PsiDirectoryNode" />
+              <item name="bel" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cream2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cream2" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -869,6 +878,7 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -882,26 +892,25 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/libs" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/tagsoup-1.2.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.gradle" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="groovy.util.GroovyTestCase" />
+      <recent name="spock.lang.Specification" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="bel.util.versioning" />
       <recent name="bel.util.enml" />
       <recent name="bel.util.versioning.enml" />
       <recent name="" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="groovy.util.GroovyTestCase" />
-      <recent name="spock.lang.Specification" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\projects\cream2\src\main\groovy" />
-      <recent name="C:\projects\cream2\src\main" />
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="bel.util.Util" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="bel.util.versioning" />
@@ -914,7 +923,14 @@
       <recent name="bel.util.versioning" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\cream2\src\main\groovy\bel\learn\_37_gpars_groovy_concurrency\test" />
       <recent name="C:\projects\cream2\src\test\groovy" />
+      <recent name="C:\projects\cream2\src\main\groovy" />
+      <recent name="C:\projects\cream2\src\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\cream2\src\main\groovy\bel\learn\_37_gpars_groovy_concurrency" />
+      <recent name="C:\projects\cream2\src\main\resources" />
       <recent name="C:\projects\cream2\src\main\groovy" />
       <recent name="C:\projects\cream2\src\main" />
     </key>
@@ -931,7 +947,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CreamDeamonStarter">
+  <component name="RunManager" selected="Groovy.Pipeline">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -981,25 +997,19 @@
         </pattern>
       </extension>
     </configuration>
+    <configuration name="RegexUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bel.util.RegexUtils" />
+      <module name="cream2_main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bel.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="cream2 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
     </configuration>
     <configuration name="cream2 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -1018,51 +1028,21 @@
         <option name="vmOptions" />
       </ExternalSystemSettings>
     </configuration>
-    <configuration name="DiffDeferrerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cream2_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bel.util.versioning.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="bel.util.versioning" />
-      <option name="MAIN_CLASS_NAME" value="bel.util.versioning.DiffDeferrerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <patterns />
+    <configuration name="Pipeline" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
+      <module name="cream2_main" />
+      <setting name="path" value="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Pipeline.groovy" />
+      <setting name="vmparams" value="-Xms512m -Xmx2048m" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency" />
+      <setting name="debug" value="false" />
     </configuration>
-    <configuration name="VersionedFileTest.changes #idx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cream2_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bel.util.versioning.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="bel.util.versioning" />
-      <option name="MAIN_CLASS_NAME" value="bel.util.versioning.VersionedFileTest" />
-      <option name="METHOD_NAME" value="changes #idx" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <patterns />
+    <configuration name="Select" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
+      <module name="cream2_main" />
+      <setting name="path" value="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Select.groovy" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency" />
+      <setting name="debug" value="false" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1079,16 +1059,6 @@
         <value defaultName="moduleWithDependencies" />
       </option>
       <patterns />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="cream2" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
     </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
@@ -1135,6 +1105,16 @@
       <module name="" />
       <envs />
       <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="cream2" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1256,19 +1236,19 @@
       <item itemvalue="Application.MainGUI - OFFLINE" />
       <item itemvalue="Application.MainGUI" />
       <item itemvalue="Application.DeamonCreamWorker  ***TEST***" />
-      <item itemvalue="Application.CreamDeamonStarter" />
       <item itemvalue="Gradle.cream2 [jar]" />
-      <item itemvalue="JUnit.VersionedFileTest.changes #idx" />
-      <item itemvalue="JUnit.DiffDeferrerTest" />
-      <item itemvalue="Gradle.cream2 [clean]" />
+      <item itemvalue="Groovy.Select" />
+      <item itemvalue="Groovy.Pipeline" />
+      <item itemvalue="Application.CreamDeamonStarter" />
+      <item itemvalue="Application.RegexUtils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Groovy.Pipeline" />
         <item itemvalue="Application.CreamDeamonStarter" />
-        <item itemvalue="Gradle.cream2 [clean]" />
-        <item itemvalue="JUnit.DiffDeferrerTest" />
-        <item itemvalue="JUnit.VersionedFileTest.changes #idx" />
+        <item itemvalue="Application.RegexUtils" />
         <item itemvalue="Gradle.cream2 [jar]" />
+        <item itemvalue="Groovy.Select" />
       </list>
     </recent_temporary>
   </component>
@@ -1304,7 +1284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524424336725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="strange import bug...">
+      <created>1538395156180</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1538395156180</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1349,43 +1336,44 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
+    <frame x="-6" y="-6" width="1513" height="983" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4623082" weight="0.36353078" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4623082" weight="0.3627685" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="11" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.41580757" side_tool="true" weight="0.3699284" />
       <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.6117412" weight="0.329849" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4941581" weight="0.27326968" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" sideWeight="0.6117412" visible="true" weight="0.32900944" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4941581" weight="0.27240565" />
+      <window_info anchor="bottom" id="IvyIDEA" order="15" weight="0.3293556" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49229738" weight="0.32893" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988067" weight="0.25979382" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24948454" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.33770883" />
-      <window_info anchor="right" id="Gradle" order="8" sideWeight="0.49272728" weight="0.1814433" />
-      <window_info id="Structure" order="1" sideWeight="0.50119334" side_tool="true" weight="0.25979382" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49621212" visible="true" weight="0.17182131" />
+      <window_info anchor="right" id="Gradle" order="8" sideWeight="0.49272728" visible="true" weight="0.1814433" />
+      <window_info id="Structure" order="1" sideWeight="0.5037879" side_tool="true" weight="0.26323023" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24983256" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="11" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="2" sideWeight="0.58419245" visible="true" weight="0.3699284" />
+      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.58419245" weight="0.3902148" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5072727" side_tool="true" weight="0.45978552" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Regex Tester" order="11" sideWeight="0.49765572" weight="0.32885906" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24948454" />
       <window_info id="DB Browser" order="5" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" x="155" y="92" width="1353" height="716" id="Documentation" order="9" type="FLOATING" />
       <window_info anchor="right" id="Dynamic Properties" order="6" weight="0.3297587" />
       <window_info anchor="right" id="Palette " order="7" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33770883" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.54703134" weight="0.13240418" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.54703134" weight="0.13126491" />
       <window_info anchor="right" id="Data View" order="5" weight="0.3297587" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
     </layout>
@@ -1407,13 +1395,12 @@
       <window_info anchor="right" id="Capture Analysis" order="12" />
       <window_info anchor="right" id="Dynamic Properties" order="6" weight="0.3297587" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.41580757" side_tool="true" visible="true" weight="0.3699284" />
+      <window_info anchor="bottom" id="Regex Tester" order="11" sideWeight="0.49765572" weight="0.32885906" />
       <window_info anchor="right" x="155" y="92" width="1353" height="716" id="Documentation" order="9" type="FLOATING" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.33817703" />
-      <window_info anchor="right" id="Data View" order="5" weight="0.3297587" />
       <window_info anchor="right" id="Palette " order="7" />
       <window_info anchor="bottom" id="Build" order="8" sideWeight="0.54703134" weight="0.13240418" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.6117412" weight="0.329849" />
+      <window_info anchor="right" id="Data View" order="5" weight="0.3297587" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Gradle" order="8" sideWeight="0.49272728" visible="true" weight="0.1814433" />
@@ -1424,8 +1411,9 @@
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info anchor="right" id="Theme Preview" order="13" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24865952" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.6117412" weight="0.329849" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Regex Tester" order="11" sideWeight="0.49765572" weight="0.32885906" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33817703" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.58419245" visible="true" weight="0.3699284" />
     </layout-to-restore>
   </component>
@@ -1484,31 +1472,31 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/en/MainGUI.java</url>
-          <line>55</line>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/util/Util.java</url>
-          <line>133</line>
+          <line>137</line>
           <properties />
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>442</line>
+          <line>469</line>
           <properties />
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>436</line>
+          <line>463</line>
           <properties />
           <option name="timeStamp" value="199" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>431</line>
+          <line>458</line>
           <properties />
           <option name="timeStamp" value="200" />
         </line-breakpoint>
@@ -1520,7 +1508,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>451</line>
+          <line>478</line>
           <properties />
           <option name="timeStamp" value="213" />
         </line-breakpoint>
@@ -1532,37 +1520,62 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>357</line>
+          <line>381</line>
           <properties />
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>185</line>
+          <url>file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Pipeline.groovy</url>
+          <line>99</line>
           <properties />
-          <option name="timeStamp" value="229" />
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="252" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>155</line>
+          <line>132</line>
           <properties />
-          <option name="timeStamp" value="232" />
+          <option name="timeStamp" value="253" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
-          <line>129</line>
+          <line>587</line>
           <properties />
-          <option name="timeStamp" value="234" />
+          <option name="timeStamp" value="259" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy</url>
+          <line>186</line>
+          <properties />
+          <option name="timeStamp" value="260" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy</url>
+          <line>113</line>
+          <properties />
+          <option name="timeStamp" value="261" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/CollectionParallel.groovy</url>
+          <line>3</line>
+          <properties />
+          <option name="timeStamp" value="262" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="235" />
+      <option name="time" value="263" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="data" />
+        <watch expression="((groovy.lang.Reference)this.matcher).parentPattern" custom="groovy.lang.Closure,groovy.lang.Reference" />
       </configuration>
     </watches-manager>
   </component>
@@ -1570,158 +1583,56 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>&quot;Walter J. Stadlbauer (Schüco International KG)&quot;</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Walter J. Stadlbauer (Schüco International KG)</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;Walter J. Stadlbauer (Schuco International KG)&quot;</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Walter J. Stadlbauer (Sch&amp;#252;co International KG)</expression-string>
+        <language-id>Groovy</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/emptyHtmlDiff2.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/gui/tel/TelefonListViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/classes/groovy/main/bel/util/versioning/VersionedFile.class" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/nio/file/Path.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/io/File.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/test/TestData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="81" column="83" selection-start-line="81" selection-start-column="83" selection-end-line="81" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/data/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="2516">
+          <caret line="148" column="38" selection-start-line="148" selection-start-column="38" selection-end-line="148" selection-end-column="38" />
           <folding>
-            <element signature="n#!!doc" />
+            <element signature="e#27#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/Entry.java">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/deamon/DeamonCream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="544">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../groovy_direct/bel.groovy" />
-    <entry file="file://$PROJECT_DIR$/diffHtmlTest3.html" />
-    <entry file="file://$PROJECT_DIR$/diffHtmlTest2.html" />
-    <entry file="file://$PROJECT_DIR$/diffHtmlTest1.html" />
-    <entry file="file://$PROJECT_DIR$/diffHtmlTest0.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/DiffMatchPatch.java">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/CreamDeamonStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="1352" column="45" selection-start-line="1352" selection-start-column="41" selection-end-line="1352" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/data/CreamUserData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="46" column="77" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/versioning/VersionedFile.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="197" column="43" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/groovy/bel/util/versioning/VersionedFileTest.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-977">
-          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+        <state relative-caret-position="102">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding>
-            <element signature="e#29#53#0" expanded="true" />
+            <element signature="e#106#107#0" expanded="true" />
+            <element signature="e#150#151#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/net/SocketInputStream.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="63" column="14" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENAuth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="189" selection-start-line="189" selection-end-line="189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENCE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="db://[Connection] TABLE - main.GSPerson" />
-    <entry file="db://[Connection] CONSOLE - Connection" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/bel/util/versioning/DiffDeferrerTest.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/versioning/DiffDeferrer.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/groovy/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_01_bean/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_00_logging/LoggingAppLog4J2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_04_lomlok/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_04_lomlok/PersonLombok.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1753,27 +1664,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="265" column="58" selection-start-line="265" selection-start-column="25" selection-end-line="265" selection-end-column="58" />
-          <folding>
-            <element signature="e#27#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="60" column="49" lean-forward="true" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1788,10 +1682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="227" column="16" selection-start-line="227" selection-start-column="16" selection-end-line="227" selection-end-column="16" />
-          <folding>
-            <element signature="e#8142#8143#0" expanded="true" />
-            <element signature="e#8176#8177#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1802,51 +1692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/AdressMagic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="239" selection-start-line="239" selection-end-line="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/CreamDeamonStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#150#151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-265">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/syncthemall/enml4j/ENMLProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1854,17 +1699,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebookGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/data/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENCREAMNotebooks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENSharedNotebook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/localstore/SyncHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="740" column="26" selection-start-line="740" selection-end-line="741" />
+        <state relative-caret-position="17">
+          <caret line="683" column="28" selection-start-line="683" selection-start-column="28" selection-end-line="683" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/versioning/DiffDeferrer.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/versioning/VersionedFile.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5775">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/DiffMatchPatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="1352" column="45" selection-start-line="1352" selection-start-column="41" selection-end-line="1352" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/HtmlToPlainText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1897">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/enml/TextToEnml.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/versioning/FileWithVersions.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/evernote/edam/userstore/UserStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="4166" selection-start-line="4166" selection-end-line="4166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/net/SocketInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="144" column="48" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="48" />
+        <state relative-caret-position="160">
+          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
           <folding>
             <element signature="e#49644#49645#0" expanded="true" />
             <element signature="e#49691#49692#0" expanded="true" />
@@ -1874,13 +1803,190 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/evernote/clients/UserStoreClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="140" column="49" selection-start-line="140" selection-start-column="49" selection-end-line="140" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/MainGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1959">
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/evernote/clients/ClientFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENAuth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/evernote/ENConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/DataFlowVariables.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/StringSimilarity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="101" column="57" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_14_timingExecution/RunTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/deamon/DeamonCream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/CreamDeamonStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <element signature="e#106#107#0" expanded="true" />
+            <element signature="e#150#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/RegexUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/OverviewCreator.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/en/email/ReadAndForwardExchangeMails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/cream2/deamon/DeamonCreamWorker.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1027">
-          <caret line="357" selection-start-line="357" selection-end-line="357" />
+        <state relative-caret-position="17">
+          <caret line="157" selection-start-line="157" selection-end-line="158" />
           <folding>
             <element signature="e#27#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/AdressMagic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="353" column="19" selection-start-line="353" selection-start-column="19" selection-end-line="353" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/CollectionParallel.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-431">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#49#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Select.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="379441" column="4" selection-start-line="379441" selection-start-column="4" selection-end-line="379441" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/b.txt">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="100621" selection-start-line="100621" selection-end-line="100621" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-427679" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/test/c.txt">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Channels.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/learn/_37_gpars_groovy_concurrency/Pipeline.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="67" column="16" lean-forward="true" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
+          <folding>
+            <element signature="e#48#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/bel/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
         </state>
       </provider>
     </entry>

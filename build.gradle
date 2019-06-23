@@ -71,6 +71,9 @@ dependencies {
 
     // for gstorm
     compile 'org.hsqldb:hsqldb:2.4.0'
+
+    compile group: 'org.codehaus.gpars', name: 'gpars', version: '1.2.1'
+
 }
 
 // Define the main class for the application

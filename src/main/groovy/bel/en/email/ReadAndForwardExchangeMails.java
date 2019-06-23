@@ -260,29 +260,37 @@ public class ReadAndForwardExchangeMails {
         m.setSubject(errorMessage);
         // TODO: Create html-File, that is editable for everybody - or even better: evernote help note
         m.setBody(new MessageBody(errorMessage+"<br/>"+
-                "---------------------------------------------------<br/><br/><br/>"+
-                "<h3>Hilfe:</h3>" +
-                "*h *H zu Beginn der Betreff-Zeile<br/><br/><br/>" +
-                "" +
-                "<h3>Übersichten generieren:</h3>" +
-                "*ü *Ü *o oder *O zu Begin des Betreffs<br/><br/><br/>"+
-                "" +
-                "<h3>Adresse für Anna:</h3>" +
-                "*a *A zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
-                "Im Mailtext zeilenweise email oder tel des Kontaktes und optional Adresse, tel, Visitenkarten-Bild in der Mail.<br/><br/><br/>" +
-                "" +
-                "<h3>Ablage der Mail:</h3>" +
-                "Email-Adresse zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
-                "ODER: ein 'l:' vor die email mitten im text also z.B. so:<br/>" +
-                "l:vorname.nachname@domain.de (einfach ein kleines l mit Doppelpunkt, l: steht für linkto:<br/>" +
-                "vor ne mail-adresse mittenn in der weitergeleiteten oder geschriebenen mail<br/><br/><br/>")
+                "---------------------------------------------------<br/><br/><br/>"+ mailHelpHtml
+                )
 
         );
+
+
+
         String mailFrom = m.getFrom().getAddress();
         m.update(ConflictResolutionMode.AlwaysOverwrite);
         m.forward(null, new EmailAddress(mailFrom));
     }
 
+    public static final String mailHelpHtml = "<h3>Hilfe:</h3>" +
+            "<b>*h *H</b> zu Beginn der Betreff-Zeile<br/><br/><br/>" +
+            "" +
+            "<h3>Übersichten generieren:</h3>" +
+            "<b>*ü *Ü *o oder *O</b> zu Begin des Betreffs<br/><br/><br/>"+
+            "" +
+            "<h3>Neuen Kontakt eintragen:</h3>" +
+            "<b>*n *N *neu *Neu</b> zu Begin des Betreffs<br/>"+
+            "Alle Kontaktdaten am Anfang der Mail. Dann ggf. todos und zwar so: <b>todo: BEL: 14.7.2018 anrufen</b> Visitenkarte am Ende.<br/><br/><br/>" +
+            "" +
+            "<h3>Adresse für Anna:</h3>" +
+            "*a *A *anna *Anna zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
+            "Im Mailtext zeilenweise email oder tel des Kontaktes und optional Adresse, tel, Visitenkarten-Bild in der Mail.<br/><br/><br/>" +
+            "" +
+            "<h3>Ablage der Mail:</h3>" +
+            "Email-Adresse zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
+            "ODER: ein 'l:' vor die email mitten im text also z.B. so:<br/>" +
+            "l:vorname.nachname@domain.de (einfach ein kleines l mit Doppelpunkt, l: steht für linkto:<br/>" +
+            "vor ne mail-adresse mittenn in der weitergeleiteten oder geschriebenen mail<br/><br/><br/>";
 
     private void readMails() throws Exception {
         PropertySet mailPropSet = new PropertySet(BasePropertySet.FirstClassProperties);
