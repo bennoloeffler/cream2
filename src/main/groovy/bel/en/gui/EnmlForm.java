@@ -106,8 +106,8 @@ public class EnmlForm {
 
         public String getThisOldVersion(String newerVersion) {
             //if (versionCache == null) {
-                LinkedList<DiffMatchPatch.Diff> diffs = DiffMatchPatch.get().diff_fromDelta(newerVersion, delta);
-                versionCache = DiffMatchPatch.get().diff_text2(diffs);
+            LinkedList<DiffMatchPatch.Diff> diffs = DiffMatchPatch.get().diff_fromDelta(newerVersion, delta);
+            versionCache = DiffMatchPatch.get().diff_text2(diffs);
             //}
             return versionCache;
         }
@@ -191,7 +191,7 @@ public class EnmlForm {
                     }
                     /*
 
-                         */
+                     */
                     //if(showDifferenceToNextVersionCheckbox.isSelected()) {
 
                     //} else {
@@ -322,10 +322,10 @@ public class EnmlForm {
         System.out.println(html);
         //String text;
         //try {
-            //HtmlToText h2t = new HtmlToText();
-            //h2t.parse(html);
-            //System.out.println(HtmlToText.cleanTagPerservingLineBreaks(html));
-            //System.out.println(HtmlToPlainText.convert(html));
+        //HtmlToText h2t = new HtmlToText();
+        //h2t.parse(html);
+        //System.out.println(HtmlToText.cleanTagPerservingLineBreaks(html));
+        //System.out.println(HtmlToPlainText.convert(html));
 
         //} catch (Exception e) {
         //    e.printStackTrace();
