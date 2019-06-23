@@ -392,7 +392,8 @@ class DeamonCreamWorker {
         //System.exit(0)
 
         try {
-            println("starting CREAM deamon (crm@v-und-s.de and todo-lists)")
+            //println("starting CREAM deamon (crm@v-und-s.de and todo-lists)")
+            log.info("Starting CREAM deamon:  " + MainGUI.VERSION_STRING)
 
             if (args.length >= 1) {
                 if (args[0].equals("-testmode")) {
