@@ -31,10 +31,10 @@ public class MainGUI {
     //
 
     static int versionMajor = 0;
-    static int versionMinor = 2;
+    static int versionMinor = 3;
     static int versionBugs = 0;
     static public boolean debugOffline = true;
-    static String versionName = "Easter Egg ALPHA";
+    static String versionName = "50er-Release ;-)";
     public static final String VERSION_STRING = versionName + " (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
 
 
