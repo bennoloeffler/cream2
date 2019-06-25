@@ -121,12 +121,15 @@ public class Util {
     }
 
     /**
-     * special case, when unser marked mail adress with l:
+     * special case, when user marked mail adress with l:
+     * OR HE JUST MARKED THE DOMAIN: l:@bosch.de
      * @param s
      * @return
      */
     public static String extractEmailLinkTo(String s) {
-        val regex = "l:([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6})";
+        // THIS COULD BE CRITICAL CHANGE! change the + (minimum 1 character before @) to * (zero or more)
+        //val regex = "l:([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6})";
+        val regex = "l:([A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6})";
         List<String> result = RegexUtils.findWithRegex(s, regex,1);
         if(result.size() >= 1) {
             return result.get(0);

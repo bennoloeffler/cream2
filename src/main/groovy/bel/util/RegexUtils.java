@@ -1,6 +1,7 @@
 package bel.util;
 
 import bel.en.evernote.ENHelper;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
 /**
  * All the common regex tasks
  */
+@Log4j2
 public class RegexUtils {
 
     /**
@@ -86,5 +88,35 @@ public class RegexUtils {
     public static void main(String[] args) {
         List zipTown = findZipAndTown("49090 Osnabrück");
         System.out.println(zipTown.get(0));
+
+        testDomainFits();
+    }
+
+    public static boolean domainFits(String titleOfNote, String mailOrDomain) {
+        boolean found = false;
+        //first, extract [domain.com] --> domain.com from title-String and trim
+        //then check, if mailOrDomain ends with it. Trim before.
+        List<String> r = findWithRegex(titleOfNote, "\\[.*\\..*\\]", 0);
+
+        if(r.size() > 0) {
+            String domain = r.get(0).substring(1, r.get(0).length()-1);
+            if(domain.length() < 6) {
+                log.warn(domain + " (domain is too short...) <6");
+            }else if(mailOrDomain.contains(domain)) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
+    public static void testDomainFits() {
+        assert domainFits("sdfsdf sdf (df)[bosch.de]df", "bosch.de");
+        assert domainFits("sdfsdf sdf (df)[bosch.de]df", "fritz.franz@bosch.de");
+        assert domainFits("sdfsdf sdf (df)[bosch.de]df", "@bosch.de");
+        assert !domainFits("sdfsdf sdf (df)[xosch.de]df", "dfdf@bosch.de");
+        assert !domainFits("sdfsdf sdf (df)[ch.de]df", "frith.franz@bosch.de");
+        assert !domainFits("sdfsdf sdf (df)df", "bosch.de");
+        assert !domainFits("sdfsdf sdf (df)df[]", "bosch.de");
+
     }
 }

@@ -8,6 +8,7 @@ import bel.en.evernote.*
 import bel.en.localstore.NoteStoreLocal
 import bel.en.localstore.SyncHandler
 import bel.util.AdressMagic
+import bel.util.RegexUtils
 import bel.util.Util
 import com.evernote.auth.EvernoteService
 import com.evernote.edam.error.EDAMErrorCode
@@ -101,7 +102,7 @@ class DeamonCreamWorker {
                     List<Note> listOfNotes = SyncHandler.get().allNotes
                     listOfNotes.forEach { localNote ->
                         //if (localNote.content.contains(mailAddr) || localNote.content.contains(mailAddr.toLowerCase())) {
-                        if (StringUtils.containsIgnoreCase(localNote.content, mailAddr)) {
+                        if (StringUtils.containsIgnoreCase(localNote.content, mailAddr) || RegexUtils.domainFits(localNote.title, mailAddr)) {
                             log.debug("going to link to this note: " + localNote.title)
                             treffer = true
                             localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
@@ -137,8 +138,9 @@ class DeamonCreamWorker {
                 def am = new AdressMagic(raw)
                 def adr = null
                 def newHeadline = null
+                def domain = am.email.split("@")[1]
                 am.with {
-                    newHeadline = "$titleInName$christianNames $surName ($company)"
+                    newHeadline = "$titleInName$christianNames $surName ($company) [$domain]"
                     adr = """<div><br/></div>
                                  <div><b>${ENHelper.escapeHTML(titleInName + christianNames + " " + surName)}</b></div>
                                  <div>${ENHelper.escapeHTML(functionDepartment)}</div>   

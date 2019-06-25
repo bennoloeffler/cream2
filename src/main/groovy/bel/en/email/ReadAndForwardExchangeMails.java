@@ -288,9 +288,11 @@ public class ReadAndForwardExchangeMails {
             "" +
             "<h3>Ablage der Mail:</h3>" +
             "Email-Adresse zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
-            "ODER: ein 'l:' vor die email mitten im text also z.B. so:<br/>" +
-            "l:vorname.nachname@domain.de (einfach ein kleines l mit Doppelpunkt, l: steht für linkto:<br/>" +
-            "vor ne mail-adresse mittenn in der weitergeleiteten oder geschriebenen mail<br/><br/><br/>";
+            "ODER: ein 'l:' vor die email mitten im text also z.B. so:  l:vorname.nachname@domain.de<br/>" +
+            "ODER: ein 'l:' vor die DOMAIN mitten im text also z.B. so:  l:@bosch.de<br/>" +
+            "(einfach ein kleines l mit Doppelpunkt, l: steht für linkto:<br/>" +
+            "vor ne mail-adresse mittenn in der weitergeleiteten oder geschriebenen mail.<br/>"+
+            "TITELZEILE der Notiz sollte am Ende [firma.de] enthalten. Also domain in eckigen Klammern.<br/><br/><br/>";
 
     private void readMails() throws Exception {
         PropertySet mailPropSet = new PropertySet(BasePropertySet.FirstClassProperties);
