@@ -1,6 +1,7 @@
 package bel.util.enml
 
-import bel.util.HtmlToPlainText
+
+import bel.util.ENMLToPlainText
 import com.evernote.edam.type.Note
 import com.syncthemall.enml4j.ENMLProcessor
 import spock.lang.Specification
@@ -22,7 +23,7 @@ class TextToEnmlTest extends Specification {
         Note n = new Note()
         n.setContent(start + enmlSimple + end)
         String html = ENMLProcessor.get().noteToInlineHTMLString(n)
-        String plainText = HtmlToPlainText.convert(html)
+        String plainText = ENMLToPlainText.convert(html)
         def enmlBody = TextToEnml.transformToENMLBody(plainText)
         println(plainText)
         then:
@@ -35,7 +36,7 @@ class TextToEnmlTest extends Specification {
         Note n = new Note()
         n.setContent(start + enmlMitSpans + end)
         String html = ENMLProcessor.get().noteToInlineHTMLString(n)
-        String plainText = HtmlToPlainText.convert(html)
+        String plainText = ENMLToPlainText.convert(html)
         def enmlBody = TextToEnml.transformToENMLBody(plainText)
         println(plainText)
         then:

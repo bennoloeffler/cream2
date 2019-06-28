@@ -4,7 +4,7 @@ import bel.cream2.deamon.DeamonCreamWorker;
 import bel.en.data.AbstractConfiguration;
 import bel.en.data.CreamUserData;
 import bel.en.evernote.ENConfiguration;
-import bel.en.evernote.ENHelper;
+import bel.util.ENMLToPlainText;
 import bel.util.HtmlToPlainText;
 import bel.util.Util;
 import lombok.extern.log4j.Log4j2;
@@ -104,12 +104,12 @@ public class ReadAndForwardExchangeMails {
 
             List<String> recipients = m.getToRecipients().getItems().stream().map(EmailAddress::getAddress).collect(Collectors.toList());
             recipients.addAll(m.getCcRecipients().getItems().stream().map(EmailAddress::getAddress).collect(Collectors.toList()));
-            String subjectLinkMail = Util.extractEmail(m.getSubject());
+            String subjectLinkMail = Util.extractEmailStartOfDocument(m.getSubject());
             if(subjectLinkMail != null) {
                 recipients.add(subjectLinkMail);
             }
 
-            String mailInMailBody = Util.extractEmail(m.getBody().toString()); // maybe very first element
+            String mailInMailBody = Util.extractEmailStartOfDocument(m.getBody().toString()); // maybe very first element
             if(mailInMailBody == null) {
                 mailInMailBody = Util.extractEmailLinkTo(m.getBody().toString()); // otherwise, check for l: in the text
             }
@@ -280,7 +280,7 @@ public class ReadAndForwardExchangeMails {
             "" +
             "<h3>Neuen Kontakt eintragen:</h3>" +
             "<b>*n *N *neu *Neu</b> zu Begin des Betreffs<br/>"+
-            "Alle Kontaktdaten am Anfang der Mail. Dann ggf. todos und zwar so: <b>todo: BEL: 14.7.2018 anrufen</b> Visitenkarte am Ende.<br/><br/><br/>" +
+            "Alle Kontaktdaten am Anfang der Mail. VORSICHT: HTML-MAIL! Dann ggf. todos und zwar so: <b>todo: BEL: 14.7.2018 anrufen</b> Visitenkarte am Ende.<br/><br/><br/>" +
             "" +
             "<h3>Adresse für Anna:</h3>" +
             "*a *A *anna *Anna zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +

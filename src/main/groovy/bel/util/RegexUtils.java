@@ -100,10 +100,13 @@ public class RegexUtils {
 
         if(r.size() > 0) {
             String domain = r.get(0).substring(1, r.get(0).length()-1);
-            if(domain.length() < 6) {
-                log.warn(domain + " (domain is too short...) <6");
-            }else if(mailOrDomain.contains(domain)) {
-                found = true;
+            String[] split = domain.split(" ");
+            for(String d: split) {
+                if (d.length() < 6) {
+                    log.warn(d + " (domain is too short...) <6");
+                } else if (mailOrDomain.toLowerCase().contains(d.toLowerCase())) {
+                    found = true;
+                }
             }
         }
         return found;

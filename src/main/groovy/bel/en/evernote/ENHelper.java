@@ -3,6 +3,7 @@ package bel.en.evernote;
 import bel.en.data.*;
 import bel.en.helper.DateFinder;
 import bel.en.localstore.SyncHandler;
+import bel.util.ENMLToPlainText;
 import bel.util.HtmlToPlainText;
 import bel.util.RegexUtils;
 import com.evernote.edam.type.Note;

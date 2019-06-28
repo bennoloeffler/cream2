@@ -31,11 +31,11 @@ public class MainGUI {
     //
 
     static int versionMajor = 0;
-    static int versionMinor = 3;
+    static int versionMinor = 4;
     static int versionBugs = 0;
     static public boolean debugOffline = true;
-    static String versionName = "50er-Release ;-)";
-    public static final String VERSION_STRING = versionName + " (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
+    static String versionName = "50er-Domain ;-)";
+    public static final String VERSION_STRING = "\""+versionName + "\" (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
 
 
     //
@@ -69,7 +69,7 @@ public class MainGUI {
             debugOffline = false;
         }
 
-        log.info("Starting CREAM Version:  " + VERSION_STRING);
+        log.info("Starting CREAM Release and Version:  " + VERSION_STRING);
 
         initLookAndFeel();
 

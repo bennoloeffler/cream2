@@ -1,9 +1,7 @@
 package bel.util;
 
-
 import org.jsoup.Jsoup;
 import org.jsoup.helper.StringUtil;
-import org.jsoup.helper.Validate;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -23,22 +21,40 @@ import java.io.IOException;
  * </p>
  * <p>
  * To invoke from the command line, assuming you've downloaded the jsoup jar to your current directory:</p>
- * <p><code>java -cp jsoup.jar org.jsoup.examples.HtmlToPlainText url [selector]</code></p>
+ * <p><code>java -cp jsoup.jar org.jsoup.examples.ENMLToPlainText url [selector]</code></p>
  * where <i>url</i> is the URL to fetch, and <i>selector</i> is an optional CSS selector.
  *
  * @author Jonathan Hedley, jonathan@hedley.net
  */
-public class HtmlToPlainText {
-    private static final String userAgent = "Mozilla/5.0 (jsoup)";
-    private static final int timeout = 5 * 1000;
+public class ENMLToPlainText {
 
     public static String convert(String html) throws IOException {
 
+        // <div><br></br></div> --> <br/> otherwise, too many \n are created
+        html = html.replaceAll("<div><br><\\/br><\\/div>","<br/>");
+        // fetch the specified URL and parse to a HTML DOM
         Document doc = Jsoup.parse(html);
 
-        HtmlToPlainText formatter = new HtmlToPlainText();
+        // remove all format stuff - otherwise too many \n
+        for( Element element : doc.select("span") )
+        {
+            element.replaceWith(new TextNode(element.text(), ""));
+            //element.remove();
+        }
 
-        return formatter.getPlainText(doc);
+        ENMLToPlainText formatter = new ENMLToPlainText();
+
+        String selector = null; // TODO: Clarify waht that means... WHAT THE FUCK IS A SELECTOR?
+        String plainText = null;
+        if (selector != null) {
+            Elements elements = doc.select(selector); // get each element that matches the CSS selector
+            for (Element element : elements) {
+                plainText = formatter.getPlainText(element); // format that element to plain text
+            }
+        } else { // format the whole doc
+            plainText = formatter.getPlainText(doc);
+        }
+        return plainText;
 
     }
 
@@ -57,7 +73,7 @@ public class HtmlToPlainText {
 
     // the formatting rules, implemented in a breadth-first DOM traverse
     private class FormattingVisitor implements NodeVisitor {
-        private static final int maxWidth = 800; // DONT BREAK
+        private static final int maxWidth = 80;
         private int width = 0;
         private StringBuilder accum = new StringBuilder(); // holds the accumulated text
 
@@ -69,18 +85,44 @@ public class HtmlToPlainText {
             else if (name.equals("li"))
                 append("\n * ");
             else if (name.equals("dt"))
-                append("  ");
+                append(" ");
             else if (StringUtil.in(name, "p", "h1", "h2", "h3", "h4", "h5", "tr"))
                 append("\n");
+
+            //
+            // SPECIAL ENML Handling
+            //
+
+            else if(name.equals("input") && node.attributes().get("type").equals("checkbox")) {
+                if(node.hasAttr("checked")) {
+                    append("[x] ");
+                } else {
+                    append("[ ] ");
+                }
+
+            } else if (name.equals("title"))
+                append("TITEL: ");
+            else if(name.equals("img"))
+                append("{HIER war in Evernote ein BILD}");
+            //else
+            //    System.out.println("IGNORED HEAD: " + node);
+
         }
 
         // hit when all of the node's children (if any) have been visited
         public void tail(Node node, int depth) {
             String name = node.nodeName();
-            if (StringUtil.in(name, "br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5"))
+            if (StringUtil.in(name, "div", "br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5"))
                 append("\n");
-            else if (name.equals("a"))
-                append(String.format(" <%s>", node.absUrl("href")));
+            else if (name.equals("a")) {
+                String href = node.absUrl("href");
+                if(href != null && !href.trim().equals("")) {
+                    append(String.format(" LINK:<%s>", href));
+                }
+            } else if (name.equals("title"))
+                append("\n-----------------------\n\n");
+            //else
+            //    System.out.println("IGNORED TAIL: " + node);
         }
 
         // appends text to the string builder with a simple word wrap method
@@ -118,3 +160,4 @@ public class HtmlToPlainText {
         }
     }
 }
+

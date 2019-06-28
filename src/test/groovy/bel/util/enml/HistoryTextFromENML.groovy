@@ -3,7 +3,7 @@ package bel.util.enml
 import bel.en.Main
 import bel.en.evernote.ENConnection
 import bel.en.evernote.ENSharedNotebook
-import bel.util.HtmlToPlainText
+import bel.util.ENMLToPlainText
 import com.evernote.edam.type.Note
 import com.syncthemall.enml4j.ENMLProcessor
 import groovy.util.logging.Log4j2
@@ -55,7 +55,7 @@ class HistoryTextFromENML extends Specification {
         ressources != null
         def html = ENMLProcessor.get().noteToInlineHTMLString(n)
         html != null
-        def plainText = HtmlToPlainText.convert(html)
+        def plainText = ENMLToPlainText.convert(html)
         plainText != null
         println plainText
     }

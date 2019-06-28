@@ -490,6 +490,9 @@ class OverviewCreator {
             daysToTodo() < 7
         }
 
+        boolean doSofort() {
+            daysToTodo() < -365*18 // 18 years. So use your birthday.
+        }
 
         long daysToTodo() {
             long millis = System.currentTimeMillis()
@@ -505,11 +508,13 @@ class OverviewCreator {
 
         String toFileString() {
             getEarliestDate()
+
             def c = calendar?calendar.format("yyyy-MM-dd"):"EGAL..."
             def p = phone ? "TEL: " + phone : ""
-            def n = doNow() ? "JETZT...   " : ""
             def s = doSoon() && !doNow() ? "BALD...   " : ""
-            """$s$n$c   $titleRaw   $p\n${todos.join('\n')}"""
+            def n = doNow() && !doSofort() ? "JETZT...   " : ""
+            def so = doSofort() ? "_S_O_F_O_R_T_...   " : ""
+            """$s$n$so$c   $titleRaw   $p\n${todos.join('\n')}"""
         }
 
         LinkEntry clone() {

@@ -9,7 +9,7 @@ import bel.en.gui.CreamTable_NEW;
 import bel.en.gui.GuiUtil;
 import bel.en.gui.PersonFirmaTableModel_NEW;
 import bel.en.localstore.SyncHandler;
-import bel.util.HtmlToPlainText;
+import bel.util.ENMLToPlainText;
 import bel.util.enml.TextToEnml;
 import com.evernote.edam.type.Note;
 import com.syncthemall.enml4j.ENMLProcessor;
@@ -234,7 +234,7 @@ public class TelefonListViewController {
             SyncHandler.get().loadRessources(note); // TODO: is this needed? When ressources are stored locally... Then not any more...
             String html = ENMLProcessor.get().noteToInlineHTMLString(note);
             //final String html = Util.inHtmlBody("TEST", "TelefonListViewController:231 JUST FOR THE TEST... removed ENMLProcessor.get().noteToInlineHTMLString(n)");
-            String plainText = HtmlToPlainText.convert(html);
+            String plainText = ENMLToPlainText.convert(html);
             //Platform.runLater(() -> dataFile.getJavaFxWebBrowser().loadContent(html));
             f.getTodoHistoryTextPane().setText(plainText);
             f.getTodoHistoryTextPane().setCaretPosition( 0 ); // to prevent scrolling down...

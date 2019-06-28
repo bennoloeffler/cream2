@@ -95,6 +95,9 @@ class DeamonCreamWorker {
 
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
 
+                mailNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
+                def raw = ENHelper.getRawText(noteInInbox)
+
                 def treffer = false
                 mailAdresses.each { mailAddr ->
                     mailAddr = mailAddr.trim()
@@ -107,6 +110,14 @@ class DeamonCreamWorker {
                             treffer = true
                             localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
                             ENHelper.addHistoryEntry(localNote, evernoteLink)
+                            def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+                            def matcher = raw =~ regexTODO
+
+                            (0..<matcher.count).each {
+                                String todoStr = matcher[it][0]
+                                todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
+                                ENHelper.addTodoEntry(localNote, todoStr)
+                            }
                             // save directly - before sync...
                             SyncHandler.get().updateNoteImmediately(localNote)
                         }
@@ -395,7 +406,7 @@ class DeamonCreamWorker {
 
         try {
             //println("starting CREAM deamon (crm@v-und-s.de and todo-lists)")
-            log.info("Starting CREAM deamon:  " + MainGUI.VERSION_STRING)
+            log.info("""Starting CREAM deamon "Release" and (Version):  """ + MainGUI.VERSION_STRING)
 
             if (args.length >= 1) {
                 if (args[0].equals("-testmode")) {
@@ -414,13 +425,15 @@ class DeamonCreamWorker {
             syncAndGenerateOverviews()
             //SyncHandler.get().sync()
 
+
+            int debug_faster = 3
             //noinspection GroovyInfiniteLoopStatement
             while (true) {
                 try {
-                    (0..15).each { // 15 minutes before sync
+                    (0..15*debug_faster).each { // 15 minutes before sync
                         processMails()
-                        processEvernoteInbox()
-                        (1..60).each { // one minute sleeping between mail poll
+                        //processEvernoteInbox()
+                        (1..60/debug_faster).each { // one minute sleeping between mail poll
                             print "."
                             sleep(1000) {
                                 println "going to exit CREAM deamon"

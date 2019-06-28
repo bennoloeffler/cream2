@@ -4,7 +4,7 @@ import bel.en.data.CreamDataListener;
 import bel.en.data.CreamFirmaData;
 import bel.en.localstore.SyncHandler;
 import bel.util.DiffMatchPatch;
-import bel.util.HtmlToPlainText;
+import bel.util.ENMLToPlainText;
 import bel.util.Util;
 import com.evernote.edam.type.Note;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -175,11 +175,11 @@ public class EnmlForm {
 
                     try {
                         oldContentHTML = ENMLProcessor.get().noteToInlineHTMLString(oldNote);
-                        oldContentPlainText = HtmlToPlainText.convert(oldContentHTML);
+                        oldContentPlainText = ENMLToPlainText.convert(oldContentHTML);
                         //System.out.println("\n\nOLD TEXT: " + oldContentPlainText);
 
                         newContentHTML = ENMLProcessor.get().noteToInlineHTMLString(firmaData.getNote());
-                        newContentPlainText = HtmlToPlainText.convert(newContentHTML);
+                        newContentPlainText = ENMLToPlainText.convert(newContentHTML);
                         //System.out.println("\n\nNEW TEXT: " + newContentPlainText);
 
                         LinkedList<DiffMatchPatch.Diff> diffs = DiffMatchPatch.get().diff_main(oldContentPlainText, newContentPlainText);
@@ -325,7 +325,7 @@ public class EnmlForm {
         //HtmlToText h2t = new HtmlToText();
         //h2t.parse(html);
         //System.out.println(HtmlToText.cleanTagPerservingLineBreaks(html));
-        //System.out.println(HtmlToPlainText.convert(html));
+        //System.out.println(ENMLToPlainText.convert(html));
 
         //} catch (Exception e) {
         //    e.printStackTrace();
