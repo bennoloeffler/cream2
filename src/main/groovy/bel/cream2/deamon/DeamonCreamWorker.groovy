@@ -158,9 +158,11 @@ class DeamonCreamWorker {
                                  <div>${ENHelper.escapeHTML(mobile)}</div>   
                                  <div>${ENHelper.escapeHTML(phone)}</div>   
                                  <div>${ENHelper.escapeHTML(email)}</div>   
+                                 <div></b></div>   
+
+                                 <div><b>${ENHelper.escapeHTML(company)}</b></div>   
                                  <div>${ENHelper.escapeHTML(streetAndNr)}</div>   
                                  <div>${ENHelper.escapeHTML(zipCode + " " + town)}</div>   
-                                 <div>${ENHelper.escapeHTML(company)}</div>   
                               """
                 }
                 //println(adr)
