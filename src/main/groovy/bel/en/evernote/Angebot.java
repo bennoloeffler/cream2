@@ -20,33 +20,55 @@ public class Angebot {
     long probability;
 
     public String toString() {
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.YYYY");
-
-        String dateStr = "????-??-??";
-        if (date != null) {
-            dateStr = date.format(dateFormat);
-        }
-        //String eur = NumberFormat.getCurrencyInstance().format(euros);
-        String eur = "EUR ?????";
-        if (euros > 0) {
-            eur = "EUR " + euros;
-        }
-        String prob = "??%";
-        if (probability > 0) {
-            prob = "" + probability + "%";
-        }
+        String dateStr = getDateStr();
+        String eurStr = getEurStr();
+        String probStr = getProbStr();
         StringBuffer result = new StringBuffer();
         result.append(dateStr);
         appendEmpties(11, result);
-        result.append(prob);
+        result.append(probStr);
         appendEmpties(16, result);
-        appendEmpties(16 + 11 - eur.length(), result);
-        result.append(eur);
+        appendEmpties(16 + 11 - eurStr.length(), result);
+        result.append(eurStr);
         appendEmpties(31, result);
-        result.append(responsible != null ? responsible : "???");
+        result.append(getResponsibleStr());
         //appendEmpties(36, result);
         result.append("       -->       " + completeString);
         return result.toString();
+    }
+
+    public String getResponsibleStr() {
+        return responsible != null ? responsible : "???";
+    }
+
+    public String getProbStr() {
+        String probStr = ".?%";
+        if (probability > 0) {
+            probStr = "" + probability + "%";
+        }
+        return probStr;
+    }
+
+    public String getEurStr() {
+        String eurStr = "EUR ....?";
+        if (euros > 0) {
+            eurStr = "EUR " + euros;
+        }
+        return eurStr;
+    }
+
+    public String getDateStr() {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.YYYY");
+
+        String dateStr = "yyyy-mm-dd";
+        if (date != null) {
+            dateStr = date.format(dateFormat);
+        }
+        return dateStr;
+    }
+
+    public String getCompleteString() {
+        return completeString;
     }
 
     private void appendEmpties(int until, StringBuffer data) {
