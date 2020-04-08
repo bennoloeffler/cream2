@@ -26,7 +26,7 @@ class GStormMain {
 
         Class.forName("org.sqlite.JDBC")
 
-        def sql = Sql.newInstance("jdbc:sqlite:sample.db", "org.sqlite.JDBC")
+        def sql = Sql.newInstance("jdbc:sqlite:sample2.db", "org.sqlite.JDBC")
 
         println (sql.connection.catalog)
 
