@@ -4,7 +4,6 @@ import bel.cream2.deamon.DeamonCreamWorker;
 import bel.en.data.AbstractConfiguration;
 import bel.en.data.CreamUserData;
 import bel.en.evernote.ENConfiguration;
-import bel.util.ENMLToPlainText;
 import bel.util.HtmlToPlainText;
 import bel.util.Util;
 import lombok.extern.log4j.Log4j2;
@@ -126,9 +125,12 @@ public class ReadAndForwardExchangeMails {
             if (m.getSubject().startsWith("*h") || m.getSubject().startsWith("*H")) {
                 log.debug("RECOGNIZED: sending help");
                 sendHelp(m, "Sie haben mich um Hilfe gebeten...");
+            } else if(m.getSubject().startsWith("*m") || m.getSubject().startsWith("*M")) {
+                log.debug("RECOGNIZED: manual adresse an anna");
+                forwardToManualAdresses(m);
             } else if(m.getSubject().startsWith("*a") || m.getSubject().startsWith("*A")) {
-                log.debug("RECOGNIZED: adresse");
-                forwardToAdresses(m);
+                log.debug("RECOGNIZED: automatic adresse");
+                forwardToAutomaticAdresses(m);
             } else if(m.getSubject().startsWith("*n") || m.getSubject().startsWith("*N")) {
                 log.debug("RECOGNIZED: new Contact");
                 newContact(m);
@@ -191,16 +193,16 @@ public class ReadAndForwardExchangeMails {
         m.forward(null, new EmailAddress(emailEvernote));
     }
 
-    private void forwardToAdresses(EmailMessage m) throws Exception {
+    private void forwardToManualAdresses(EmailMessage m) throws Exception {
         // TODO
         //System.out.println("ADRESSE");
         String s = m.getSubject();
-        s = s.replace("*ADDRESS", "");
-        s = s.replace("*ADRESSE", "");
-        s = s.replace("*ADR", "");
-        s = s.replace("*A", "");
-        s = s.replace("*a", "");
-        s = "(ADRESSE_NEU)  " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
+        //s = s.replace("*ADDRESS", "");
+        //s = s.replace("*ADRESSE", "");
+        //s = s.replace("*ADR", "");
+        s = s.replace("*M", "");
+        s = s.replace("*m", "");
+        s = "(ADRESSE_NEU_MANUAL)  " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
         m.setSubject(s);
         m.update(ConflictResolutionMode.AlwaysOverwrite);
         //m.setSender();
@@ -208,14 +210,40 @@ public class ReadAndForwardExchangeMails {
         m.forward(null, new EmailAddress(emailEvernote));
     }
 
+    private void forwardToAutomaticAdresses(EmailMessage m) throws Exception {
+        String marker = "(ADRESSE_NEU_AUTO)";
+        automaticAdress(m, marker);
+
+
+/*
+
+        String s = m.getSubject();
+        //s = s.replace("*ADDRESS", "");
+        //s = s.replace("*ADRESSE", "");
+        //s = s.replace("*ADR", "");
+        s = s.replace("*A", "");
+        s = s.replace("*a", "");
+        s = "(ADRESSE_NEU_AUTO)  " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
+        m.setSubject(s);
+        m.update(ConflictResolutionMode.AlwaysOverwrite);
+        //m.setSender();
+        //m.set();
+        m.forward(null, new EmailAddress(emailEvernote));
+        */
+    }
+
     private void newContact(EmailMessage m) throws Exception {
         //String s = "(KONTAKT_NEU) "+m.getSender()+" @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
         //m.setSubject(s);
         //m.update(ConflictResolutionMode.AlwaysOverwrite);
         //m.forward(null, new EmailAddress(emailEvernote));
-
+        String marker = "(NEU_KONTAKT)";
         //----
+        automaticAdress(m, marker);
 
+    }
+
+    private void automaticAdress(EmailMessage m, String marker) throws Exception {
         // remove AW: and WE: from the very beginning of the mail
         // find CREAM user (eg BEL) from FROM
         // put BEL: Date at the very beginning of newSubject
@@ -231,7 +259,7 @@ public class ReadAndForwardExchangeMails {
 
         String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
 
-        String newSubject = "(NEU_KONTAKT) " + shortName + " " + date;
+        String newSubject = marker + " " + shortName + " " + date;
 
         newSubject += "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
         //System.out.println("old subject: " + oldSubject);
@@ -251,9 +279,7 @@ public class ReadAndForwardExchangeMails {
         //System.out.println(body.toString());
         m.update(ConflictResolutionMode.AlwaysOverwrite);
         m.forward(null, new EmailAddress(emailEvernote));
-
     }
-
 
 
     private void sendHelp(EmailMessage m, String errorMessage) throws Exception{
@@ -282,9 +308,14 @@ public class ReadAndForwardExchangeMails {
             "<b>*n *N *neu *Neu</b> zu Begin des Betreffs<br/>"+
             "Alle Kontaktdaten am Anfang der Mail. VORSICHT: HTML-MAIL! Dann ggf. todos und zwar so: <b>todo: BEL: 14.7.2018 anrufen</b> Visitenkarte am Ende.<br/><br/><br/>" +
             "" +
-            "<h3>Adresse für Anna:</h3>" +
-            "*a *A *anna *Anna zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
-            "Im Mailtext zeilenweise email oder tel des Kontaktes und optional Adresse, tel, Visitenkarten-Bild in der Mail.<br/><br/><br/>" +
+            "<h3>manuelle Adresse (email an Anna)</h3>" +
+            "*m *M zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
+            "Im Mailtext z.B. Visitenkarten-Bild und die notwendigen TODOs<br/><br/><br/>" +
+            "" +
+            "<h3>automatische Adresse</h3>" +
+            "*a *A zu Beginn des Betreffs<br/>" +
+            "Im Mailtext zeilenweise die Adressdaten und die notwendigen TODOs<br/>" +
+            "Wenn die domain der email nicht gefunden wird, dann wird ein *n draus gemacht - also ein neuer Kontakt eingetragen<br/><br/><br/>" +
             "" +
             "<h3>Ablage der Mail:</h3>" +
             "Email-Adresse zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
