@@ -227,11 +227,12 @@ class DeamonCreamWorker {
 
 
 
-            } else if (noteInInbox.title.contains("(ADRESSE_NEU)")) {
+            } else if (noteInInbox.title.contains("(ADRESSE_NEU_MANUAL)")) {
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
                 if (!testMode) {
-                   log.info("Neue Adresse - informiere Anna. " + noteInInbox.getTitle())
-                    new ReadAndForwardExchangeMails().sentMailTo("anna@v-und-s.de", "(ADRESSE_NEU) in C__MAILS_DOCS :-)", noteInInbox.getTitle())
+                   log.info("Neue Adresse - informiere Anna und Nicole. " + noteInInbox.getTitle())
+                    //new ReadAndForwardExchangeMails().sentMailTo("anna@v-und-s.de", "(ADRESSE_NEU_MANUAL) in C__MAILS_DOCS :-)", noteInInbox.getTitle())
+                    //new ReadAndForwardExchangeMails().sentMailTo("tietz@v-und-s.de", "(ADRESSE_NEU_MANUAL) in C__MAILS_DOCS :-)", noteInInbox.getTitle())
                 }
 
                 //def hitNotes = findNotesContaining()
@@ -292,6 +293,102 @@ class DeamonCreamWorker {
 
                 }
                 */
+            } else if (noteInInbox.title.contains("(ADRESSE_NEU_AUTO)")) { // try to create a new entry...
+
+                // TODO: Debug from HERE
+
+                inboxNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
+                def raw = ENHelper.getRawText(noteInInbox)
+                String[] split = raw.split("(START_KONTAKT|ENDE_KONTAKT)")
+                raw = split[1]
+                //def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+                def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+                def matcher = raw =~ regexTODO
+
+                def am = new AdressMagic(raw)
+                def adr = null
+                //def newHeadline = null
+                def domain = am.email.split("@")[1]
+                am.with {
+                    //newHeadline = "$titleInName$christianNames $surName ($company) [$domain]"
+                    adr = """<div><br/></div>
+                                 <div><b>${ENHelper.escapeHTML(titleInName + christianNames + " " + surName)}</b></div>
+                                 <div>${ENHelper.escapeHTML(functionDepartment)}</div>   
+                                 <div>${ENHelper.escapeHTML(mobile)}</div>   
+                                 <div>${ENHelper.escapeHTML(phone)}</div>   
+                                 <div>${ENHelper.escapeHTML(email)}</div>   
+                                 <div></b></div>   
+
+                                 <div><b>${ENHelper.escapeHTML(company)}</b></div>   
+                                 <div>${ENHelper.escapeHTML(streetAndNr)}</div>   
+                                 <div>${ENHelper.escapeHTML(zipCode + " " + town)}</div>   
+                              """
+                }
+                //println(adr)
+
+                // TODO: Change to "Append" by addHistoryEntry
+                def newBody = ENHelper.createNoteFromEmailText(adr)
+                //println()
+                //println()
+                //println(newBody)
+                def shortName = noteInInbox.title[19..21] // TODO check
+                //def shortName = AbstractConfiguration.getConfig().getShortName(sender)
+
+                // TODO: FIND INSTEAD OF CREATE
+
+                Note n = new Note()
+                n.title = newHeadline.trim()
+                n.content = newBody
+                n.notebookGuid = defaultNotebook.getSharedNotebook().notebookGuid
+                def newNote = defaultNotebook.createNote(n) // get guid
+                n.guid = newNote.guid
+
+                // finally move the original to docs in case it needs to be fixed manually
+                noteInInbox.title = noteInInbox.title.replace("ADRESSE_NEU_AUTO", "Kontaktdaten, original")
+                noteInInbox.title = noteInInbox.title.replace("RE:", "")
+                noteInInbox.title = noteInInbox.title.replace("FW:", "")
+                noteInInbox.title = noteInInbox.title.replace("AW:", "")
+                noteInInbox.title = noteInInbox.title.replace("WG:", "").trim()
+                noteInInbox.title += (" " + am.email)
+                noteInInbox.notebookGuid = mailNotebook.getSharedNotebook().notebookGuid
+                mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
+
+                // create a link to the new one, that points to the original and a todo to check new entry
+                //String evernoteLink = inboxNotebook.getInternalLinkTo(noteInInbox, linkName + ", mail: " + mailAddr)
+                String evernoteLink = mailNotebook.getInternalLinkTo(noteInInbox, "Original-Adressdaten für " + am.email)
+
+                // n.getContent??
+                ENHelper.addHistoryEntry(n, evernoteLink)
+
+                (0..<matcher.count).each {
+                    String todoStr = matcher[it][0]
+                    todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
+                    ENHelper.addTodoEntry(n, todoStr)
+                }
+
+                String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
+                ENHelper.addTodoEntry(n, "$shortName: $date NEUEN KONTAKT PRÜFEN")
+                //SyncHandler.get().updateNoteImmediately(n)
+
+                // finally, create a Link in case there is a duplicate hit for the email
+
+                List<Note> listOfNotes = SyncHandler.get().allNotes
+                //Configuration config = AbstractConfiguration.getConfig()
+                listOfNotes.forEach { localNote ->
+                    if (am.allMails.size() > 0 && StringUtils.containsIgnoreCase(localNote.content, am.allMails[0])) {
+                        ENSharedNotebook notebook = SyncHandler.get().getNotebook(localNote)
+                        evernoteLink = notebook.getInternalLinkTo(localNote, "vermutlich Doublette... andere, alte Notiz mit mail: $am.email")
+                        log.debug("going to create doublette link to: " + localNote.title)
+                        //localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
+                        ENHelper.addHistoryEntry(n, evernoteLink)
+                        // save directly - before sync...
+                        //SyncHandler.get().updateNoteImmediately(localNote)
+                    }
+                }
+                SyncHandler.get().updateNoteImmediately(n)
+
+
+
             }
 
 
