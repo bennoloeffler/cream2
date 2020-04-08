@@ -216,7 +216,7 @@ class OverviewCreator {
                 //if (diffDays < 1) diffStr = "<span style=\"color: rgb(227, 0, 0)\">" + diffStr + "</span>"
                 prefix = Long.toString(linkEntry.daysToTodo())
                 if (linkEntry.doSoon()) prefix = "<b>" + prefix + "</b>"
-                if (linkEntry.doNow()) prefix = "<span style=\"color: rgb(227, 0, 0)\">" + prefix + "</span>"
+                if (linkEntry.doNow()) prefix = "<span style=\"color: rgb(227, 0, 0)\">" + linkEntry.doSofort()?"SOFORT ":prefix + "</span>"
                 prefix += " "
             }
             block = "<div>" + prefix + linkEntry.title
