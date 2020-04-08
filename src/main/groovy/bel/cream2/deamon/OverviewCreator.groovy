@@ -316,6 +316,9 @@ class OverviewCreator {
     }
 
     private void createOverviewForHOTLEADS() throws Exception {
+
+        def allLinks = []
+
         LocalDateTime date = LocalDateTime.now()
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
         String dateText = date.format(formatter)
@@ -329,6 +332,7 @@ class OverviewCreator {
             //ENHelper.stopIfFound(linkEntry.completeString, "Bosch PA")
             ENSharedNotebook notebook = SyncHandler.get().getNotebook(hot.left)
             String link = notebook.getInternalLinkTo(hot.left)
+            allLinks.add(link)
             data += "<div>"+link+"</div>"
             data += "<div>"+hot.right.toString()+"</div>"
             data += "<div><br/></div>"
@@ -339,7 +343,54 @@ class OverviewCreator {
             if(hot.right.euros > 0) {
                 totalSum +=  hot.right.euros
             }
+
+            // excel data
+            /*
+            hot.right.with {
+                excelText += link + "\\t" + getResponsibleStr() + "\\t" +
+                                            getProbStr() + "\\t" +
+                                            getEurStr() + "\\t" +
+                                            getDateStr() + "\\t" +
+                                            completeString +"\\n"
+
+            }
+
+            data = data + "<div><br/></div><div>" + excelText + "</div><div><br/></div>"
+            */
+
         }
+
+
+
+        def i=0
+        def tableData =""
+        for(hl in hotLeads) {
+            tableData += "<tr>"
+            tableData += "<td>"+allLinks[i++]+"</td>"
+            tableData += "<td>"+hl.right.getResponsibleStr()+"</td>"
+            tableData += "<td>"+hl.right.getProbStr()+"</td>"
+            tableData += "<td>"+hl.right.getEurStr()+"</td>"
+            tableData += "<td>"+hl.right.getDateStr()+"</td>"
+            tableData += "<td>"+hl.right.getCompleteString()+"</td>"
+            tableData += "</tr>"
+        }
+
+
+        // create excel table
+        def excelText = """
+                    <table>
+                        <tr>
+                            <th>Ansprechpartner (Firma)</th>
+                            <th>Wer</th>
+                            <th>%</th>
+                            <th>EUR</th>
+                            <th>wann</th>
+                            <th>Info</th>
+                        </tr>
+                        $tableData
+                    </table>
+                    """
+
 
 
         String content =
@@ -352,7 +403,8 @@ class OverviewCreator {
         content += "<div>absolut: "+ String.format(" %.2f EUR", totalSum)+"</div>"+ "<div><br/></div>"
 
         content += data
-
+        //content += "<div></b></div>"
+        content += excelText
         content += "</en-note>"
 
         def path = "$NoteStoreLocal.NOTE_STORE_BASE\\overviews\\ANGEBOTE_und_HOT"+'.txt'
@@ -366,6 +418,7 @@ class OverviewCreator {
             log.debug("Writing this content to " + n.getTitle() + ": " + content)
             n.setContent(content)
             overviewNotebook.updateNote(n)
+            println "success writing HOT"
         } else {
             log.info("Found no changes for ANGEBOTE_und_HOT. NO NEW OVERVIEW...")
         }
