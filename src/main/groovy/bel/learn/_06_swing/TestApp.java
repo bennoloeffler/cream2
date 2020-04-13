@@ -1,6 +1,6 @@
 package bel.learn._06_swing;
 
-import com.jgoodies.looks.Options;
+import com.jgoodies.looks.*;
 import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
 import com.jgoodies.looks.plastic.PlasticLookAndFeel;
 import com.jgoodies.looks.plastic.theme.ExperienceBlue;
@@ -35,21 +35,23 @@ public class TestApp {
     @lombok.SneakyThrows()
     private static void initLookAndFeel() {
         System.setProperty("swing.aatext", "true");
-        /*
+
         FontSet fontSet = FontSets.createDefaultFontSet(
-                new Font("Tahoma", Font.PLAIN, 14),    // control font
-                new Font("Tahoma", Font.PLAIN, 14),    // menu font
-                new Font("Tahoma", Font.BOLD, 14)     // completeString font
+                new Font("Tahoma", Font.PLAIN, 12),    // control font
+                new Font("Tahoma", Font.PLAIN, 12),    // menu font
+                new Font("Tahoma", Font.BOLD, 12)     // completeString font
         );
         FontPolicy fixedPolicy = FontPolicies.createFixedPolicy(fontSet);
         Plastic3DLookAndFeel.setFontPolicy(fixedPolicy);
-        */
+
+
         Plastic3DLookAndFeel laf = new Plastic3DLookAndFeel();
         Plastic3DLookAndFeel.setCurrentTheme(new SkyBluer());
         Options.setPopupDropShadowEnabled(true);
         ExperienceBlue eb = new ExperienceBlue();
         PlasticLookAndFeel.setPlasticTheme(eb);
         UIManager.setLookAndFeel(laf);
+
     }
 
     //

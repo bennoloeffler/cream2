@@ -20,6 +20,7 @@ import org.apache.commons.lang3.Pair
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+
 /**
  * Creates an overview for all users that can be found in config...
  */
@@ -29,7 +30,7 @@ class OverviewCreator {
     /**
      * This one is to sort the titleStrings according to due date
      */
-    private Comparator<LinkEntry> stringComparator = new Comparator<LinkEntry>() {
+    private stringComparator = new Comparator<LinkEntry>() {
         int compare(LinkEntry o1, LinkEntry o2) {
             Calendar c1 = o1.getEarliestDate()
             Calendar c2 = o2.getEarliestDate()
@@ -204,6 +205,7 @@ class OverviewCreator {
             String block
 
             Calendar cal = linkEntry.getEarliestDate()
+            def whenStr = linkEntry.getWhenString()
             String prefix = ""
             if (cal == null) {
                 prefix = "EGAL... "
@@ -214,16 +216,20 @@ class OverviewCreator {
                 //String diffStr = Long.toString(diffDays)
                 //if (diffDays < 7) diffStr = "<b>" + diffStr + "</b>"
                 //if (diffDays < 1) diffStr = "<span style=\"color: rgb(227, 0, 0)\">" + diffStr + "</span>"
+                //if(linkEntry.doSofort()) {
+                //    println("sofort")
+                //}
                 prefix = Long.toString(linkEntry.daysToTodo())
                 if (linkEntry.doSoon()) prefix = "<b>" + prefix + "</b>"
-                if (linkEntry.doNow()) prefix = "<span style=\"color: rgb(227, 0, 0)\">" + linkEntry.doSofort()?"SOFORT ":prefix + "</span>"
+                if (linkEntry.doNow()) prefix = "<span style=\"color: rgb(227, 0, 0)\">" + (linkEntry.doSofort()?"<b><i>SOFORT</i></b>: ":prefix) + "</span>"
                 prefix += " "
             }
             block = "<div>" + prefix + linkEntry.title
             content += "<div>" + prefix + linkEntry.title
             if (linkEntry.phone != null) {
                 block +=  " " + linkEntry.phone
-                content += " " + linkEntry.phone
+                //content +=  " " + linkEntry.phone
+                content += """<a href="tel:""" + linkEntry.phone + """ "> """+linkEntry.phone+"</a>" //<a href="tel:123-456-7890">123-456-7890</a>
 
             }
             block  += "</div>"
@@ -332,7 +338,8 @@ class OverviewCreator {
             //ENHelper.stopIfFound(linkEntry.completeString, "Bosch PA")
             ENSharedNotebook notebook = SyncHandler.get().getNotebook(hot.left)
             String link = notebook.getInternalLinkTo(hot.left)
-            allLinks.add(link)
+            String externalLink = notebook.getInternalLinkTo(hot.left) //notebook.getExternalLinkTo(hot.left, "[Web-Link]")
+            allLinks.add(externalLink)
             data += "<div>"+link+"</div>"
             data += "<div>"+hot.right.toString()+"</div>"
             data += "<div><br/></div>"
@@ -366,12 +373,12 @@ class OverviewCreator {
         def tableData =""
         for(hl in hotLeads) {
             tableData += "<tr>"
-            tableData += "<td>"+allLinks[i++]+"</td>"
-            tableData += "<td>"+hl.right.getResponsibleStr()+"</td>"
-            tableData += "<td>"+hl.right.getProbStr()+"</td>"
-            tableData += "<td>"+hl.right.getEurStr()+"</td>"
-            tableData += "<td>"+hl.right.getDateStr()+"</td>"
-            tableData += "<td>"+hl.right.getCompleteString()+"</td>"
+            tableData += "<td >"+allLinks[i++]+"</td>"
+            tableData += "<td >"+hl.right.getResponsibleStr()+"</td>"
+            tableData += "<td >"+hl.right.getProbStr()+"</td>"
+            tableData += "<td >"+hl.right.getEurStr()+"</td>"
+            tableData += "<td >"+hl.right.getDateStr()+"</td>"
+            tableData += "<td >"+hl.right.getCompleteString()+"</td>"
             tableData += "</tr>"
         }
 
@@ -402,7 +409,7 @@ class OverviewCreator {
         content += "<div><b>gewichtet: "+ String.format(" %.2f EUR", weightedSum)+"</b></div>"
         content += "<div>absolut: "+ String.format(" %.2f EUR", totalSum)+"</div>"+ "<div><br/></div>"
 
-        content += data
+        //content += data
         //content += "<div></b></div>"
         content += excelText
         content += "</en-note>"
@@ -453,7 +460,20 @@ class OverviewCreator {
         if(shortName.equals(ALL_USERS)) {
             searchFor = Main.UEBERSICHT_TITLE_STRING
         }
+        // notebook:Travel intitle:"San Francisco"
         List<Note> listUebersicht = overviewNotebook.findNotes("intitle:["+searchFor+"]")
+
+        listUebersicht.removeAll {it.getDeleted()}
+        /*
+        def i = 0
+        while(i<listUebersicht.size()) {
+            if(listUebersicht.get(i).getDeleted()) {
+                listUebersicht.remove(i)
+            } else {
+                i++
+            }
+        }
+        */
         int size = listUebersicht.size()
         if (size == 0) { // not found. Create one...
             returnNote = overviewNotebook.createNote(searchFor)
@@ -495,14 +515,16 @@ class OverviewCreator {
         "<div>VORSICHT: wenn das unbestimmte Datum (z.B. KW3, Dez, 15.6.) im aktuellen Jahr <b>laenger als ca. 8 Wochen</b></div>"+
         "<div>in der Vergangenheit liegt, wird das kommende Jahr angenommen!</div>"+
         "<div>Wenn mehrere Angaben in einer todo Zeile liegen, wird die genaueste genutzt.</div>"+
-        "<div>Es gilt 15.11.14 vor 23.7 vor KW6 vor Januar.</div>"+
+        "<div>Es gilt 15.11.14 vor 23.7 vor KW6 vor Januar.</div>" + //----------
         "<div>Datumsangaben brauchen entweder ein folgendes Leerzeichen oder einen Doppelpunkt. 15.6.: KW8: Dez:</div>"+
-        "<div><br/><b>TELEFON:</b> Die <b>erste Telefonnummer</b> in der Notiz wird angehaengt. <br/>Es sei denn, vor der Nummer steht IGN: - dann die zweite etc.</div>"+
-        "<div><br/><b>TODOs:</b> Die <b>unerledigten todos</b> (Kontrollkästchen ohne Haken)<br/> in der Notiz werden übernommen.</div>"+
-        "<div>Wenn in den todos Kürzel mit : <b>(Doppelpunkt!)</b> sind, dann erscheinen die Einträge in User-spezifischen Übersichten.</div>"+
+        "<div><br/><b>TELEFON:</b> Die <b>erste Telefonnummer</b> in der Notiz wird in den TODOs der Übersicht angehaengt. <br/>Sehr praktisch im iPhone... Durch Touch wählbar<br/>Es sei denn, vor der Nummer steht IGN: - dann die zweite etc.</div>"+
+        "<div><br/><b>TODOs:</b> Die <b>unerledigten todos</b> (Kontrollkästchen ohne Haken)<br/> in der Notiz werden in die Übersichten übernommen.</div>"+
+        "<div>Wenn in den todos Kürzel mit : <b>(Doppelpunkt!) also zB BEL:</b> zu finden sind, dann erscheinen die Einträge in User-spezifischen Übersichten.</div>"+
+        "<div>Beispiel: <b>[ ] BEL: 1.9.2020 Wegen Veranstaltung nachfragen</b></div>"+
+        "<div>Beispiel: [ ] BEL: <b>1.1.00</b> RÜCKRUFEN!  <br/>Dieses besondere Datum ( mehr als 18 Jahre rückwärts...) erzeugt <b>SOFORT</b> in der Übersicht</div>"+
         "<div>Also BEL: im todo befördert einen Eintrag in die Notiz BEL_UEBERSICHT - wenn es den User BEL gibt. Siehe CRM-KONFIGURATION.</div>"+
-        "<div><b><br/>Mehrfach-TODOs und REDEN</b></div>"+
-        "<div>Beispiel: BEL: NIT: KW35 REDEN Bücher angekommen, dann mit GF bla bla ... </div>"+
+        "<div><b><br/>Mehrfach-TODOs und REDEN</b></div>" +
+        "<div>Beispiel: <b>BEL: NIT: KW35 REDEN Wenn Bücher angekommen, dann mit GF sprechen</b> </div>"+
         "<div>Der erste Eintrag (BEL:) hat die Aufgabe.</div>"+
         "<div>Der zweite Eintrag (NIT:) bekommt die Aufgabe ebenfalls in der TODO-Liste gezeigt.</div>"+
         "<div>Wenn dort das Schlüsselwort REDEN steht, dann sollte der Ausführende (BEL:) vor dem Machen mit dem anderen (NIT:) sprechen.</div>"+
@@ -511,10 +533,12 @@ class OverviewCreator {
         "<div>Wenn die Aufgabe erledigt ist, hakt Anna das TODO ab. Dann wird es auch aus der Liste bei BEL verschwinden.</div>"+
         "<div><b><br/>*HOT und *ANGEBOT</b></div>"+
         "<div>Wenn am Anfang der Zeile *HOT oder *ANGEBOT steht, dann erscheint ein Eintrag in der HOT_und_ANGEBOTE_UEBERSICHT</div>"+
-        "<div>Beispiel:</div>"+
-        "<div>*HOT FAS: 30% EUR 50.000 1.9.2018 Vorstand Grebisz hat angebissen - aber derzeit viele Baustellen</div>"+
-        "<div>Das bedeutet: FAS schätzt eine Chance von 30% das was kommt. Und zwar in der Region von 50.000 EUR. Die Schätzung ist vom 1.1.2019.</div>"+
-        "<div><br/><br/><b>MAIL-KOMMANDOS:</b> also dies Kommandos an crm@v-und-s.de schicken...<br/></div>" +
+        "<div>Beispiel:</div><br/>"+
+                ""+
+        "<div><b>*HOT FAS: 30% EUR 50.000 1.9.2018 Vorstand Grebisz hat angebissen - aber derzeit viele Baustellen</b></div>"+
+        "<div><b>*ANGEBOT 30% EUR 50.000 BEL: 1.9.2022 Über den Sommer noch nicht... Zu viel Urlaub. Aber dann.</b></div>"+
+       "<div>Das bedeutet: FAS schätzt eine Chance von 30% das was kommt. <br/>Und zwar in der Region von 50.000 EUR. Bisher kein Angebot. <br/>Nur heiss... Vermutlich startet es am 1.9.2018.</div>"+
+        "<div><br/><br/><br/><br/><b>MAIL-KOMMANDOS:</b><br/>also dies Kommandos an <b>crm@v-und-s.de</b> schicken...<br/></div>" +
         "<div>"+ ReadAndForwardExchangeMails.mailHelpHtml + "</div>" +
         "<div><br/><br/><b>KNOWN BUGS:</b> Wenn das Programm mit EDAMMalformedException abstürzt, dann liegt das daran, dass 'malformed html-Tags' drin sind. Lösung: TODOs als Text formatieren in der PublicBath-App :-(<br/>Seltsam: Kaufmanns-Und und Umlaute in todo-Texten kommen in ENML 'im Klartext' und nicht als HTML-Sonderzeichen. Das könnte ein Problem werden.</div>"
 
@@ -533,6 +557,7 @@ class OverviewCreator {
 
     static class LinkEntry {
 
+
         private static long MILLIS_TO_DAYS_DIVIDER = 1000 * 60 * 60 * 24
 
         boolean doNow() {
@@ -540,7 +565,7 @@ class OverviewCreator {
         }
 
         boolean doSoon() {
-            daysToTodo() < 7
+            daysToTodo() < 14
         }
 
         boolean doSofort() {
@@ -560,14 +585,20 @@ class OverviewCreator {
         }
 
         String toFileString() {
-            getEarliestDate()
-
-            def c = calendar?calendar.format("yyyy-MM-dd"):"EGAL..."
             def p = phone ? "TEL: " + phone : ""
+
+            GString timeStr = getWhenString()
+            """$timeStr   $titleRaw   $p\n${todos.join('\n')}"""
+        }
+
+        public GString getWhenString() {
+            getEarliestDate()
+            def c = calendar ? calendar.format("yyyy-MM-dd") : "EGAL..."
             def s = doSoon() && !doNow() ? "BALD...   " : ""
             def n = doNow() && !doSofort() ? "JETZT...   " : ""
             def so = doSofort() ? "_S_O_F_O_R_T_...   " : ""
-            """$s$n$so$c   $titleRaw   $p\n${todos.join('\n')}"""
+            def timeStr = """$s$n$so$c"""
+            timeStr
         }
 
         LinkEntry clone() {

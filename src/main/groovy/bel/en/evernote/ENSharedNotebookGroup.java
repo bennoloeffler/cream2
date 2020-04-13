@@ -56,6 +56,13 @@ public class ENSharedNotebookGroup {
         return null; // not found...
     }
 
+    public ENSharedNotebook getNotebookByName(String notebookName) {
+        ENSharedNotebook result =  notebookMap.get(notebookName);
+        if(result == null) {
+            log.debug("NOTEBOOK NOT FOUND! " + notebookName);
+        }
+        return result;
+    }
     /*
     public String getNotebookGuidForName(String notebook) {
         for(ENSharedNotebook n: notebookMap.values()) {

@@ -113,6 +113,7 @@ public class RegexUtils {
     }
 
     public static void testDomainFits() {
+        assert domainFits("sdfsdf sdf (df)df[standort2@multi-standort.de]", "standort2@multi-standort.de");
         assert domainFits("sdfsdf sdf (df)[bosch.de]df", "bosch.de");
         assert domainFits("sdfsdf sdf (df)[bosch.de]df", "fritz.franz@bosch.de");
         assert domainFits("sdfsdf sdf (df)[bosch.de]df", "@bosch.de");

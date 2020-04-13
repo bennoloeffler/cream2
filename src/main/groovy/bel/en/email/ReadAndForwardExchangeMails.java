@@ -61,7 +61,7 @@ public class ReadAndForwardExchangeMails {
     //String urlService = "https://vunds.epc-cloud.de/EWS/Exchange.asmx";
     //String urlService = "https://mail.v-und-s.de/EWS/Exchange.asmx";
     String urlService = "https://outlook.office365.com/ews/exchange.asmx";
-    String emailCRM = "crm@v-und-s.de";
+    public static String emailCRM = "crm@v-und-s.de";
     String emailEvernote = "bennoloeffler.173c3b6@m.evernote.com";
 
     private ExchangeService service;
@@ -86,7 +86,7 @@ public class ReadAndForwardExchangeMails {
     private void forwardMails() throws Exception{
 
         //String allCreamUsers = ENConfiguration.getConfig().getUsers().stream().map(CreamUserData::getEmail).collect(Collectors.joining(", "));
-        List<String> allCreamUsers = ENConfiguration.getConfig().getUsers().stream().map(CreamUserData::getEmail).collect(Collectors.toList());
+        List<String> allCreamUsers = getAllUsersEmails();
         allCreamUsers.add(emailCRM);
         for(EmailMessage m: emails) {
 
@@ -100,7 +100,16 @@ public class ReadAndForwardExchangeMails {
             //      first mail --> link to
             //      no? --> NO LINK
             //
+            String plainTextBody ="";
+            if(m.getBody().getBodyType() == BodyType.HTML) {
+                //System.out.println("html body");
+                plainTextBody = HtmlToPlainText.convert(m.getBody().toString());
 
+            } else {
+                System.out.println("text body");
+                plainTextBody = m.getBody().toString();
+
+            }
             List<String> recipients = m.getToRecipients().getItems().stream().map(EmailAddress::getAddress).collect(Collectors.toList());
             recipients.addAll(m.getCcRecipients().getItems().stream().map(EmailAddress::getAddress).collect(Collectors.toList()));
             String subjectLinkMail = Util.extractEmailStartOfDocument(m.getSubject());
@@ -108,9 +117,9 @@ public class ReadAndForwardExchangeMails {
                 recipients.add(subjectLinkMail);
             }
 
-            String mailInMailBody = Util.extractEmailStartOfDocument(m.getBody().toString()); // maybe very first element
+            String mailInMailBody = Util.extractEmailStartOfDocument(plainTextBody); // maybe very first element
             if(mailInMailBody == null) {
-                mailInMailBody = Util.extractEmailLinkTo(m.getBody().toString()); // otherwise, check for l: in the text
+                mailInMailBody = Util.extractEmailLinkTo(plainTextBody); // otherwise, check for l: in the text
             }
             if(mailInMailBody != null) {
                 recipients.add(mailInMailBody);
@@ -157,7 +166,12 @@ public class ReadAndForwardExchangeMails {
     }
 
     private void sendErrorAndHelp(EmailMessage m) throws Exception{
-        sendHelp(m, "FEHLER - Konnte Betreff nicht verstehen:  " + m.getSubject());
+        sendHelp(m, "CREAM FEHLER - Konnte Betreff nicht verstehen:  " + m.getSubject());
+    }
+
+    public static List<String> getAllUsersEmails() {
+        List<String> allCreamUsers = ENConfiguration.getConfig().getUsers().stream().map(CreamUserData::getEmail).collect(Collectors.toList());
+        return allCreamUsers;
     }
 
     private void forwardLinkMail(EmailMessage m, String subjectLinkMail, String mailsRecipientsString) throws Exception {
@@ -197,12 +211,20 @@ public class ReadAndForwardExchangeMails {
         // TODO
         //System.out.println("ADRESSE");
         String s = m.getSubject();
+        String creamUser = "Fehler_beim_Ermitteln";
+        try {
+            creamUser = AbstractConfiguration.getConfig().getShortName(m.getSender().getAddress());
+        } catch (Exception e) {
+
+        }
+        s += " --> bitte Adressdaten anlegen oder hinzufügen in <b>C_"+ creamUser +"</b>";
+
         //s = s.replace("*ADDRESS", "");
         //s = s.replace("*ADRESSE", "");
         //s = s.replace("*ADR", "");
         s = s.replace("*M", "");
         s = s.replace("*m", "");
-        s = "(ADRESSE_NEU_MANUAL)  " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
+        s = "(ADRESSE_NEU_MANUAL)  </br>" + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
         m.setSubject(s);
         m.update(ConflictResolutionMode.AlwaysOverwrite);
         //m.setSender();
@@ -298,32 +320,36 @@ public class ReadAndForwardExchangeMails {
         m.forward(null, new EmailAddress(mailFrom));
     }
 
-    public static final String mailHelpHtml = "<h3>Hilfe:</h3>" +
-            "<b>*h *H</b> zu Beginn der Betreff-Zeile<br/><br/><br/>" +
+    public static final String mailHelpHtml = "<br/><b>_H_ilfe:</b><br/>" +
+            "<b>*h</b> zu Beginn der Betreff-Zeile<br/><br/>" +
             "" +
-            "<h3>Übersichten generieren:</h3>" +
-            "<b>*ü *Ü *o oder *O</b> zu Begin des Betreffs<br/><br/><br/>"+
+            "<b>_Ü_bersichten neu generieren:</b><br/> " +
+            "<b>*ü</b> oder <b>*o</b> zu Begin des Betreffs  (<b>o</b>verview)<br/><br/>"+
             "" +
-            "<h3>Neuen Kontakt eintragen:</h3>" +
-            "<b>*n *N *neu *Neu</b> zu Begin des Betreffs<br/>"+
-            "Alle Kontaktdaten am Anfang der Mail. VORSICHT: HTML-MAIL! Dann ggf. todos und zwar so: <b>todo: BEL: 14.7.2018 anrufen</b> Visitenkarte am Ende.<br/><br/><br/>" +
+            "<b>Adresse _a_utomatische erzeugen oder hinzufügen:</b><br/> " +
+            "<b>*a</b> zu Beginn des Betreffs<br/>" +
+            "Das ist dir Variante für den Alltag - zB. Visitenkarten-Scanner und E-Mail-Adress-Blöcke.<br/>" +
+            "Wenn Domain oder Email schon in anderer Notiz existiert,<br/> dann wird die Adresse dort hinzugefügt, sonst neu angelegt.<br/>" +
+            "Im Mailtext zeilenweise die Adressdaten und die notwendigen TODOs.<br/>" +
+            "<b>Sonstigen, störenden Text entfernen.</b><br/><br/>" +
             "" +
-            "<h3>manuelle Adresse (email an Anna)</h3>" +
-            "*m *M zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
-            "Im Mailtext z.B. Visitenkarten-Bild und die notwendigen TODOs<br/><br/><br/>" +
+            "<b>_n_eue Notiz bei Ablage des Kontaktes erzwingen:</b><br/>" +
+            "<b>*n</b> zu Beginn des Betreffs<br/>"+
+            "Es wird auf jeden Fall einen neue Adresse (also Notiz) angelegt. <br/>Alle Kontaktdaten am Anfang der Mail. Sonstigen, störenden Text entfernen.<br/> Dann ggf. todos und zwar so: <br/> <b>todo: BEL: 14.7.2018 anrufen</b><br/>Visitenkarte am Ende.<br/><br/>" +
             "" +
-            "<h3>automatische Adresse</h3>" +
-            "*a *A zu Beginn des Betreffs<br/>" +
-            "Im Mailtext zeilenweise die Adressdaten und die notwendigen TODOs<br/>" +
-            "Wenn die domain der email nicht gefunden wird, dann wird ein *n draus gemacht - also ein neuer Kontakt eingetragen<br/><br/><br/>" +
+            "<b>Adresse _m_anuell vom Backoffice anlegen:</b><br/>" +
+            "<b>*m</b> zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
+            "Backoffice bekommt eine E-Mail mit Aufforderung, Adresse korrekt anzulegen. <br/>Grunddaten, z. B. Visitenkarte, werden in Evernote abgelegt.<br/>"+
+            "D.h. der Mailtext enthält ggf. Visitenkarten-Bild, Kontaktdaten aus Mail und die notwendigen TODOs"+
+            "<br/><br/>" +
             "" +
-            "<h3>Ablage der Mail:</h3>" +
-            "Email-Adresse zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
-            "ODER: ein 'l:' vor die email mitten im text also z.B. so:  l:vorname.nachname@domain.de<br/>" +
-            "ODER: ein 'l:' vor die DOMAIN mitten im text also z.B. so:  l:@bosch.de<br/>" +
-            "(einfach ein kleines l mit Doppelpunkt, l: steht für linkto:<br/>" +
+            "<b>Ablegen und Verlinken von Mails:</b><br/> " +
+            "Email-Adresse oder domain (z.B. @bosch.com) zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
+            "ODER: ein 'l:' oder 'L:' vor die email mitten im text also z.B. so:  <b>L:vorname.nachname@domain.de</b><br/>" +
+            "ODER: ein 'l:' oder 'L' vor die DOMAIN mitten im text also z.B. so:  <b>l:@bosch.de</b><br/>" +
+            "(einfach ein L oder l mit Doppelpunkt, L: steht für Linkto:<br/>" +
             "vor ne mail-adresse mittenn in der weitergeleiteten oder geschriebenen mail.<br/>"+
-            "TITELZEILE der Notiz sollte am Ende [firma.de] enthalten. Also domain in eckigen Klammern.<br/><br/><br/>";
+            "Die TITELZEILE der Notiz sollte am Ende die Domain enthalten.<br/> Z. B. <b>[bosch.de]</b> - also domain in eckigen Klammern.<br/><br/><br/>";
 
     private void readMails() throws Exception {
         PropertySet mailPropSet = new PropertySet(BasePropertySet.FirstClassProperties);

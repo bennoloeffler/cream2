@@ -1,5 +1,8 @@
 package bel.cream2.deamon
 
+import groovy.transform.TypeChecked
+
+
 import bel.en.MainGUI
 import bel.en.data.AbstractConfiguration
 import bel.en.data.Configuration
@@ -20,8 +23,10 @@ import groovy.util.logging.Log4j2
 import microsoft.exchange.webservices.data.core.exception.service.remote.ServiceRequestException
 import org.apache.commons.lang3.StringUtils
 import org.codehaus.groovy.runtime.StackTraceUtils
+import bel.en.data.CreamUserData
 
 import java.text.SimpleDateFormat
+import java.util.stream.Collectors
 
 /**
  * This is used by syncer, when CREAM is in Deamon-Mode.
@@ -61,7 +66,7 @@ class DeamonCreamWorker {
     static def processEvernoteInbox() {
         List<Note> notesInInbox = inboxNotebook.allNotes
         if(notesInInbox) {
-            log.debug("found $notesInInbox.size notes in INBOX")
+            log.debug("found ${notesInInbox.size()} notes in INBOX")
         }
         notesInInbox.forEach { noteInInbox ->
 
@@ -87,27 +92,30 @@ class DeamonCreamWorker {
                     log.debug("found mailAddresses to link to: " + mailAdresses)
                 } else {
                     log.debug("found NO mailAddresses to link to.")
-                    noteInInbox.title = "(NICHT ZUGEORDNET)  " + noteInInbox.title
+                    noteInInbox.title = "(NICHT ZUGEORDNET) - keine E-Mail-Adresse -  " + noteInInbox.title
                     mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
                     return
 
                 }
-
+                // notwendig?
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
 
-                mailNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
+                mailNotebook.loadNoteRessources((Note)noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
                 def raw = ENHelper.getRawText(noteInInbox)
 
-                def treffer = false
-                mailAdresses.each { mailAddr ->
+                def treffer = []
+                mailAdresses.each { String mailAddr ->
                     mailAddr = mailAddr.trim()
                     String evernoteLink = inboxNotebook.getInternalLinkTo(noteInInbox, linkName + ", mail: " + mailAddr)
                     List<Note> listOfNotes = SyncHandler.get().allNotes
                     listOfNotes.forEach { localNote ->
                         //if (localNote.content.contains(mailAddr) || localNote.content.contains(mailAddr.toLowerCase())) {
+                        //if(localNote.title.contains("metall-freaks.de")){
+                        //    println "treffer"
+                        //}
                         if (StringUtils.containsIgnoreCase(localNote.content, mailAddr) || RegexUtils.domainFits(localNote.title, mailAddr)) {
                             log.debug("going to link to this note: " + localNote.title)
-                            treffer = true
+                            treffer << localNote
                             localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
                             ENHelper.addHistoryEntry(localNote, evernoteLink)
                             def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
@@ -123,19 +131,24 @@ class DeamonCreamWorker {
                         }
                     }
                 }
+
+                def shortName = noteInInbox.title[0..2]
+                String mail = getUserMail(shortName)
+
                 if (!treffer) {
-                    def shortName = noteInInbox.title[0..2]
-                    def user = AbstractConfiguration.config.users.find() {
-                        it.shortName == shortName
-                    }
-                    if (!user) {
-                        log.error("FUCK: users == null")
-                    }
-                    def mail = user.email
+
                     noteInInbox.title = "(NICHT ZUORDENBAR)   " + noteInInbox.title
                     mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
                     log.warn("Konnte Ablage von $mail nicht zuorden." + noteInInbox.getTitle())
-                    new ReadAndForwardExchangeMails().sentMailTo(mail, "Konnte mail nicht zuordnen...", noteInInbox.getTitle())
+                    new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - FEHLER: Konnte mail nicht zuordnen...", noteInInbox.getTitle())
+                } else {
+                    def htmlBodyString = noteInInbox.getTitle()+ " zugeordnet. Und zwar dort: <br/><br/>"
+                    treffer.each { Note note ->
+                        ENSharedNotebook notebook = SyncHandler.get().getNotebook(note)
+                        def evernoteLink = notebook.getInternalLinkTo(note, note.title)
+                        htmlBodyString += "Notizen-Titel: " + evernoteLink +"<br/>"
+                    }
+                    new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: zugeordnet...", htmlBodyString, true)
                 }
             } else if (noteInInbox.title.contains("(NEU_KONTAKT)")) { // try to create a new entry...
                 inboxNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
@@ -149,45 +162,47 @@ class DeamonCreamWorker {
                 def am = new AdressMagic(raw)
                 def adr = null
                 def newHeadline = null
-                def domain = am.email.split("@")[1]
+                //def domain = am.email.split("@")[1]
                 am.with {
-                    newHeadline = "$titleInName$christianNames $surName ($company) [$domain]"
+                    newHeadline = "$titleInName$christianNames $surName ($company) [$www]"
                     adr = """<div><br/></div>
                                  <div><b>${ENHelper.escapeHTML(titleInName + christianNames + " " + surName)}</b></div>
                                  <div>${ENHelper.escapeHTML(functionDepartment)}</div>   
                                  <div>${ENHelper.escapeHTML(mobile)}</div>   
                                  <div>${ENHelper.escapeHTML(phone)}</div>   
                                  <div>${ENHelper.escapeHTML(email)}</div>   
-                                 <div></b></div>   
+                                 <div><br/></div>   
 
                                  <div><b>${ENHelper.escapeHTML(company)}</b></div>   
                                  <div>${ENHelper.escapeHTML(streetAndNr)}</div>   
                                  <div>${ENHelper.escapeHTML(zipCode + " " + town)}</div>   
                               """
                 }
-                //println(adr)
 
+                //def newHeadline = am.christianNames + " " + am.surName + " ["+am.www+"]";
                 def newBody = ENHelper.createNoteFromEmailText(adr)
-                //println()
-                //println()
-                //println(newBody)
                 def shortName = noteInInbox.title[14..16]
-                //def shortName = AbstractConfiguration.getConfig().getShortName(sender)
+                String mail = getUserMail(shortName)
 
+
+                def usersNotebookGuid = defaultNotebook // in case it does not exist...
+                // find the users notebook
+                try {
+                    usersNotebookGuid = SyncHandler.get().getNotebookByName("C_"+shortName)
+                } catch (Exception e) {
+                    log.warn("did not find notebook for user: " + shortName)
+                }
+
+                // create the note
                 Note n = new Note()
                 n.title = newHeadline.trim()
                 n.content = newBody
-                n.notebookGuid = defaultNotebook.getSharedNotebook().notebookGuid
-                def newNote = defaultNotebook.createNote(n) // get guid
-                n.guid = newNote.guid
+                n = usersNotebookGuid.createNote(n)
 
                 // finally move the original to docs in case it needs to be fixed manually
                 noteInInbox.title = noteInInbox.title.replace("NEU_KONTAKT", "Kontaktdaten, original")
-                noteInInbox.title = noteInInbox.title.replace("RE:", "")
-                noteInInbox.title = noteInInbox.title.replace("FW:", "")
-                noteInInbox.title = noteInInbox.title.replace("AW:", "")
-                noteInInbox.title = noteInInbox.title.replace("WG:", "").trim()
                 noteInInbox.title += (" " + am.email)
+                noteInInbox.title = noteInInbox.title.trim()
                 noteInInbox.notebookGuid = mailNotebook.getSharedNotebook().notebookGuid
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
 
@@ -195,7 +210,6 @@ class DeamonCreamWorker {
                 //String evernoteLink = inboxNotebook.getInternalLinkTo(noteInInbox, linkName + ", mail: " + mailAddr)
                 String evernoteLink = mailNotebook.getInternalLinkTo(noteInInbox, "Original-Adressdaten für " + am.email)
 
-                // n.getContent??
                 ENHelper.addHistoryEntry(n, evernoteLink)
 
                 (0..<matcher.count).each {
@@ -204,100 +218,90 @@ class DeamonCreamWorker {
                     ENHelper.addTodoEntry(n, todoStr)
                 }
 
-                String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
-                ENHelper.addTodoEntry(n, "$shortName: $date NEUEN KONTAKT PRÜFEN")
-                //SyncHandler.get().updateNoteImmediately(n)
+                //String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
+                ENHelper.addTodoEntry(n, "ANL: $shortName: 1.1.00 NEUEN KONTAKT PRÜFEN")
 
                 // finally, create a Link in case there is a duplicate hit for the email
+                List<Note> doublettes = []
+                SyncHandler.get().allNotes.forEach { localNote ->
 
-                List<Note> listOfNotes = SyncHandler.get().allNotes
-                //Configuration config = AbstractConfiguration.getConfig()
-                listOfNotes.forEach { localNote ->
-                    if (am.allMails.size() > 0 && StringUtils.containsIgnoreCase(localNote.content, am.allMails[0])) {
-                        ENSharedNotebook notebook = SyncHandler.get().getNotebook(localNote)
-                        evernoteLink = notebook.getInternalLinkTo(localNote, "vermutlich Doublette... andere, alte Notiz mit mail: $am.email")
-                        log.debug("going to create doublette link to: " + localNote.title)
-                        //localNote = inboxNotebook.getSharedNoteStore().getNote(ENConnection.get().businessAuthToken, localNote.guid, true, false, false, false)
-                        ENHelper.addHistoryEntry(n, evernoteLink)
-                        // save directly - before sync...
-                        //SyncHandler.get().updateNoteImmediately(localNote)
+                    am.allMails.each { mailAdress ->
+                        if(StringUtils.containsIgnoreCase(localNote.content, mailAdress)) {
+                            doublettes << localNote
+                        }
+                    }
+                    if(StringUtils.containsIgnoreCase(localNote.title, am.www)) {
+                        doublettes << localNote
                     }
                 }
+                doublettes.toUnique().each { localNote ->
+                    ENSharedNotebook notebook = SyncHandler.get().getNotebook(localNote)
+                    evernoteLink = notebook.getInternalLinkTo(localNote, "vermutlich Doublette... andere, alte Notiz mit mail: $am.allMails bzw. domain: $am.www")
+                    log.debug("going to create doublette link to: " + localNote.title)
+                    ENHelper.addHistoryEntry(n, evernoteLink)
+                }
                 SyncHandler.get().updateNoteImmediately(n)
+
+                ENSharedNotebook notebook = SyncHandler.get().getNotebook(n)
+                evernoteLink = notebook.getInternalLinkTo(n, n.title)
+                def htmlBodyString = "Notizen-Titel der neuen Notiz: " + evernoteLink +"<br/>"
+                if(doublettes) {
+                    htmlBodyString += "Allerdings gibt's Doubletten-Verdacht... <br/>Also bitte bereinigen.<br/>"
+                }
+                new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: neu angelegt...", htmlBodyString, true)
 
 
 
             } else if (noteInInbox.title.contains("(ADRESSE_NEU_MANUAL)")) {
+                // TODO: Check this - is it a "move"?
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
+
+                List<String> emailsOfNeuManual = RegexUtils.findEmailAdress(noteInInbox.getContent())
+                List<String> allCreamUsers = ReadAndForwardExchangeMails.getAllUsersEmails();
+                allCreamUsers.add(ReadAndForwardExchangeMails.emailCRM);
+                emailsOfNeuManual.removeAll(allCreamUsers)
+                emailsOfNeuManual = emailsOfNeuManual.toUnique()
+
+
+                String foundNotesWithMail ="<br/>"
+                if(emailsOfNeuManual.size() > 0) {
+
+                    // Scan for notes contaiing email
+                    List<Note> notesContainingEmail = findNotesContaining(emailsOfNeuManual)
+                    notesContainingEmail.each {foundNotesWithMail += "E-Mails: " +emailsOfNeuManual+" in dieser Notiz gefunden: <br/>" + mailNotebook.getInternalLinkTo(it,  it.title )+"<br/><br/>"}
+
+                    foundNotesWithMail += "<br/>"
+                    // Scan for notes contaiing domain
+                    List<Note> notesContainingDomain = findNotesContainingDomain(emailsOfNeuManual)
+                    notesContainingDomain.each {foundNotesWithMail += "Domains dieser E-Mails " +emailsOfNeuManual+" in diesem Notiz-Titel: <br/>" + mailNotebook.getInternalLinkTo(it,  it.title )+"<br/><br/>"}
+
+                    if (notesContainingEmail.empty && notesContainingDomain.empty) {
+                        // do new entry with mail
+                        // put link to email
+                        foundNotesWithMail += "keine Notizen mit Domains oder E-Mail " +emailsOfNeuManual+" gefunden... Bitte neu anlegen."
+                    }
+                }
+
+                def todoReceiver = ["loeffler@v-und-s.de", "anna@v-und-s.de"]
                 if (!testMode) {
-                   log.info("Neue Adresse - informiere Anna und Nicole. " + noteInInbox.getTitle())
-                    //new ReadAndForwardExchangeMails().sentMailTo("anna@v-und-s.de", "(ADRESSE_NEU_MANUAL) in C__MAILS_DOCS :-)", noteInInbox.getTitle())
-                    //new ReadAndForwardExchangeMails().sentMailTo("tietz@v-und-s.de", "(ADRESSE_NEU_MANUAL) in C__MAILS_DOCS :-)", noteInInbox.getTitle())
-                }
-
-                //def hitNotes = findNotesContaining()
-
-                /*
-
-                // 0.
-                //FÜR NEUANLAGE: Titel ermitteln (email, titel, name, firma)
-                String nameCompany
-                def email = ENHelper.findFirstEmailAdress(noteInInbox.content)
-                String names
-                String domain
-                if (email) {
-                    names = email.split("@")
-                    //nameCompany = email // just in case, nothing else is found...
-                    def name = names[0]
-                    def comp = names[1].split("\\.")[0].capitalize()
-                    nameCompany = "$name ($comp)"
-                    if (email =~ /[\w]{3,}\.[^@]{3,}@[\w]{3,}\.\w{2,3}/) { // vor.nach@name.yxr
-                        def vorNach = names[0].split("\\.")
-                        def vor = vorNach[0].capitalize()
-                        def nach = vorNach[1].capitalize()
-                        nameCompany = "$vor $nach ($comp)"
-                    }
-
-                }
-                def rawText = ENHelper.getRawText(noteInInbox)
-                AdressMagic magic = new AdressMagic(rawText)
-
-                // DIE ARBEIT MUSS MAN SICH NUR MACHEN, WENN DIE EMAIL NICHT PASST (vorname.nachname@companyName.XYZ
-                def titleTrimmed = noteInInbox.title.replace("ADRESSE_NEU:", "").trim()
-                if (titleTrimmed =~ /[^(]{3,}\([^)]{3,}\)/) {
-                    nameCompany = titleTrimmed
-                }
-
-                // Note zum verlinken finden
-                def hit = false
-                if(email) {
-                    List<Note> listOfNotes = SyncHandler.get().allNotes
-                    for (Note localNote : listOfNotes) {
-                        if (localNote.content.contains(email)) {
-                            hit = true
-                            ENHelper.addHistoryEntry(localNote, )
-                            break // only link to one...
-                        }
+                   log.info("Neue manuelle Adresse - informiere backoffice " + noteInInbox.getTitle())
+                    String link = mailNotebook.getRawExternalLinkTo(noteInInbox)
+                    String htmlLink = mailNotebook.getInternalLinkTo(noteInInbox, "Zu den gesendeten Daten... Bitte hier_klicken.")
+                    todoReceiver.each {
+                        new ReadAndForwardExchangeMails().sentMailTo(it, "(ADRESSE_NEU_MANUAL) in C__MAILS_DOCS --> " + link, noteInInbox.getTitle() + "<br/>" + htmlLink + "<br/>" + foundNotesWithMail, true)
                     }
                 }
-                if(!hit) { // sonst neue note erzeugen und verlinken
-                    Note n = new Note()
-                    n.title = "ADRESSE_NEU: " + nameCompany
-                    n.content = ENHelper.createNoteFromEmailText("")
 
-                    // LINK
-
-                    n = defaultNotebook.createNote(n)
-                    SyncHandler.get().updateNote(n)
+                def htmlBodyString = "Aufforderung zum Eintrag wurde geschickt an:  " + todoReceiver +"<br/>"
+                new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: ...", htmlBodyString, true)
 
 
-                }
-                */
             } else if (noteInInbox.title.contains("(ADRESSE_NEU_AUTO)")) { // try to create a new entry...
 
-                // TODO: Debug from HERE
-
                 inboxNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
+                def shortName = noteInInbox.title[19..21]
+                String mail = getUserMail(shortName)
+
                 def raw = ENHelper.getRawText(noteInInbox)
                 String[] split = raw.split("(START_KONTAKT|ENDE_KONTAKT)")
                 raw = split[1]
@@ -307,71 +311,82 @@ class DeamonCreamWorker {
 
                 def am = new AdressMagic(raw)
                 def adr = null
-                //def newHeadline = null
-                def domain = am.email.split("@")[1]
+                def domain = am.www //email.split("@")[1]
+                def newHeadline
                 am.with {
-                    //newHeadline = "$titleInName$christianNames $surName ($company) [$domain]"
+                    newHeadline = "$titleInName$christianNames $surName ($company) [$www]"
                     adr = """<div><br/></div>
                                  <div><b>${ENHelper.escapeHTML(titleInName + christianNames + " " + surName)}</b></div>
                                  <div>${ENHelper.escapeHTML(functionDepartment)}</div>   
                                  <div>${ENHelper.escapeHTML(mobile)}</div>   
                                  <div>${ENHelper.escapeHTML(phone)}</div>   
                                  <div>${ENHelper.escapeHTML(email)}</div>   
-                                 <div></b></div>   
+                                 <div><br/></div>   
 
                                  <div><b>${ENHelper.escapeHTML(company)}</b></div>   
                                  <div>${ENHelper.escapeHTML(streetAndNr)}</div>   
                                  <div>${ENHelper.escapeHTML(zipCode + " " + town)}</div>   
                               """
                 }
-                //println(adr)
 
-                // TODO: Change to "Append" by addHistoryEntry
-                def newBody = ENHelper.createNoteFromEmailText(adr)
-                //println()
-                //println()
-                //println(newBody)
-                def shortName = noteInInbox.title[19..21] // TODO check
-                //def shortName = AbstractConfiguration.getConfig().getShortName(sender)
+                def created = false
+                List<Note> notesContainingDomain = findNotesContainingDomain([am.email]) // TODO: noch kacke... findet standort@bosch.de nicht sondern nur bosch.de
+                if(notesContainingDomain.size() > 0){ // PROBLEM. Wo ablegen? Überall...
+                    notesContainingDomain.each {
+                        ENHelper.addAdressEntryAtEnd(it, adr)
+                    }
+                } else {
+                    //def newHeadline = am.christianNames + " " + am.surName + " ["+am.www+"]";
+                    def newBody = ENHelper.createNoteFromEmailText(adr)
 
-                // TODO: FIND INSTEAD OF CREATE
+                    def usersNotebookGuid = defaultNotebook // in case it does not exist...
+                    // find the users notebook
+                    try {
+                        usersNotebookGuid = SyncHandler.get().getNotebookByName("C_"+shortName)
+                    } catch (Exception e) {
+                        log.warn("did not find notebook for user: " + shortName)
+                    }
 
-                Note n = new Note()
-                n.title = newHeadline.trim()
-                n.content = newBody
-                n.notebookGuid = defaultNotebook.getSharedNotebook().notebookGuid
-                def newNote = defaultNotebook.createNote(n) // get guid
-                n.guid = newNote.guid
+                    // create the note
+                    Note n = new Note()
+                    n.title = newHeadline.trim()
+                    n.content = newBody
+                    n = usersNotebookGuid.createNote(n) // get guid
+                    //n.guid = newNote.guid
+                    notesContainingDomain.add(n)
+                    created = true
+                }
+
 
                 // finally move the original to docs in case it needs to be fixed manually
                 noteInInbox.title = noteInInbox.title.replace("ADRESSE_NEU_AUTO", "Kontaktdaten, original")
-                noteInInbox.title = noteInInbox.title.replace("RE:", "")
-                noteInInbox.title = noteInInbox.title.replace("FW:", "")
-                noteInInbox.title = noteInInbox.title.replace("AW:", "")
-                noteInInbox.title = noteInInbox.title.replace("WG:", "").trim()
                 noteInInbox.title += (" " + am.email)
                 noteInInbox.notebookGuid = mailNotebook.getSharedNotebook().notebookGuid
                 mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
 
-                // create a link to the new one, that points to the original and a todo to check new entry
+                // create a link to the new one, that points to the original and a en_todo to check new entry
                 //String evernoteLink = inboxNotebook.getInternalLinkTo(noteInInbox, linkName + ", mail: " + mailAddr)
                 String evernoteLink = mailNotebook.getInternalLinkTo(noteInInbox, "Original-Adressdaten für " + am.email)
 
-                // n.getContent??
-                ENHelper.addHistoryEntry(n, evernoteLink)
-
+                notesContainingDomain.each {
+                    ENHelper.addHistoryEntry(it, evernoteLink)
+                }
                 (0..<matcher.count).each {
                     String todoStr = matcher[it][0]
                     todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
-                    ENHelper.addTodoEntry(n, todoStr)
+
+                    notesContainingDomain.each {
+                        ENHelper.addTodoEntry(it, todoStr)
+                    }
                 }
 
-                String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
-                ENHelper.addTodoEntry(n, "$shortName: $date NEUEN KONTAKT PRÜFEN")
-                //SyncHandler.get().updateNoteImmediately(n)
+                //String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
+                notesContainingDomain.each {
+                    ENHelper.addTodoEntry(it, "ANL: $shortName: 1.1.00 NEUEN KONTAKT PRÜFEN")
+                }
 
                 // finally, create a Link in case there is a duplicate hit for the email
-
+                /*
                 List<Note> listOfNotes = SyncHandler.get().allNotes
                 //Configuration config = AbstractConfiguration.getConfig()
                 listOfNotes.forEach { localNote ->
@@ -385,8 +400,21 @@ class DeamonCreamWorker {
                         //SyncHandler.get().updateNoteImmediately(localNote)
                     }
                 }
-                SyncHandler.get().updateNoteImmediately(n)
-
+                */
+                notesContainingDomain.each {
+                    SyncHandler.get().updateNoteImmediately(it)
+                }
+                def htmlBodyString = ""
+                if(created) {
+                    htmlBodyString += "Neu anglegt!<br/>"
+                } else {
+                    htmlBodyString += "Zu existierenden Adressen hinzugefügt:<br/>"
+                }
+                notesContainingDomain.each {
+                    String htmlLink = mailNotebook.getInternalLinkTo(it, it.title)
+                    htmlBodyString += (htmlLink + "<br/>")
+                }
+                new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: Adresse automatisch abgelegt...", htmlBodyString, true)
 
 
             }
@@ -416,7 +444,35 @@ class DeamonCreamWorker {
         }
     }
 
-    List<Note> findNotesContaining(List<String> stringsToSearchFor) {
+    public static String getUserMail(shortName) {
+        def user = AbstractConfiguration.config.users.find() {
+            it.shortName == shortName
+        }
+        if (!user) {
+            log.error("FUCK: users == null")
+            throw Exception("FUCK: users == null")
+        }
+        def mail = user.email
+        mail
+    }
+
+    static List<Note> findNotesContainingDomain(List<String> stringsToSearchFor) {
+        def result = []
+        List<Note> listOfNotes = SyncHandler.get().allNotes
+        listOfNotes.forEach { localNote ->
+            stringsToSearchFor.forEach { searchString ->
+
+                String[] split = searchString.split("@");
+                def www = split.length == 2 ? split[1] : "no-domain-found-here...";
+                if (localNote.getTitle().contains(www)) {
+                    result << localNote
+                }
+            }
+        }
+        result
+    }
+
+    static List<Note> findNotesContaining(List<String> stringsToSearchFor) {
         def result = []
         List<Note> listOfNotes = SyncHandler.get().allNotes
         listOfNotes.forEach { localNote ->
@@ -426,8 +482,7 @@ class DeamonCreamWorker {
                 }
             }
         }
-        results
-
+        result
     }
 
     static def overview() {

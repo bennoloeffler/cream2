@@ -2,6 +2,8 @@ package bel.en.evernote;
 
 
 import com.evernote.edam.error.EDAMErrorCode;
+import com.evernote.edam.error.EDAMNotFoundException;
+import com.evernote.edam.error.EDAMSystemException;
 import com.evernote.edam.error.EDAMUserException;
 import com.evernote.edam.limits.Constants;
 import com.evernote.edam.notestore.*;
@@ -9,6 +11,7 @@ import com.evernote.edam.type.LinkedNotebook;
 import com.evernote.edam.type.Note;
 import com.evernote.edam.type.Resource;
 import com.evernote.edam.type.SharedNotebook;
+import com.evernote.thrift.TException;
 import com.evernote.thrift.protocol.TBinaryProtocol;
 import com.evernote.thrift.transport.THttpClient;
 
@@ -139,7 +142,7 @@ public class ENSharedNotebook {
         int offset = 0;
         int pageSize = 10;
         List<Note> result = new ArrayList<Note>();
-
+        //filter.setInactive(false);
         //NoteFilter filter = new NoteFilter();
         //filter.setOrder(NoteSortOrder.UPDATED.getValue());
         filter.setNotebookGuid(sharedNotebook.getNotebookGuid());
@@ -148,14 +151,28 @@ public class ENSharedNotebook {
         //spec.setIncludeNotebookGuid(true);
         //spec.setIncludeUpdated(true);
         //spec.setIncludeUpdateSequenceNum(true);
+        spec.setIncludeDeleted(true); // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
+        //spec.setIncludeAttributes();
 
+        // STRANGE BUG: Search include the deleted, too...
+        if(filter.getWords() != null && filter.getWords().equals("intitle:[ANGEBOTE_und_HOT_UEBERSICHT]")) {
+            System.out.println("searching Angebote und Hot...");
+        }
         NotesMetadataList notes = null;
 
         do {
             notes = sharedNoteStore.findNotesMetadata(sharedAuthToken, filter, offset, pageSize, spec);
             for (NoteMetadata note : notes.getNotes()) {
-                Note fullNote = sharedNoteStore.getNote(sharedAuthToken, note.getGuid(), true, false, false, false);
-                result.add(fullNote);
+                if (note.getDeleted()==0) { // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
+                    Note fullNote = sharedNoteStore.getNote(sharedAuthToken, note.getGuid(), true, false, false, false);
+                    result.add(fullNote);
+                }
+
+                // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
+                //if(fullNote.getDeleted()==0) {
+                //    result.add(fullNote);
+                //}
+
             }
             offset = offset + notes.getNotesSize();
         } while (notes.getTotalNotes() > offset);
@@ -316,6 +333,7 @@ public class ENSharedNotebook {
     }
 
 
+
     public String getInternalLinkTo(Note note) {
         return getInternalLinkTo(note, note.getTitle());
     }
@@ -337,4 +355,29 @@ public class ENSharedNotebook {
         return link;
     }
 
+    public String getExternalLinkTo(Note note, String linkText) {
+        linkText = escapeHTML(linkText);
+        String link = "<a href=\""+ getRawExternalLinkTo(note)+ "\"" + " style=\"color:#69aa35\">" + linkText + "</a>";
+        return link;
+    }
+
+    /**
+     * VORSICHT: es scheint so, als müsse man die Autorisierung bei Evernote freischalten lassen
+     * @param note
+     * @return
+     */
+    public String getRawExternalLinkTo(Note note) {
+        //String UID = Integer.toString(sharedNotebook.getUserId());
+        try {
+            String shard = linkToSharedNotebook.getShardId();
+            String shareKey = null;
+            shareKey = getSharedNoteStore().shareNote(sharedAuthToken, note.getGuid());
+            String link = "www.evernote.com/shard/" + shard + "/sh/" + note.getGuid() + "/" + shareKey;
+            return link;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "no-link-becaus-exception";
+        }
+
+    }
 }

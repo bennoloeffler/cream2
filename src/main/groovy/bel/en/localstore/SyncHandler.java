@@ -687,6 +687,12 @@ public class SyncHandler {
         return sharedNotebook;
     }
 
+    public ENSharedNotebook getNotebookByName(String name) {
+        if(sharedNotebookGroup == null) { throw new RuntimeException("no shared notebook group - no connection...");}
+        ENSharedNotebook sharedNotebook = sharedNotebookGroup.getNotebookByName(name);
+        return sharedNotebook;
+    }
+
     /**
      * This is needed by the mailer and overview-creator
      * @param n

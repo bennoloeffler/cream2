@@ -86,6 +86,20 @@ public class AdressMagic {
 
         lines = new ArrayList<>(Arrays.asList(text.split(",|\\R+")));
 
+        // remove emty lines
+        List<String> empty = new ArrayList<>();
+        empty.add("");
+        lines.removeAll(empty);
+        // remove the TODOs:
+        List<String> toRemove = new ArrayList<>();
+        for (String line: lines) {
+            if (line.matches("^(todo|Todo|TODO):.*")) {
+                toRemove.add(line);
+            }
+        }
+        lines.removeAll(toRemove);
+
+
 
         //
         // find email
@@ -220,10 +234,11 @@ public class AdressMagic {
 
     private String guessCompanyWWWByMailDomain(List<String> lines, List<String> mailLines) {
         if (allMails.size() > 0) {
+            String domain = "";
             for (String mailAdress : allMails) {
                 String[] split = mailAdress.split("@");
                 assert (split.length == 2);
-                String domain = split[1];
+                domain = split[1];
                 for (String remainingLine : lines) {
                     if (remainingLine.contains(domain)) {
                         //assume that this is "the www line"
@@ -232,17 +247,31 @@ public class AdressMagic {
                         } catch (Exception e) {
                             // ignore...
                         }
-                        if (www == null || www == "") {
-                            www = remainingLine;
-                        }
+                        //if (www == null || www == "") {
+                            www = domain;
+                        //}
                         return remainingLine;
                     }
                 }
             }
+
             // guess the first emails domain, if no other line found...
             String[] split = allMails.get(0).split("@");
             www = split.length == 2 ? split[1] : "";
             return www;
+        }
+
+        for(String line: lines) {
+            // make @domain.com notation possible
+            try {
+                www = RegexUtils.findWithRegex(line, "@(([\\w-]+\\.)+[a-z]{2,})", 1).get(0);
+            } catch (Exception e) {
+                // ignore...
+            }
+            if (www != null && !www.equals("")) {
+                //www = line;
+                return line;
+            }
         }
         return "";
     }
@@ -288,6 +317,21 @@ public class AdressMagic {
                 }
             }
         }
+
+        // take something that is near to a name...
+        String fullName = null;
+        for(String line:lines) {
+            try {
+                fullName = RegexUtils.findWithRegex(line, "^[^1-9@]+", 0).get(0);
+            } catch (Exception e) {
+                // ignore...
+            }
+            if(line.equals(fullName) && line.length() > 10 && lines.size() < 2){
+                splitTitleAndAllNames(fullName);
+                return fullName;
+            }
+        }
+
         return "";
     }
 
@@ -357,7 +401,15 @@ public class AdressMagic {
                 double similarity = -1;
                 for (String remainingLine : lines) {
                     if(!"".equals(remainingLine)) {
-                        StringSimilarity.findBestSimilarityByEqualLenthMatch(companyName.toLowerCase(), remainingLine.toLowerCase());
+                        String companyNameTmp = companyName;
+                        // if there is a position like CEO or company name AES - don't match, because of one fitting one character = 33%
+                        while(remainingLine.length() < companyNameTmp.length()) {
+                            remainingLine += "#";
+                        }
+                        while(companyNameTmp.length() < remainingLine.length() ) {
+                            companyNameTmp += "#";
+                        }
+                        StringSimilarity.findBestSimilarityByEqualLenthMatch(companyNameTmp.toLowerCase(), remainingLine.toLowerCase());
                         double currentSimilarity = StringSimilarity.bestLastSimilarity;
                         //System.out.println("distance: " + currentSimilarity+ " " + companyName + " <--> " + remainingLine);
                         if (currentSimilarity > similarity) {

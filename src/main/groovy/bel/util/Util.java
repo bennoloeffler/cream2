@@ -92,6 +92,11 @@ public class Util {
         return null;
     }
 
+    /**
+     * works also for "domains" @bosch.de (invalid E-Mail!)
+     * @param subject
+     * @return
+     */
     public static String extractEmailStartOfDocument(String subject) {
         String[] parts = subject.split("\\s");
         if(parts.length>0) {

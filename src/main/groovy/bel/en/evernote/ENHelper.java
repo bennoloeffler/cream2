@@ -865,6 +865,18 @@ public class ENHelper {
         n.setContent(content);
     }
 
+    /**
+     * at the end, right before </en-note>
+     * @param n
+     * @param entry
+     */
+    public static void addAdressEntryAtEnd(Note n, String entry) {
+        String content = n.getContent();
+        String[] split = content.split("</en-note>");
+        content = split[0] + "<div><br/></div><div>" + entry +  "</div><div><br/></div></en-note>";
+        n.setContent(content);
+    }
+
     public static String createValidEmptyContentWithEmptyDataBlock() {
         String content =
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
