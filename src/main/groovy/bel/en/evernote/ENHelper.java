@@ -156,7 +156,7 @@ public class ENHelper {
      * @return list of todo texts
      */
     public static ArrayList<Pair<Note, Angebot>> findAllHot(Note note) {
-        String regexAngebot = ">\\s*((\\*ANGEBOT|\\*HOT|\\*BESUCH)[^<]*)";
+        String regexAngebot = ">\\s*((ANGEBOT:|HOT:|BESUCH:)[^<]*)";
         ArrayList<String> angebote = new ArrayList<String>();
         Pattern p = Pattern.compile(regexAngebot);
         Matcher m = p.matcher(note.getContent());
@@ -177,7 +177,7 @@ public class ENHelper {
     }
 
     /**
-     * extracts all fields from "*ANGEBOT: BEL: 22.5.2017 150.000 EUR 80%" an returns the Angebot
+     * extracts all fields from "ANGEBOT: BEL: 22.5.2017 150.000 EUR 80%" an returns the Angebot
      */
     private static Angebot extractAngebot(String aStr) {
         // if there is no % value: Default is 50%

@@ -31,10 +31,10 @@ public class MainGUI {
     //
 
     static int versionMajor = 0;
-    static int versionMinor = 5;
+    static int versionMinor = 6;
     static int versionBugs = 0;
     static public boolean debugOffline = true;
-    static String versionName = "Corona-Ostern";
+    static String versionName = "Corona-Ostern DOPPELPUNKT";
     public static final String VERSION_STRING = "\""+versionName + "\" (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
 
 

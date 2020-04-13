@@ -531,12 +531,12 @@ class OverviewCreator {
         "<div>anderes Beispiel: ANL: BEL: 1.10.17 REDEN 7P an GF schicken</div>"+
         "<div>Das kann man so lesen: BEL: bittet ANL: erst mit ihm zu reden und dann eine 7P-Broschüre an die GF zu schicken. Und zwar bis zum 1.10.17 </div>"+
         "<div>Wenn die Aufgabe erledigt ist, hakt Anna das TODO ab. Dann wird es auch aus der Liste bei BEL verschwinden.</div>"+
-        "<div><b><br/>*HOT und *ANGEBOT</b></div>"+
-        "<div>Wenn am Anfang der Zeile *HOT oder *ANGEBOT steht, dann erscheint ein Eintrag in der HOT_und_ANGEBOTE_UEBERSICHT</div>"+
+        "<div><b><br/>HOT: und ANGEBOT:</b></div>"+
+        "<div>Wenn am Anfang der Zeile HOT: oder ANGEBOT: steht, dann erscheint ein Eintrag in der HOT_und_ANGEBOTE_UEBERSICHT</div>"+
         "<div>Beispiel:</div><br/>"+
                 ""+
-        "<div><b>*HOT FAS: 30% EUR 50.000 1.9.2018 Vorstand Grebisz hat angebissen - aber derzeit viele Baustellen</b></div>"+
-        "<div><b>*ANGEBOT 30% EUR 50.000 BEL: 1.9.2022 Über den Sommer noch nicht... Zu viel Urlaub. Aber dann.</b></div>"+
+        "<div><b>HOT: FAS: 30% EUR 50.000 1.9.2018 Vorstand Grebisz hat angebissen - aber derzeit viele Baustellen</b></div>"+
+        "<div><b>ANGEBOT: 30% EUR 50.000 BEL: 1.9.2022 Über den Sommer noch nicht... Zu viel Urlaub. Aber dann.</b></div>"+
        "<div>Das bedeutet: FAS schätzt eine Chance von 30% das was kommt. <br/>Und zwar in der Region von 50.000 EUR. Bisher kein Angebot. <br/>Nur heiss... Vermutlich startet es am 1.9.2018.</div>"+
         "<div><br/><br/><br/><br/><b>MAIL-KOMMANDOS:</b><br/>also dies Kommandos an <b>crm@v-und-s.de</b> schicken...<br/></div>" +
         "<div>"+ ReadAndForwardExchangeMails.mailHelpHtml + "</div>" +

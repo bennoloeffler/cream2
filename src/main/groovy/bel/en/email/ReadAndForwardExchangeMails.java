@@ -131,20 +131,20 @@ public class ReadAndForwardExchangeMails {
             //System.out.println("mailsString: '" + mailsString+"'");
 
             log.debug("Found mail from "+m.getFrom()+" with subject: " + m.getSubject());
-            if (m.getSubject().startsWith("*h") || m.getSubject().startsWith("*H")) {
+            if (m.getSubject().startsWith("h:") || m.getSubject().startsWith("H:")) {
                 log.debug("RECOGNIZED: sending help");
                 sendHelp(m, "Sie haben mich um Hilfe gebeten...");
-            } else if(m.getSubject().startsWith("*m") || m.getSubject().startsWith("*M")) {
+            } else if(m.getSubject().startsWith("m:") || m.getSubject().startsWith("M:")) {
                 log.debug("RECOGNIZED: manual adresse an anna");
                 forwardToManualAdresses(m);
-            } else if(m.getSubject().startsWith("*a") || m.getSubject().startsWith("*A")) {
+            } else if(m.getSubject().startsWith("a:") || m.getSubject().startsWith("A:")) {
                 log.debug("RECOGNIZED: automatic adresse");
                 forwardToAutomaticAdresses(m);
-            } else if(m.getSubject().startsWith("*n") || m.getSubject().startsWith("*N")) {
+            } else if(m.getSubject().startsWith("n:") || m.getSubject().startsWith("N:")) {
                 log.debug("RECOGNIZED: new Contact");
                 newContact(m);
-            } else if(m.getSubject().startsWith("*ü") || m.getSubject().startsWith("*Ü") ||
-                    m.getSubject().startsWith("*o") || m.getSubject().startsWith("*O")) {
+            } else if(m.getSubject().startsWith("ü:") || m.getSubject().startsWith("Ü:") ||
+                    m.getSubject().startsWith("o:") || m.getSubject().startsWith("O:")) {
                 log.debug("RECOGNIZED: overview");
                 DeamonCreamWorker.syncAndGenerateOverviews();
             } else if(mailsRecipientsString != null && !mailsRecipientsString.trim().equals("")) {
@@ -321,29 +321,29 @@ public class ReadAndForwardExchangeMails {
     }
 
     public static final String mailHelpHtml = "<br/><b>_H_ilfe:</b><br/>" +
-            "<b>*h</b> zu Beginn der Betreff-Zeile<br/><br/>" +
+            "<b>h:</b> zu Beginn der Betreff-Zeile<br/><br/>" +
             "" +
             "<b>_Ü_bersichten neu generieren:</b><br/> " +
-            "<b>*ü</b> oder <b>*o</b> zu Begin des Betreffs  (<b>o</b>verview)<br/><br/>"+
+            "<b>ü:</b> oder <b>o:</b> zu Begin des Betreffs  (<b>o</b>verview)<br/><br/>"+
             "" +
             "<b>Adresse _a_utomatische erzeugen oder hinzufügen:</b><br/> " +
-            "<b>*a</b> zu Beginn des Betreffs<br/>" +
+            "<b>a:</b> zu Beginn des Betreffs<br/>" +
             "Das ist dir Variante für den Alltag - zB. Visitenkarten-Scanner und E-Mail-Adress-Blöcke.<br/>" +
             "Wenn Domain oder Email schon in anderer Notiz existiert,<br/> dann wird die Adresse dort hinzugefügt, sonst neu angelegt.<br/>" +
             "Im Mailtext zeilenweise die Adressdaten und die notwendigen TODOs.<br/>" +
             "<b>Sonstigen, störenden Text entfernen.</b><br/><br/>" +
             "" +
             "<b>_n_eue Notiz bei Ablage des Kontaktes erzwingen:</b><br/>" +
-            "<b>*n</b> zu Beginn des Betreffs<br/>"+
+            "<b>n:</b> zu Beginn des Betreffs<br/>"+
             "Es wird auf jeden Fall einen neue Adresse (also Notiz) angelegt. <br/>Alle Kontaktdaten am Anfang der Mail. Sonstigen, störenden Text entfernen.<br/> Dann ggf. todos und zwar so: <br/> <b>todo: BEL: 14.7.2018 anrufen</b><br/>Visitenkarte am Ende.<br/><br/>" +
             "" +
             "<b>Adresse _m_anuell vom Backoffice anlegen:</b><br/>" +
-            "<b>*m</b> zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
+            "<b>m:</b> zu Beginn, dann optional Ansprechpartner (Firma).<br/>" +
             "Backoffice bekommt eine E-Mail mit Aufforderung, Adresse korrekt anzulegen. <br/>Grunddaten, z. B. Visitenkarte, werden in Evernote abgelegt.<br/>"+
             "D.h. der Mailtext enthält ggf. Visitenkarten-Bild, Kontaktdaten aus Mail und die notwendigen TODOs"+
             "<br/><br/>" +
             "" +
-            "<b>Ablegen und Verlinken von Mails:</b><br/> " +
+            "<b>Ablegen und Ver_L_inken von Mails:</b><br/> " +
             "Email-Adresse oder domain (z.B. @bosch.com) zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
             "ODER: ein 'l:' oder 'L:' vor die email mitten im text also z.B. so:  <b>L:vorname.nachname@domain.de</b><br/>" +
             "ODER: ein 'l:' oder 'L' vor die DOMAIN mitten im text also z.B. so:  <b>l:@bosch.de</b><br/>" +
