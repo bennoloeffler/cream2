@@ -293,6 +293,9 @@ class DeamonCreamWorker {
                 }
 
                 def htmlBodyString = "Aufforderung zum Eintrag wurde geschickt an:  " + todoReceiver +"<br/>"
+
+                def shortName = noteInInbox.title[26..28]
+                String mail = getUserMail(shortName)
                 new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: ...", htmlBodyString, true)
 
 
@@ -449,7 +452,7 @@ class DeamonCreamWorker {
             it.shortName == shortName
         }
         if (!user) {
-            log.error("FUCK: users == null")
+            log.error("FUCK: could not find user for short Name: $shortName)")
             throw Exception("FUCK: users == null")
         }
         def mail = user.email

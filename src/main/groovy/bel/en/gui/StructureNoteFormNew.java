@@ -25,6 +25,7 @@ import com.intellij.uiDesigner.core.Spacer;
 import lombok.extern.log4j.Log4j2;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -494,7 +495,7 @@ public class StructureNoteFormNew {
         angebotePanel = new JPanel();
         angebotePanel.setLayout(new BorderLayout(0, 0));
         tabbedPane.addTab("Angebote & HOT", angebotePanel);
-        angebotePanel.setBorder(BorderFactory.createTitledBorder(""));
+        angebotePanel.setBorder(BorderFactory.createTitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         telefonPanel = new JPanel();
         telefonPanel.setLayout(new BorderLayout(0, 0));
         tabbedPane.addTab("TODO & Telefon", telefonPanel);
@@ -521,7 +522,7 @@ public class StructureNoteFormNew {
         panel1.setMinimumSize(new Dimension(-1, -1));
         panel1.setPreferredSize(new Dimension(-1, -1));
         firmaPersonSplitPane.setRightComponent(panel1);
-        panel1.setBorder(BorderFactory.createTitledBorder("Person"));
+        panel1.setBorder(BorderFactory.createTitledBorder(null, "Person", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         personScrollPane = new JScrollPane();
         personScrollPane.setDoubleBuffered(true);
         personScrollPane.setHorizontalScrollBarPolicy(30);
@@ -547,7 +548,7 @@ public class StructureNoteFormNew {
         panel2.setLayout(new GridLayoutManager(2, 2, new Insets(5, 5, 5, 5), -1, -1));
         panel2.setMinimumSize(new Dimension(-1, -1));
         firmaSuchfeldDivider.setLeftComponent(panel2);
-        panel2.setBorder(BorderFactory.createTitledBorder("Firma"));
+        panel2.setBorder(BorderFactory.createTitledBorder(null, "Firma", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         firmaScrollPane = new JScrollPane();
         firmaScrollPane.setDoubleBuffered(true);
         firmaScrollPane.setHorizontalScrollBarPolicy(30);
@@ -617,7 +618,7 @@ public class StructureNoteFormNew {
         final JPanel panel5 = new JPanel();
         panel5.setLayout(new GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
         auth.add(panel5, BorderLayout.NORTH);
-        panel5.setBorder(BorderFactory.createTitledBorder("Das passiert auf der Evernote Website und zwar gilt das login erstmal für ein Jahr... Kann aber geändert werden."));
+        panel5.setBorder(BorderFactory.createTitledBorder(null, "Das passiert auf der Evernote Website und zwar gilt das login erstmal für ein Jahr... Kann aber geändert werden.", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         loginBeiEvernoteButton = new JButton();
         loginBeiEvernoteButton.setText("change  bei Evernote");
         panel5.add(loginBeiEvernoteButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -654,4 +655,5 @@ public class StructureNoteFormNew {
     public JComponent $$$getRootComponent$$$() {
         return rootPanel;
     }
+
 }

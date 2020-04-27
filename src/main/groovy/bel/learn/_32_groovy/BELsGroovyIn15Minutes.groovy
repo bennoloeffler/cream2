@@ -65,6 +65,69 @@ assert --9 == 8
 
 //-------------------------------------------------------------------------------------------------------------
 //
+h "coercion and type conversion"
+//
+// https://e.printstacktrace.blog/groovy-dynamic-types-coercion-and-promotion-you-have-been-warned/
+// Kapitel 12: https://groovy-lang.org/differences.html
+
+def strToNum = "12" as int
+assert strToNum == 12
+
+// prepare your own class for coercion: method: asType(Class target)
+@groovy.transform.TupleConstructor
+@groovy.transform.ToString
+def class Line {
+    double x1,y1, x2,y2 // two points
+    def asType (Class target) {
+        println(target)
+        if (target == java.lang.Double.class) {
+            def len = Math.sqrt((x1 - x2)**2 + (y1 - y2)**2) // len of line
+            return len
+        } else {
+            throw new RuntimeException("not supported: " + target);
+        }
+
+
+    }
+}
+
+line = new Line(2,2,1,1)
+len = line as Double
+assert Math.abs(len)-1.414 < 0.001
+
+
+//
+// amazing automatic coercion
+//
+Line l = [3,4,5,6] // List to Object...
+int strToIntAutomatic = "123"   
+
+//-------------------------------------------------------------------------------------------------------------
+//
+h "groovy truth"
+//
+//
+assert "y".toBoolean()
+assert 'TRUE'.toBoolean()
+assert '  trUe  '.toBoolean()
+assert " y".toBoolean()
+assert "1".toBoolean()
+
+assert ! 'other'.toBoolean()
+assert ! '0'.toBoolean()
+assert ! 'no'.toBoolean()
+assert ! '  FalSe'.toBoolean()
+
+assert ![] // empty list is false
+assert ["element"]
+assert !"" // empty string?
+
+def s
+assert s?:15
+assert !0
+
+//-------------------------------------------------------------------------------------------------------------
+//
 h "strings"
 //
 //

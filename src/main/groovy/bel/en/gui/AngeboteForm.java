@@ -13,6 +13,7 @@ import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.decorator.HighlighterFactory;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
@@ -70,7 +71,7 @@ public class AngeboteForm {
     private void $$$setupUI$$$() {
         panel = new JPanel();
         panel.setLayout(new BorderLayout(0, 0));
-        panel.setBorder(BorderFactory.createTitledBorder("alle gefundenen Angebote der Form: ANGEBOT BEL: 20.3.2017 EUR 120.000 80%  über Analyse, Soll und xyz..."));
+        panel.setBorder(BorderFactory.createTitledBorder(null, "alle gefundenen Angebote der Form: ANGEBOT BEL: 20.3.2017 EUR 120.000 80%  über Analyse, Soll und xyz...", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(panel1, BorderLayout.SOUTH);

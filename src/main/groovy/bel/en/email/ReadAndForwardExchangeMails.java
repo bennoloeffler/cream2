@@ -135,7 +135,7 @@ public class ReadAndForwardExchangeMails {
                 log.debug("RECOGNIZED: sending help");
                 sendHelp(m, "Sie haben mich um Hilfe gebeten...");
             } else if(m.getSubject().startsWith("m:") || m.getSubject().startsWith("M:")) {
-                log.debug("RECOGNIZED: manual adresse an anna");
+                log.debug("RECOGNIZED: manual adresse an backoffice");
                 forwardToManualAdresses(m);
             } else if(m.getSubject().startsWith("a:") || m.getSubject().startsWith("A:")) {
                 log.debug("RECOGNIZED: automatic adresse");
@@ -211,7 +211,7 @@ public class ReadAndForwardExchangeMails {
         // TODO
         //System.out.println("ADRESSE");
         String s = m.getSubject();
-        String creamUser = "Fehler_beim_Ermitteln";
+        String creamUser = "Fehler:_beim_Ermitteln";
         try {
             creamUser = AbstractConfiguration.getConfig().getShortName(m.getSender().getAddress());
         } catch (Exception e) {
@@ -219,12 +219,10 @@ public class ReadAndForwardExchangeMails {
         }
         s += " --> bitte Adressdaten anlegen oder hinzufügen in <b>C_"+ creamUser +"</b>";
 
-        //s = s.replace("*ADDRESS", "");
-        //s = s.replace("*ADRESSE", "");
-        //s = s.replace("*ADR", "");
-        s = s.replace("*M", "");
-        s = s.replace("*m", "");
-        s = "(ADRESSE_NEU_MANUAL)  </br>" + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
+
+        s = s.replace("M:", "");
+        s = s.replace("m:", "");
+        s = "(ADRESSE_NEU_MANUAL) von: "+ creamUser + " " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
         m.setSubject(s);
         m.update(ConflictResolutionMode.AlwaysOverwrite);
         //m.setSender();

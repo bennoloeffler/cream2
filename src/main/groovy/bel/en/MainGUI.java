@@ -30,9 +30,13 @@ public class MainGUI {
     // Version
     //
 
+    //
+    // NEXT TODO: m: einen Vorschlag eintragen
+    //
+
     static int versionMajor = 0;
     static int versionMinor = 6;
-    static int versionBugs = 0;
+    static int versionBugs = 1;
     static public boolean debugOffline = true;
     static String versionName = "Corona-Ostern DOPPELPUNKT";
     public static final String VERSION_STRING = "\""+versionName + "\" (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
