@@ -236,7 +236,7 @@ public class UebersichtAllUsers {
         content += "</en-note>";
 
         Note n = findOrCreateNote(shortName);
-        System.out.println("Writing this content to " + n.getTitle() + ": " + content);
+        //System.out.println("Writing this content to " + n.getTitle() + ": " + content);
         n.setContent(content);
         enSharedNotebook.updateNote(n);
 
@@ -292,7 +292,7 @@ public class UebersichtAllUsers {
 
 
         Note n = findOrCreateNote("ANGEBOTE_und_HOT");
-        System.out.println("Writing this content to " + n.getTitle() + ": " + content);
+        //System.out.println("Writing this content to " + n.getTitle() + ": " + content);
         n.setContent(content);
         enSharedNotebook.updateNote(n);
 
