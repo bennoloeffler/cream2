@@ -549,7 +549,8 @@ class DeamonCreamWorker {
                     connected = true
                 }
             } catch (Exception e) {
-                log.warn("Could not startup because connection failed. retry in 2 min...")
+                log.warn("Could not startup... retry in 2 min...")
+                log.warn("REASON: " + e.getMessage())
                 sleep(1000 * 60 * 2)
             }
         }

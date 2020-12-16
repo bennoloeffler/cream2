@@ -6,6 +6,7 @@ import bel.en.data.CreamUserData;
 import bel.en.evernote.ENConfiguration;
 import bel.util.HtmlToPlainText;
 import bel.util.Util;
+import com.microsoft.aad.msal4j.*;
 import lombok.extern.log4j.Log4j2;
 import microsoft.exchange.webservices.data.core.ExchangeService;
 import microsoft.exchange.webservices.data.core.PropertySet;
@@ -26,11 +27,11 @@ import microsoft.exchange.webservices.data.search.ItemView;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+
+//import static com.github.scribejava.core.model.OAuthConstants.CLIENT_ID;
+
 
 /**
  * Reads mail from Exchange server
@@ -54,6 +55,9 @@ import java.util.stream.Collectors;
 @Log4j2
 public class ReadAndForwardExchangeMails {
 
+    static boolean mailOff = true;
+
+
     //String user = "crm";
     //String pw = "Hup71467";
     String user = "crm@v-und-s.de";
@@ -68,11 +72,14 @@ public class ReadAndForwardExchangeMails {
     private List<EmailMessage> emails = new ArrayList<>();
 
     public void doIt() throws Exception {
+        System.out.print("WARNING: NO MAILS CHECK!");
+        /*
         System.out.print("going to check for mail at crm@v-und-s.de  -->   ");
         login();
         readMails();
         forwardMails();
         logout();
+        */
     }
 
     private void logout() {
@@ -166,6 +173,7 @@ public class ReadAndForwardExchangeMails {
     }
 
     private void sendErrorAndHelp(EmailMessage m) throws Exception{
+        if (mailOff) return;
         sendHelp(m, "CREAM FEHLER - Konnte Betreff nicht verstehen:  " + m.getSubject());
     }
 
@@ -376,6 +384,18 @@ public class ReadAndForwardExchangeMails {
     }
 
     private void login() throws URISyntaxException {
+
+        /**
+         *
+         * TODO OAUTH
+         * https://stackoverflow.com/questions/57009837/how-to-get-oauth2-access-token-for-ews-managed-api-in-service-daemon-application
+         * https://stackoverflow.com/questions/28424550/ews-java-apis-using-oauth2
+         ' https://docs.microsoft.com/de-de/azure/active-directory/develop/scenario-desktop-acquire-token?tabs=java#username-and-password
+         * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth-ropc
+         * https://github.com/dmfs/oauth2-essentials
+         *
+         */
+
         service = new ExchangeService();
         //service.setTraceEnabled(true);
         ExchangeCredentials credentials = new WebCredentials(user, pw);
@@ -384,13 +404,61 @@ public class ReadAndForwardExchangeMails {
         //System.out.println("connected to exchange mail server (crm@v-und-s.de)");
     }
 
+    /*
+    private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
+
+        // Load token cache from file and initialize token cache aspect. The token cache will have
+        // dummy data, so the acquireTokenSilently call will fail.
+        TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
+
+        PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
+                .authority(AUTHORITY)
+                .setTokenCacheAccessAspect(tokenCacheAspect)
+                .build();
+
+        Set<IAccount> accountsInCache = pca.getAccounts().join();
+        // Take first account in the cache. In a production application, you would filter
+        // accountsInCache to get the right account for the user authenticating.
+        IAccount account = accountsInCache.iterator().next();
+
+        IAuthenticationResult result;
+        try {
+            SilentParameters silentParameters =
+                    SilentParameters
+                            .builder(SCOPE, account)
+                            .build();
+            // try to acquire token silently. This call will fail since the token cache
+            // does not have any data for the user you are trying to acquire a token for
+            result = pca.acquireTokenSilently(silentParameters).join();
+        } catch (Exception ex) {
+            if (ex.getCause() instanceof MsalException) {
+
+                UserNamePasswordParameters parameters =
+                        UserNamePasswordParameters
+                                .builder(SCOPE, USER_NAME, USER_PASSWORD.toCharArray())
+                                .build();
+                // Try to acquire a token via username/password. If successful, you should see
+                // the token and account information printed out to console
+                result = pca.acquireToken(parameters).join();
+            } else {
+                // Handle other exceptions accordingly
+                throw ex;
+            }
+        }
+        return result;
+    }
+*/
 
     public void sentMailTo(String mailAdress, String subject, String body) {
+
         sentMailTo(mailAdress, subject, body, false);
     }
 
     public void sentMailTo(String mailAdress, String subject, String body, boolean html) {
-
+        if (mailOff){
+            System.out.println("WARNING: no mails sent...");
+            return;
+        }
         try {
             login();
             EmailMessage msg= new EmailMessage(service);
