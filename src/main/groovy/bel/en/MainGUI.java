@@ -38,7 +38,7 @@ public class MainGUI {
     static int versionMinor = 6;
     static int versionBugs = 1;
     static public boolean debugOffline = true;
-    static String versionName = "Corona-Ostern DOPPELPUNKT";
+    static String versionName = "Corona-XMas 2020 re-mail";
     public static final String VERSION_STRING = "\""+versionName + "\" (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
 
 

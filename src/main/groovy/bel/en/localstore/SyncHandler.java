@@ -288,7 +288,7 @@ public class SyncHandler {
             updateSyncCounter(c++, dirtyNotes.size());
 
             if(n.getGuid().startsWith("NEW_")) { // client created that
-                log.debug("writing NEW local note to server: " + n.getTitle());
+                //log.debug("writing NEW local note to server: " + n.getTitle());
                 syncLog("Lokal new -->Evernote: " + n.getTitle());
                 //if(true){ throw new RuntimeException("notYet");}
                 ENSharedNotebook sharedNotebook = sharedNotebookGroup.getNotebook(n.getNotebookGuid());

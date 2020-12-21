@@ -30,9 +30,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-//import static com.github.scribejava.core.model.OAuthConstants.CLIENT_ID;
-
-
 /**
  * Reads mail from Exchange server
  *
@@ -55,31 +52,29 @@ import java.util.stream.Collectors;
 @Log4j2
 public class ReadAndForwardExchangeMails {
 
-    static boolean mailOff = true;
+    static boolean mailOff = false;
 
-
-    //String user = "crm";
-    //String pw = "Hup71467";
     String user = "crm@v-und-s.de";
     String pw = "Hup71467";
     //String urlService = "https://vunds.epc-cloud.de/EWS/Exchange.asmx";
     //String urlService = "https://mail.v-und-s.de/EWS/Exchange.asmx";
     String urlService = "https://outlook.office365.com/ews/exchange.asmx";
     public static String emailCRM = "crm@v-und-s.de";
-    String emailEvernote = "bennoloeffler.173c3b6@m.evernote.com";
+
+    // EVERNOTE email address
+    // bennoloeffler.173c3b6@m.evernote.com // gmx
+    // loeffler425.6d39d31@m.evernote.com // v-und-s
+    String emailEvernote = "loeffler425.6d39d31@m.evernote.com";
 
     private ExchangeService service;
     private List<EmailMessage> emails = new ArrayList<>();
 
     public void doIt() throws Exception {
-        System.out.print("WARNING: NO MAILS CHECK!");
-        /*
         System.out.print("going to check for mail at crm@v-und-s.de  -->   ");
         login();
         readMails();
         forwardMails();
         logout();
-        */
     }
 
     private void logout() {
@@ -241,34 +236,11 @@ public class ReadAndForwardExchangeMails {
     private void forwardToAutomaticAdresses(EmailMessage m) throws Exception {
         String marker = "(ADRESSE_NEU_AUTO)";
         automaticAdress(m, marker);
-
-
-/*
-
-        String s = m.getSubject();
-        //s = s.replace("*ADDRESS", "");
-        //s = s.replace("*ADRESSE", "");
-        //s = s.replace("*ADR", "");
-        s = s.replace("*A", "");
-        s = s.replace("*a", "");
-        s = "(ADRESSE_NEU_AUTO)  " + s + "   @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
-        m.setSubject(s);
-        m.update(ConflictResolutionMode.AlwaysOverwrite);
-        //m.setSender();
-        //m.set();
-        m.forward(null, new EmailAddress(emailEvernote));
-        */
     }
 
     private void newContact(EmailMessage m) throws Exception {
-        //String s = "(KONTAKT_NEU) "+m.getSender()+" @"+ AbstractConfiguration.getConfig().getCreamNotebooks().getInboxNotebook();
-        //m.setSubject(s);
-        //m.update(ConflictResolutionMode.AlwaysOverwrite);
-        //m.forward(null, new EmailAddress(emailEvernote));
         String marker = "(NEU_KONTAKT)";
-        //----
         automaticAdress(m, marker);
-
     }
 
     private void automaticAdress(EmailMessage m, String marker) throws Exception {
@@ -309,18 +281,12 @@ public class ReadAndForwardExchangeMails {
         m.forward(null, new EmailAddress(emailEvernote));
     }
 
-
     private void sendHelp(EmailMessage m, String errorMessage) throws Exception{
         m.setSubject(errorMessage);
         // TODO: Create html-File, that is editable for everybody - or even better: evernote help note
-        m.setBody(new MessageBody(errorMessage+"<br/>"+
-                "---------------------------------------------------<br/><br/><br/>"+ mailHelpHtml
-                )
-
+        m.setBody(new MessageBody (errorMessage+"<br/>"+
+                "---------------------------------------------------<br/><br/><br/>"+ mailHelpHtml)
         );
-
-
-
         String mailFrom = m.getFrom().getAddress();
         m.update(ConflictResolutionMode.AlwaysOverwrite);
         m.forward(null, new EmailAddress(mailFrom));
@@ -378,22 +344,30 @@ public class ReadAndForwardExchangeMails {
             EmailMessage item =  (EmailMessage)iterator.next();
             EmailMessage emailMessage = EmailMessage.bind(service, item.getId(), mailPropSet);
             emails.add(emailMessage);
-
         }
-
     }
 
     private void login() throws URISyntaxException {
 
         /**
-         *
-         * TODO OAUTH
+         * ? OAUTH (switched off)!
          * https://stackoverflow.com/questions/57009837/how-to-get-oauth2-access-token-for-ews-managed-api-in-service-daemon-application
-         * https://stackoverflow.com/questions/28424550/ews-java-apis-using-oauth2
-         ' https://docs.microsoft.com/de-de/azure/active-directory/develop/scenario-desktop-acquire-token?tabs=java#username-and-password
-         * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth-ropc
-         * https://github.com/dmfs/oauth2-essentials
+         * Eventually, I made EWS client work as expected by grating full_access_as_app permission.
+         * It is located in API permissions
+         * > Add a permission
+         * > APIs my organization uses
+         * > Office 365 Exchange Online
+         * > Application permissions
+         * > full_access_as_app
          *
+         * AND
+         * > allow crm@v-und-s.de to send spam mails
+         *
+         * ANYWAY: We registered CREAM like that
+         * MS App registration:
+         * name: CREAM_client_key
+         * value: Tx.UZm-9jnQ.pb442MVIAR7_.29D6G9yMD
+         * ID: 13097d5a-6d15-4e60-96d7-fa29815cad57
          */
 
         service = new ExchangeService();
@@ -404,53 +378,7 @@ public class ReadAndForwardExchangeMails {
         //System.out.println("connected to exchange mail server (crm@v-und-s.de)");
     }
 
-    /*
-    private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
-
-        // Load token cache from file and initialize token cache aspect. The token cache will have
-        // dummy data, so the acquireTokenSilently call will fail.
-        TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
-
-        PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
-                .authority(AUTHORITY)
-                .setTokenCacheAccessAspect(tokenCacheAspect)
-                .build();
-
-        Set<IAccount> accountsInCache = pca.getAccounts().join();
-        // Take first account in the cache. In a production application, you would filter
-        // accountsInCache to get the right account for the user authenticating.
-        IAccount account = accountsInCache.iterator().next();
-
-        IAuthenticationResult result;
-        try {
-            SilentParameters silentParameters =
-                    SilentParameters
-                            .builder(SCOPE, account)
-                            .build();
-            // try to acquire token silently. This call will fail since the token cache
-            // does not have any data for the user you are trying to acquire a token for
-            result = pca.acquireTokenSilently(silentParameters).join();
-        } catch (Exception ex) {
-            if (ex.getCause() instanceof MsalException) {
-
-                UserNamePasswordParameters parameters =
-                        UserNamePasswordParameters
-                                .builder(SCOPE, USER_NAME, USER_PASSWORD.toCharArray())
-                                .build();
-                // Try to acquire a token via username/password. If successful, you should see
-                // the token and account information printed out to console
-                result = pca.acquireToken(parameters).join();
-            } else {
-                // Handle other exceptions accordingly
-                throw ex;
-            }
-        }
-        return result;
-    }
-*/
-
     public void sentMailTo(String mailAdress, String subject, String body) {
-
         sentMailTo(mailAdress, subject, body, false);
     }
 
@@ -476,7 +404,6 @@ public class ReadAndForwardExchangeMails {
         } finally {
             logout();
         }
-
     }
 
 
@@ -485,14 +412,21 @@ public class ReadAndForwardExchangeMails {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-        // setup connection
-        DeamonCreamWorker.connectToEvernoteAndReadConfig();
 
-        // NOT NEEDED to sync...
-        //SyncHandler.init(ENConnection.get(), new NoteStoreLocal(ENConfiguration.getConfig()));
-        //SyncHandler.get().sync(null);
-        new ReadAndForwardExchangeMails().doIt();
+        boolean testWithEN = false;
 
-        System.out.println("FINISHED MAIL SERVER CYCLE\n\n");
+        if(testWithEN) {
+            DeamonCreamWorker.connectToEvernoteAndReadConfig();
+            new ReadAndForwardExchangeMails().doIt();
+            System.out.println("FINISHED MAIL SERVER CYCLE\n\n");
+        } else {
+            ReadAndForwardExchangeMails mails = new ReadAndForwardExchangeMails();
+            mails.login();
+            mails.readMails();
+            for(EmailMessage m: mails.emails) {
+                mails.sendErrorAndHelp(m);
+            }
+            mails.logout();
+        }
     }
 }

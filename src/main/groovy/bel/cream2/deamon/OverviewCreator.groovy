@@ -263,7 +263,7 @@ class OverviewCreator {
 
         if(versionedFile.versions.last().changed || emptyOnServer) {
 
-            log.debug("erzeuge ÜBERSICHT  ( " + n.getTitle() + " ) mit Inhalt:\n" + content)
+            //log.debug("erzeuge ÜBERSICHT  ( " + n.getTitle() + " ) mit Inhalt:\n" + content)
             n.setContent(content)
             overviewNotebook.updateNote(n)
             log.info("NEW OVERVIEW: " + n.getTitle() + "  --> wrote SUCCESSFUL to evernote")
