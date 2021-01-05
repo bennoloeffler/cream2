@@ -70,7 +70,7 @@ public class EnmlForm {
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
         splitPane2.setRightComponent(panel1);
-        panel1.setBorder(BorderFactory.createTitledBorder(null, "alte Versionen", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+        panel1.setBorder(BorderFactory.createTitledBorder("alte Versionen"));
         backToVersionButton = new JButton();
         backToVersionButton.setEnabled(false);
         backToVersionButton.setText("gewählte Version übernehmen");

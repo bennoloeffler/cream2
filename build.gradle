@@ -78,6 +78,23 @@ dependencies {
 
     compile group: 'org.codehaus.gpars', name: 'gpars', version: '1.2.1'
 
+    
+    // Problem:
+    // java.lang.NoClassDefFoundError: javax/xml/ws/http/HTTPException
+    // https://stackoverflow.com/questions/43574426/java-how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexceptio
+    
+    // solution 1
+    // runtimeOnly 'javax.xml.bind:jaxb-api:2.3.1'
+    
+    // OR 
+    
+    // solution 2
+    //java 9+ does not have Jax B Dependents
+    //compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    //compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0'
+    //compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0'
+    //compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+
 }
 
 // Define the main class for the application

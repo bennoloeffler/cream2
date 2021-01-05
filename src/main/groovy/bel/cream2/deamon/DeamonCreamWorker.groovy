@@ -1,11 +1,8 @@
 package bel.cream2.deamon
 
-import groovy.transform.TypeChecked
-
 
 import bel.en.MainGUI
 import bel.en.data.AbstractConfiguration
-import bel.en.data.Configuration
 import bel.en.email.ReadAndForwardExchangeMails
 import bel.en.evernote.*
 import bel.en.localstore.NoteStoreLocal
@@ -17,16 +14,11 @@ import com.evernote.auth.EvernoteService
 import com.evernote.edam.error.EDAMErrorCode
 import com.evernote.edam.error.EDAMSystemException
 import com.evernote.edam.type.Note
-import com.evernote.edam.type.Notebook
 import com.evernote.thrift.transport.TTransportException
 import groovy.util.logging.Log4j2
 import microsoft.exchange.webservices.data.core.exception.service.remote.ServiceRequestException
 import org.apache.commons.lang3.StringUtils
 import org.codehaus.groovy.runtime.StackTraceUtils
-import bel.en.data.CreamUserData
-
-import java.text.SimpleDateFormat
-import java.util.stream.Collectors
 
 /**
  * This is used by syncer, when CREAM is in Deamon-Mode.
@@ -53,15 +45,6 @@ class DeamonCreamWorker {
         defaultNotebook = new ENSharedNotebook(ENConnection.get(), AbstractConfiguration.getConfig().getCreamNotebooks().getDefaultNotebook())
     }
 
-/*
-    static def doIt() {
-        println ("Starting CreamDeamonWorker (sync already done. NOW: reading cream-Mailbox, send abo-diffs, generating overviews, appending mails to notes, ...")
-        processMails()
-        processEvernoteInbox()
-        syncAndGenerateOverviews()
-        println ("done... waiting for next cycle")
-    }
-*/
 
     static def processEvernoteInbox() {
         List<Note> notesInInbox = inboxNotebook.allNotes
@@ -495,10 +478,20 @@ class DeamonCreamWorker {
         overviewCreator.createOverviews()
     }
 
+    static def checkTwoSpacesAtBeginning() {
+        def notes = SyncHandler.get().getAllNotes()
+        for(def n: notes) {
+            if(ENHelper.addTwoNewlinesAtTop(n)) {
+                SyncHandler.get().updateNoteImmediately(n)
+            }
+        }
+    }
+
     static def syncAndGenerateOverviews() {
         // TODO: CHECK LAST OVERVIEW TIME - avoid too often
         SyncHandler.get().sync(null)
         overview()
+        checkTwoSpacesAtBeginning()
     }
 
     /**
@@ -548,6 +541,15 @@ class DeamonCreamWorker {
                     new ENConfiguration(c__config, ENConnection.get())
                     connected = true
                 }
+
+            } catch (EDAMSystemException es) { // e.g. Reason: RATE_LIMIT_REACHED
+                log.warn("Could not connect to evernote. Reason: {}", es.getErrorCode())
+                if (es.getErrorCode() == EDAMErrorCode.RATE_LIMIT_REACHED) {
+                    waitForRateLimitOver(es)
+                } else {
+                    log.warn("Could not startup... retry in 2 min...")
+                    sleep(1000 * 60 * 2)
+                }
             } catch (Exception e) {
                 log.warn("Could not startup... retry in 2 min...")
                 log.warn("REASON: " + e.getMessage())
@@ -559,9 +561,6 @@ class DeamonCreamWorker {
 
 
     static void main(String[] args) {
-        //testSomeThings()
-        //System.exit(0)
-
         try {
             //println("starting CREAM deamon (crm@v-und-s.de and todo-lists)")
             log.info("""Starting CREAM deamon "Release" and (Version):  """ + MainGUI.VERSION_STRING)
@@ -581,14 +580,13 @@ class DeamonCreamWorker {
             SyncHandler.init(ENConnection.get(), new NoteStoreLocal(ENConfiguration.getConfig()))
 
             syncAndGenerateOverviews()
-            //SyncHandler.get().sync()
 
 
-            int debug_faster = 3
+            int debug_faster = 1 // 2 4 5 means double / four / five times faster
             //noinspection GroovyInfiniteLoopStatement
             while (true) {
                 try {
-                    (0..15*debug_faster).each { // 15 minutes before sync
+                    (0..20/debug_faster).each { // 20 minutes before sync
                         processMails()
                         //processEvernoteInbox()
                         (1..60/debug_faster).each { // one minute sleeping between mail poll
@@ -597,25 +595,6 @@ class DeamonCreamWorker {
                                 println "going to exit CREAM deamon"
                                 System.exit(0)
                             }
-/*
-                                if ( System.in.available() != 0 ) {
-                                    int c = System.in.read()
-                                    println c
-                                    char cc = (char) c
-                                    println cc
-                                    if (c == 'o') {
-                                        overview()
-                                    } else if (c == 'q') {
-                                        System.exit(1)
-                                    } else if (c == 's') {
-                                        SyncHandler.get().sync()
-                                    } else {
-                                        println ""
-                                        println "? --> o__verview, s__ync, q__uit"
-                                    }
-                                }
-                                */
-
                         }
                         println()
                         processEvernoteInbox()  // look in C__INBOX and check, what to do
@@ -671,7 +650,7 @@ class DeamonCreamWorker {
     static boolean waitForRateLimitOver(Exception e) {
         if(e instanceof EDAMSystemException) {
             if (e.getErrorCode() == EDAMErrorCode.RATE_LIMIT_REACHED) {
-                log.info("\n\nWir müssen leider WARTEN. Evernote hat dicht gemacht... Dauer: " + Util.readableTime(e.rateLimitDuration * 1000))
+                log.info("\n\nWir muessen leider WARTEN. Evernote hat dicht gemacht... Dauer: " + Util.readableTime(e.rateLimitDuration * 1000))
                 (e.rateLimitDuration..0).each {
                     sleep 1000
                     def percent = ((float)(1000 * it / e.rateLimitDuration)/10).round(1)
@@ -684,87 +663,4 @@ class DeamonCreamWorker {
         return false
     }
 
-     static void testSomeThings() {
-        String raw = """
-
-
-
-
-Dipl.-Wirtsch.-Ing. (FH)
-
-
-
-Timo Seggelmann
-
-
-
-Managing Director
-
-
-
-+49 541 999646-0
-
-
-
-t.seggelmann@salt-and-pepper.eu LINK:<mailto:t.seggelmann@salt-and-pepper.eu>
-
-
-
-+49 152 09489209
-
-
-
-www.salt-and-pepper.eu
-
-
-
-SALTANDPEPPER Software GmbH & Co. KG
-
-
-
-Kaffee-Partner-Allee 5
-
-
-
-49090 0snabrück
-
-
-
-
-
-
-
-
-
-todo: BEL nach WS Beratungsprojekt
-
-{HIER war in Evernote ein BILD}
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-
-         def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
-         //def regexTODO = /todo/
-         def matcher = raw =~ regexTODO
-         //println matcher.count
-         //println matcher[0]
-        (0..<matcher.count).each {
-            def match = matcher[it][0]
-            String todoStr = match.toString()
-            todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
-            println todoStr
-            //ENHelper.addTodoEntry(n, todoStr)
-        }
-
-    }
 }

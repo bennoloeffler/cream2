@@ -865,6 +865,37 @@ public class ENHelper {
         n.setContent(content);
     }
 
+    private static boolean startsWithBlankLine(String s) {
+        return (s.startsWith("<br />") ||
+                s.startsWith("<br/>") ||
+                s.startsWith("<div><br /></div>") ||
+                s.startsWith("<div><br/></div>") ||
+                s.startsWith("<div><div><br /></div><div>") ||
+                s.startsWith("<div><div><br/></div><div>"));
+    }
+
+    public static boolean addTwoNewlinesAtTop(Note n) {
+        String content = n.getContent();
+        String[] split = content.split("<en-note>");
+        if(split.length == 2) {
+
+            if( ! startsWithBlankLine(split[1])) {
+                content = split[0] + "<en-note><br/><br/>" + split[1];
+                n.setContent(content);
+
+                System.out.println("-----------------");
+                System.out.println(n.getTitle());
+                System.out.println("<en-note> starts with:  " + split[1].substring(0, Math.min(20, split[1].length()-1)));
+                System.out.println("--> ADDED 2 newlines");
+
+                return true;
+            }
+        } else {
+            log.warn("note could not be split and spaces added at beginning: " + n.getTitle());
+        }
+        return false;
+    }
+
     /**
      * at the end, right before </en-note>
      * @param n

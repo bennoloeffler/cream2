@@ -561,6 +561,7 @@
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
+  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -811,7 +812,7 @@
       <module fileurl="file://$PROJECT_DIR$/cream2_test.iml" filepath="$PROJECT_DIR$/cream2_test.iml" group="cream2" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SvnBranchConfigurationManager">
@@ -821,6 +822,105 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.10.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.10.1/54d72475c0d6819f2d0e9a09d25c3ed876a4972f/jackson-annotations-2.10.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.10.1/44bc509b5f453f2848ac7f1c281f30649a9b6b81/jackson-annotations-2.10.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.fasterxml.jackson.core:jackson-core:2.10.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.10.1/2c8b5e26ba40e5f91eb37a24075a2028b402c5f9/jackson-core-2.10.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.10.1/a12ab35dd79cd21276603c0f43695774c4bfb23c/jackson-core-2.10.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.10.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.10.1/18eee15ffc662d27538d5b6ee84e4c92c0a9d03e/jackson-databind-2.10.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.10.1/ebb50922deb157028c54ff84bc9702804ae72545/jackson-databind-2.10.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.github.stephenc.jcip:jcip-annotations:1.0-1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.stephenc.jcip/jcip-annotations/1.0-1/ef31541dd28ae2cefdd17c7ebf352d93e9058c63/jcip-annotations-1.0-1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.stephenc.jcip/jcip-annotations/1.0-1/2064ac5ff426f3c02656aedc317952b82463782f/jcip-annotations-1.0-1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.microsoft.azure:msal4j:1.8.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.microsoft.azure/msal4j/1.8.0/9f5d6b804009e51a7575403d698c56b02aef76b6/msal4j-1.8.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.microsoft.azure/msal4j/1.8.0/17248a19035f07d3f6fc96040558a4b0554f617a/msal4j-1.8.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.nimbusds:content-type:2.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/content-type/2.0/12ebb1f6b7794684e4c56918fe59df3d7aab72b0/content-type-2.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/content-type/2.0/edfb13c86113d4a8de54dd552d25da8f569dd9a/content-type-2.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.nimbusds:lang-tag:1.4.4">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/lang-tag/1.4.4/1db9a709239ae473a69b5424c7e78d0b7108229d/lang-tag-1.4.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/lang-tag/1.4.4/1663d422d8b0133349c2f213303e01756f6a3cf8/lang-tag-1.4.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.nimbusds:nimbus-jose-jwt:8.14.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/nimbus-jose-jwt/8.14.1/a5fd931fb5b0080f91cf3ac2f0ba347a2e285aa9/nimbus-jose-jwt-8.14.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/nimbus-jose-jwt/8.14.1/1d09be65f0c7de90044c7001c22718f9c2e032da/nimbus-jose-jwt-8.14.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.nimbusds:oauth2-oidc-sdk:7.4">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/oauth2-oidc-sdk/7.4/bc205ffbfcabf0c8f451e8ffd5121e3b8769cd12/oauth2-oidc-sdk-7.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/oauth2-oidc-sdk/7.4/17eeb6cc65e6423af664f986390b2b156ceadca2/oauth2-oidc-sdk-7.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.sun.mail:javax.mail:1.6.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.6.1/757ba4630692bb2a1ec2d9d57a616b63f15e947e/javax.mail-1.6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.6.1/ce7825b8dafa3660bbb6d4b33f4f91fc1e93fe38/javax.mail-1.6.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: javax.activation:activation:1.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Gradle: junit:junit:4.12">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/" />
@@ -828,6 +928,24 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: net.minidev:accessors-smart:1.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.2/c592b500269bfde36096641b01238a8350f8aa31/accessors-smart-1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.2/c837e3903ff07b478041f761915d764b98e71e05/accessors-smart-1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: net.minidev:json-smart:2.3">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.3/7396407491352ce4fa30de92efb158adb76b5b/json-smart-2.3.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.3/36c61f1b839bde5b284528cb76f6811efbe0f08b/json-smart-2.3-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.apache.logging.log4j:log4j-api:2.8.2">
@@ -902,6 +1020,15 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.multiverse/multiverse-core/0.7.0/1294c000069f85bf4dbd6d7248076fe2f0eaa75b/multiverse-core-0.7.0-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Gradle: org.ow2.asm:asm:5.0.4">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/112ff54474f1f04ccf1384c92e39fdc566f0bb5e/asm-5.0.4-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Gradle: org.projectlombok:lombok:1.16.4">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.4/398110b5c579cc69d7be47600c2ff810c5c34487/lombok-1.16.4.jar!/" />
@@ -909,6 +1036,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.4/450329f3f47a26833270f49da5f9acc5d3d6bb37/lombok-1.16.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.slf4j:slf4j-api:1.7.28">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.28/2cd9b264f76e3d087ee21bfc99305928e1bdb443/slf4j-api-1.7.28.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.28/6444f3c8fce32e20f621e264807256c5e65f11c9/slf4j-api-1.7.28-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.spockframework:spock-core:1.1-groovy-2.4">

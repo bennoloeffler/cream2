@@ -62,7 +62,7 @@ public class AboForm {
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new BorderLayout(0, 0));
         splitPane1.setLeftComponent(panel3);
-        panel3.setBorder(BorderFactory.createTitledBorder(null, "meine aktuellen Abos", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+        panel3.setBorder(BorderFactory.createTitledBorder("meine aktuellen Abos"));
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel3.add(panel4, BorderLayout.SOUTH);

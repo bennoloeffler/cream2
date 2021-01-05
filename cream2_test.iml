@@ -23,43 +23,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/httpclient-cache-4.5.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/ews-java-api-2.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/swingx-all-1.6.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/DELETE_scribe-1.3.7.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/commons-logging-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -77,69 +41,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/junit.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/common-lang3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/log4j-core-2.7.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/httpclient-4.5.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/tagsoup-1.2.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/jgoodies-forms.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/httpcore-ab-4.4.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/junit-4.12.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -149,7 +50,34 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/commons-codec-1.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/scribejava-core-4.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/httpcore-nio-4.4.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/junit.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -176,6 +104,24 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/swingx-all-1.6.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/common-lang3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/sqlite-jdbc-3.8.6.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -186,6 +132,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/DELETE_scribejava-apis-3.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/log4j-core-2.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -212,6 +167,33 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/httpclient-cache-4.5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/DELETE_scribe-1.3.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/httpclient-4.5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/scribejava-apis-4.0.0.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -222,6 +204,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/jgoodies-looks-2.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/tagsoup-1.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -248,25 +239,25 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/commons-logging-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/jgoodies-forms.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/log4j-api-2.7.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/joda-time-2.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/httpmime-4.5.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -284,7 +275,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/commons-codec-1.10.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/joda-time-2.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -293,7 +284,16 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/scribejava-core-4.0.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/httpcore-ab-4.4.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/httpmime-4.5.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -303,13 +303,28 @@
     <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-all:2.4.11" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-core:2.8.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.8.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.microsoft.azure:msal4j:1.8.0" level="project" />
     <orderEntry type="library" name="Gradle: org.hsqldb:hsqldb:2.4.0" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.gpars:gpars:1.2.1" level="project" />
     <orderEntry type="library" name="Gradle: org.projectlombok:lombok:1.16.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.nimbusds:oauth2-oidc-sdk:7.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.28" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.10.1" level="project" />
     <orderEntry type="library" name="Gradle: org.multiverse:multiverse-core:0.7.0" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jsr166-mirror:jsr166y:1.7.0" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
+    <orderEntry type="library" name="Gradle: com.nimbusds:nimbus-jose-jwt:8.14.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.stephenc.jcip:jcip-annotations:1.0-1" level="project" />
+    <orderEntry type="library" name="Gradle: com.nimbusds:content-type:2.0" level="project" />
+    <orderEntry type="library" name="Gradle: net.minidev:json-smart:2.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.nimbusds:lang-tag:1.4.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.mail:javax.mail:1.6.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.10.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.10.1" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Gradle: net.minidev:accessors-smart:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.4" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="cream2_main" />
 </module>
