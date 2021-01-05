@@ -883,10 +883,10 @@ public class ENHelper {
                 content = split[0] + "<en-note><br/><br/>" + split[1];
                 n.setContent(content);
 
-                System.out.println("-----------------");
-                System.out.println(n.getTitle());
-                System.out.println("<en-note> starts with:  " + split[1].substring(0, Math.min(20, split[1].length()-1)));
-                System.out.println("--> ADDED 2 newlines");
+                //System.out.println("-----------------");
+                log.info("added 2 newlines at beginning of note: " + n.getTitle());
+                //System.out.println("<en-note> starts with:  " + split[1].substring(0, Math.min(20, split[1].length()-1)));
+                //System.out.println("--> ADDED 2 newlines");
 
                 return true;
             }

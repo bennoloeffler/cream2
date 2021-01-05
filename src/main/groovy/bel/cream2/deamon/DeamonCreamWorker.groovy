@@ -643,6 +643,8 @@ class DeamonCreamWorker {
                 } else {
                     log.error("No admin configured in users.")
                 }
+            } else {
+                main(args) // just again...
             }
         }
     }

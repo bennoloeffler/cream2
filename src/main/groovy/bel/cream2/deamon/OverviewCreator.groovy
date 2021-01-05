@@ -112,7 +112,7 @@ class OverviewCreator {
                 // CHANGE
                 enSharedNotebook = SyncHandler.get().getNotebook(n)
                 if(enSharedNotebook == null) {
-                    println(n)
+                    log.error("Notebook of Note not available. Note: ${n.getTitle()}")
                 }
                 assert enSharedNotebook != null
                 String link = enSharedNotebook.getInternalLinkTo(n)
