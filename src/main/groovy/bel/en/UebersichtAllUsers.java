@@ -195,9 +195,9 @@ public class UebersichtAllUsers {
 
             Calendar cal = linkEntry.getEarliestDate();
             String prefix = "";
-            if (cal == null) {
-                prefix = "EGAL... ";
-            } else {
+            //if (cal == null) {
+            //    prefix = "EGAL... ";
+            //} else {
                 long daysTitel = cal.getTimeInMillis() / MILLIS_TO_DAYS_DIVIDER;
                 long diffDays = daysTitel - daysNow;
 
@@ -205,7 +205,7 @@ public class UebersichtAllUsers {
                 if (diffDays < 7) diffStr = "<b>" + diffStr + "</b>";
                 if (diffDays < 1) diffStr = "<span style=\"color: rgb(227, 0, 0);\">" + diffStr + "</span>";
                 prefix = diffStr + " ";
-            }
+            //}
             block = "<div>" + prefix + linkEntry.title;
             content += "<div>" + prefix + linkEntry.title;
             if (linkEntry.phone != null) {

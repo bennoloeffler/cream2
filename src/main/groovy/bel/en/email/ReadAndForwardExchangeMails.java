@@ -134,7 +134,7 @@ public class ReadAndForwardExchangeMails {
             log.debug("Found mail from "+m.getFrom()+" with subject: " + m.getSubject());
             if (m.getSubject().startsWith("h:") || m.getSubject().startsWith("H:")) {
                 log.debug("RECOGNIZED: sending help");
-                sendHelp(m, "Sie haben mich um Hilfe gebeten...");
+                sendHelp(m, "HILFE kommt hier ;-) ...");
             } else if(m.getSubject().startsWith("m:") || m.getSubject().startsWith("M:")) {
                 log.debug("RECOGNIZED: manual adresse an backoffice");
                 forwardToManualAdresses(m);
@@ -299,8 +299,8 @@ public class ReadAndForwardExchangeMails {
             "" +
             "<b>Adresse _a_utomatische erzeugen oder hinzufügen:</b><br/> " +
             "<b>a:</b> zu Beginn des Betreffs<br/>" +
-            "Das ist dir Variante für den Alltag - zB. Visitenkarten-Scanner und E-Mail-Adress-Blöcke.<br/>" +
-            "Wenn Domain oder Email schon in anderer Notiz existiert,<br/> dann wird die Adresse dort hinzugefügt, sonst neu angelegt.<br/>" +
+            "Wenn z. B. aus E-Mail die Adressdaten vorliegen.<br/>" +
+            "Sollten Domain oder Email schon in anderer Notiz existiert,<br/> dann wird die Adresse dort hinzugefügt, sonst neu angelegt.<br/>" +
             "Im Mailtext zeilenweise die Adressdaten und die notwendigen TODOs.<br/>" +
             "<b>Sonstigen, störenden Text entfernen.</b><br/><br/>" +
             "" +
@@ -315,10 +315,13 @@ public class ReadAndForwardExchangeMails {
             "<br/><br/>" +
             "" +
             "<b>Ablegen und Ver_L_inken von Mails:</b><br/> " +
-            "Email-Adresse oder domain (z.B. @bosch.com) zu Beginn der Betreff-Zeile oder ins To-, Bcc- oder Cc-Feld.<br/>" +
+            "Einfach E-Mail ins To-, Bcc- oder Cc-Feld und crm@v-und-s.de ins CC oder BCC<br/>" +
+            "Sollte eine neue Notiz angelegt werden (müssen), dann liegt die in C_ALL.<br/>" +
+            "Manuelle Alternativen, die Adresse oder Domain anzugeben:<br/>"+
+            "Email-Adresse oder domain (z.B. bel@gmx.de oder @bosch.com) zu Beginn der Betreff-Zeile<br/>" +
             "ODER: ein 'l:' oder 'L:' vor die email mitten im text also z.B. so:  <b>L:vorname.nachname@domain.de</b><br/>" +
             "ODER: ein 'l:' oder 'L' vor die DOMAIN mitten im text also z.B. so:  <b>l:@bosch.de</b><br/>" +
-            "(einfach ein L oder l mit Doppelpunkt, L: steht für Linkto:<br/>" +
+            "(einfach ein L oder l mit Doppelpunkt, l: L: steht für L_inkto:<br/>" +
             "vor ne mail-adresse mittenn in der weitergeleiteten oder geschriebenen mail.<br/>"+
             "Die TITELZEILE der Notiz sollte am Ende die Domain enthalten.<br/> Z. B. <b>[bosch.de]</b> - also domain in eckigen Klammern.<br/><br/><br/>";
 

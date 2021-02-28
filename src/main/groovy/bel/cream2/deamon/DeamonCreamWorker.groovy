@@ -20,6 +20,8 @@ import microsoft.exchange.webservices.data.core.exception.service.remote.Service
 import org.apache.commons.lang3.StringUtils
 import org.codehaus.groovy.runtime.StackTraceUtils
 
+import java.text.SimpleDateFormat
+
 /**
  * This is used by syncer, when CREAM is in Deamon-Mode.
  * Method 'doIt' is called from within the background sync thread.
@@ -115,15 +117,47 @@ class DeamonCreamWorker {
                     }
                 }
 
-                def shortName = noteInInbox.title[0..2]
-                String mail = getUserMail(shortName)
+
 
                 if (!treffer) {
 
-                    noteInInbox.title = "(NICHT ZUORDENBAR)   " + noteInInbox.title
+                    def shortName = noteInInbox.title[0..2]
+                    String mail = getUserMail(shortName)
+
+                    // neue notiz in C_ALL
+                    def newMailToCreateAdressFrom = mailAdresses[0].trim()
+                    def mailParts = newMailToCreateAdressFrom.split("@")
+                    def mailName = mailParts[0]
+                    def mailDomain = mailParts[1]
+                    Note n = new Note()
+                    n.title = "(NICHT ZUORDENBAR -> NEU ANGELEGT) $mailName (Firma?) [$mailDomain]"
+                    n.content = ENHelper.createNoteFromEmailText("")
+                    ENHelper.addTodoEntry(n, "$shortName: neue Notiz checken (vielleicht löchen?)")
+
+                    // add TODOs from email
+                    def regexTODO = /(?m)^(todo|Todo|TODO):.*$/ //complete line starting with todo
+                    def matcher = raw =~ regexTODO
+                    (0..<matcher.count).each {
+                        String todoStr = matcher[it][0]
+                        todoStr = todoStr.replaceAll("^(todo|Todo|TODO):", " ")
+                        ENHelper.addTodoEntry(n, todoStr)
+                    }
+
+                    // move original to mails-notebook
+                    //inboxNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);
+                    noteInInbox.notebookGuid = mailNotebook.getSharedNotebook().notebookGuid
                     mailNotebook.getSharedNoteStore().updateNote(ENConnection.get().getBusinessAuthToken(), noteInInbox)
-                    log.warn("Konnte Ablage von $mail nicht zuorden." + noteInInbox.getTitle())
-                    new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - FEHLER: Konnte mail nicht zuordnen...", noteInInbox.getTitle())
+
+                    // create link from the new to original
+                    String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date())
+                    String evernoteLink = mailNotebook.getInternalLinkTo(noteInInbox, "$shortName: $date erste Email an " + newMailToCreateAdressFrom)
+                    ENHelper.addHistoryEntry(n, evernoteLink)
+                    defaultNotebook.createNote(n)
+
+                    log.info("neue Adresse in C_ALL erzeugt. Aus dieser Notiz (jetzt in Mail-Ablage): " + noteInInbox.getTitle())
+                    new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: Notiz AUTOMATISCH in C_ALL erzeugt...", "Titel der Notiz:\n$mailName (Firma?) [$mailDomain]", false)
+
+
                 } else {
                     def htmlBodyString = noteInInbox.getTitle()+ " zugeordnet. Und zwar dort: <br/><br/>"
                     treffer.each { Note note ->
@@ -131,7 +165,13 @@ class DeamonCreamWorker {
                         def evernoteLink = notebook.getInternalLinkTo(note, note.title)
                         htmlBodyString += "Notizen-Titel: " + evernoteLink +"<br/>"
                     }
-                    new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: zugeordnet...", htmlBodyString, true)
+                    try {
+                        def shortName = noteInInbox.title[0..2]
+                        String mail = getUserMail(shortName)
+                        new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: zugeordnet...", htmlBodyString, true)
+                    } catch (Exception ex) {
+                        log.info("sender could not be resolved as CREAM-User: " + noteInInbox.getTitle())
+                    }
                 }
             } else if (noteInInbox.title.contains("(NEU_KONTAKT)")) { // try to create a new entry...
                 inboxNotebook.loadNoteRessources(noteInInbox) // because inboxNotebook is not found down in SyncHandler.get().loadRessources(note);

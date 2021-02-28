@@ -18,6 +18,7 @@ import com.evernote.edam.type.Note
 import groovy.util.logging.Log4j2
 import org.apache.commons.lang3.Pair
 
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -38,12 +39,9 @@ class OverviewCreator {
                 return (int) ((c1.getTimeInMillis() - c2.getTimeInMillis()) / 1000)
             } else if (c1 == null && c2 != null) {
                 return Integer.MAX_VALUE
-                //return (int) ((0 - c2.getTimeInMillis()) / 1000)
             } else if (c1 != null && c2 == null) {
                 return Integer.MIN_VALUE
-                //return (int) ((c1.getTimeInMillis() - 0) / 1000)
             }
-            //return o1.completeString.compareTo(o2.completeString) // both are null
             return 0 // both are null
         }
     }
@@ -54,16 +52,11 @@ class OverviewCreator {
     /**
      * Evernote layer
      */
-    //ENConnection enConnection // capsule for BELs account
     ENSharedNotebook enSharedNotebook // handler for the different group notes
     ENSharedNotebook theOverviewNotebook
-    //ENConfiguration enConfiguration
 
     Map<String, ArrayList<LinkEntry>> userOverviewDataMap = new HashMap<>() // UserName, List of Overview Entries
     ArrayList<Pair<Note, Angebot>> hotLeads = new ArrayList<>()
-
-
-
 
     void createOverviews() throws  Exception{
         List<CreamUserData> users = AbstractConfiguration.getConfig().getUsers()
@@ -89,8 +82,6 @@ class OverviewCreator {
         }
 
         createOverviewFor(ALL_USERS)
-
-
     }
 
     // read all notes and create the data, neccesary for writing the notes
@@ -207,9 +198,9 @@ class OverviewCreator {
             Calendar cal = linkEntry.getEarliestDate()
             def whenStr = linkEntry.getWhenString()
             String prefix = ""
-            if (cal == null) {
-                prefix = "EGAL... "
-            } else {
+            //if (cal == null) {
+            //    prefix = "EGAL... "
+            //} else {
                 //long daysTitel = cal.getTimeInMillis() / MILLIS_TO_DAYS_DIVIDER
                 //long diffDays = daysTitel - daysNow
 
@@ -220,10 +211,11 @@ class OverviewCreator {
                 //    println("sofort")
                 //}
                 prefix = Long.toString(linkEntry.daysToTodo())
+                //println prefix
                 if (linkEntry.doSoon()) prefix = "<b>" + prefix + "</b>"
-                if (linkEntry.doNow()) prefix = "<span style=\"color: rgb(227, 0, 0)\">" + (linkEntry.doSofort()?"<b><i>SOFORT</i></b>: ":prefix) + "</span>"
+                if (linkEntry.doNow()) prefix = "<span style=\"color: rgb(227, 0, 0)\">" + (linkEntry.doSofort() ? "<b><i>SOFORT</i></b>: " : prefix) + "</span>"
                 prefix += " "
-            }
+            //}
             block = "<div>" + prefix + linkEntry.title
             content += "<div>" + prefix + linkEntry.title
             if (linkEntry.phone != null) {
@@ -422,10 +414,10 @@ class OverviewCreator {
         (n,emptyOnServer) = findOrCreateNote("ANGEBOTE_und_HOT")
 
         if(versionedFile.versions.last().changed || emptyOnServer) {
-            log.debug("Writing this content to " + n.getTitle() + ": " + content)
+            //log.debug("Writing this content to " + n.getTitle() + ": " + content)
             n.setContent(content)
             overviewNotebook.updateNote(n)
-            println "success writing HOT"
+            log.debug( "success writing HOT")
         } else {
             log.info("Found no changes for ANGEBOTE_und_HOT. NO NEW OVERVIEW...")
         }
@@ -434,19 +426,6 @@ class OverviewCreator {
 
     }
 
-
-/*
-    private void saveContent(Note n, String head, String block) throws Exception {
-        String content = head + block + "</en-note>"
-        try {
-            n.setContent(content)
-            enSharedNotebook.updateNote(n)
-        } catch (Exception e) {
-            System.out.println("FAILED: " + content)
-            e.printStackTrace()
-        }
-    }
-*/
 
     // if not yet there, create it. Otherwise, return the existing one
     /**
@@ -576,24 +555,26 @@ class OverviewCreator {
             long millis = System.currentTimeMillis()
             long daysNow = millis / MILLIS_TO_DAYS_DIVIDER
             getEarliestDate()
-            if (calendar) {
+            assert calendar
+            //if (calendar) {
                 def daysToToDo = calendar.getTimeInMillis() / MILLIS_TO_DAYS_DIVIDER
                 daysToToDo - daysNow
-            } else {
-                Integer.MAX_VALUE
-            }
+            //} else {
+            //    Integer.MAX_VALUE
+            //}
         }
 
         String toFileString() {
             def p = phone ? "TEL: " + phone : ""
-
             GString timeStr = getWhenString()
             """$timeStr   $titleRaw   $p\n${todos.join('\n')}"""
         }
 
-        public GString getWhenString() {
+        GString getWhenString() {
             getEarliestDate()
-            def c = calendar ? calendar.format("yyyy-MM-dd") : "EGAL..."
+            assert calendar
+            //def c = calendar ? calendar.format("yyyy-MM-dd") : "EGAL..."
+            def c = calendar.format("yyyy-MM-dd")
             def s = doSoon() && !doNow() ? "BALD...   " : ""
             def n = doNow() && !doSofort() ? "JETZT...   " : ""
             def so = doSofort() ? "_S_O_F_O_R_T_...   " : ""
@@ -641,6 +622,9 @@ class OverviewCreator {
                     }
                 }
 
+            }
+            if (!calendar) {
+                calendar = new DateFinder("1.1.1999").get()
             }
             wasCalculated = true
             return calendar
