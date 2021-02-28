@@ -35,10 +35,10 @@ public class MainGUI {
     //
 
     static int versionMajor = 0;
-    static int versionMinor = 6;
-    static int versionBugs = 2;
+    static int versionMinor = 7;
+    static int versionBugs = 0;
     static public boolean debugOffline = true;
-    static String versionName = "Corona-XMas 2020 re-mail";
+    static String versionName = "Feb-2021-Mail-Address-Not-Egal";
     public static final String VERSION_STRING = "\""+versionName + "\" (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
 
 
