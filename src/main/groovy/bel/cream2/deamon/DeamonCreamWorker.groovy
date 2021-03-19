@@ -170,7 +170,8 @@ class DeamonCreamWorker {
                         String mail = getUserMail(shortName)
                         new ReadAndForwardExchangeMails().sentMailTo(mail, "CREAM - ERFOLG: zugeordnet...", htmlBodyString, true)
                     } catch (Exception ex) {
-                        log.info("sender could not be resolved as CREAM-User: " + noteInInbox.getTitle())
+                        //log.info("sender could not be resolved as CREAM-User: " + noteInInbox.getTitle())
+                        log.info("EXTERNE EMAIL erfolgreich zugeordnet: " + noteInInbox.getTitle())
                     }
                 }
             } else if (noteInInbox.title.contains("(NEU_KONTAKT)")) { // try to create a new entry...
@@ -475,7 +476,7 @@ class DeamonCreamWorker {
             it.shortName == shortName
         }
         if (!user) {
-            log.error("FUCK: could not find user for short Name: $shortName)")
+            //log.error("FUCK: could not find user for short Name: $shortName)")
             throw Exception("FUCK: users == null")
         }
         def mail = user.email
@@ -626,10 +627,10 @@ class DeamonCreamWorker {
             //noinspection GroovyInfiniteLoopStatement
             while (true) {
                 try {
-                    (0..20/debug_faster).each { // 20 minutes before sync
+                    (0..20/debug_faster).each { // 40 minutes before sync
                         processMails()
                         //processEvernoteInbox()
-                        (1..60/debug_faster).each { // one minute sleeping between mail poll
+                        (1..120/debug_faster).each { // two minute sleeping between mail poll
                             print "."
                             sleep(1000) {
                                 println "going to exit CREAM deamon"

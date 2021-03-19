@@ -7,10 +7,7 @@ import com.evernote.edam.error.EDAMSystemException;
 import com.evernote.edam.error.EDAMUserException;
 import com.evernote.edam.limits.Constants;
 import com.evernote.edam.notestore.*;
-import com.evernote.edam.type.LinkedNotebook;
-import com.evernote.edam.type.Note;
-import com.evernote.edam.type.Resource;
-import com.evernote.edam.type.SharedNotebook;
+import com.evernote.edam.type.*;
 import com.evernote.thrift.TException;
 import com.evernote.thrift.protocol.TBinaryProtocol;
 import com.evernote.thrift.transport.THttpClient;
@@ -138,6 +135,7 @@ public class ENSharedNotebook {
 
 
     private List<Note> filterNotes(NoteFilter filter) throws Exception {
+        //System.out.println("filter: " + filter.getWords());
         sharedAuthToken = ENConnection.get().getBusinessAuthToken();
         int offset = 0;
         int pageSize = 10;
@@ -147,17 +145,19 @@ public class ENSharedNotebook {
         //filter.setOrder(NoteSortOrder.UPDATED.getValue());
         filter.setNotebookGuid(sharedNotebook.getNotebookGuid());
         NotesMetadataResultSpec spec = new NotesMetadataResultSpec();
-        //spec.setIncludeTitle(true);
+        spec.setIncludeTitle(true);
         //spec.setIncludeNotebookGuid(true);
         //spec.setIncludeUpdated(true);
         //spec.setIncludeUpdateSequenceNum(true);
-        spec.setIncludeDeleted(true); // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
+
+        //spec.setIncludeDeleted(true); // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
+
         //spec.setIncludeAttributes();
 
         // STRANGE BUG: Search include the deleted, too...
-        if(filter.getWords() != null && filter.getWords().equals("intitle:[ANGEBOTE_und_HOT_UEBERSICHT]")) {
-            System.out.println("searching Angebote und Hot...");
-        }
+        //if(filter.getWords() != null && filter.getWords().equals("intitle:[ANGEBOTE_und_HOT_UEBERSICHT]")) {
+        //    System.out.println("searching Angebote und Hot...");
+        //}
         NotesMetadataList notes = null;
 
         do {
@@ -166,6 +166,9 @@ public class ENSharedNotebook {
                 if (note.getDeleted()==0) { // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
                     Note fullNote = sharedNoteStore.getNote(sharedAuthToken, note.getGuid(), true, false, false, false);
                     result.add(fullNote);
+                    //System.out.println("isDeleted: " + fullNote.getDeleted());
+                } else {
+                    System.out.println("Loaded deleted... " + note.getTitle());
                 }
 
                 // WORKAROUNT: ONLY GET THE ACTIVE AONES. SEEMS TO BE EVERNOTE BUG
@@ -175,6 +178,16 @@ public class ENSharedNotebook {
 
             }
             offset = offset + notes.getNotesSize();
+
+            //System.out.println("notes.getTotalNotes(): " + notes.getTotalNotes());
+            //System.out.println("notes.getNotesSize(): " + notes.getNotesSize());
+            //System.out.println("offset: " + offset);
+            if(notes.getTotalNotes() == 1 && notes.getNotesSize() == 0 && offset == 0) {
+                String problem = "FILTER-PROBLEM... BITTE lösche die Notiz: " + filter.getWords();
+                System.out.println(problem);
+                throw new RuntimeException(problem);
+            }
+
         } while (notes.getTotalNotes() > offset);
 
         return result;

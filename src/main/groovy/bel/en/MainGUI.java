@@ -36,7 +36,7 @@ public class MainGUI {
 
     static int versionMajor = 0;
     static int versionMinor = 7;
-    static int versionBugs = 0;
+    static int versionBugs = 1;
     static public boolean debugOffline = true;
     static String versionName = "Feb-2021-Mail-Address-Not-Egal";
     public static final String VERSION_STRING = "\""+versionName + "\" (" + versionMajor + "." + versionMinor + "." + versionBugs + ")";
